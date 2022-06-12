@@ -1,16 +1,3 @@
-import {handleReports} from "./handleReports";
-
-function Error(e: string) {
-    return {
-        statusCode: 404,
-        body: e,
-        headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-        },
-    };
-}
-
 exports.handler = async (event: any) => {
     console.log('USER INDEX PARAMS', event);
     // return {
@@ -23,13 +10,12 @@ exports.handler = async (event: any) => {
     //     },
     // };
     const body = JSON.parse(event.body);
-    const headers = event.header;
+    const headers = event.headers;
 
     try {
-        const result = await handleReports(body, headers);
         return {
             statusCode: 200,
-            body: JSON.stringify(result),
+            body: JSON.stringify(headers),
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',

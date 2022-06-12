@@ -87,6 +87,12 @@ web_modules/
 # TypeScript cache
 *.tsbuildinfo
 
+# Ignores compiled TypeScript files
+*.d.ts
+*.js
+./reports/*.d.ts
+./reports/*.js
+
 # Optional npm cache directory
 .npm
 
