@@ -1,0 +1,43 @@
+{
+  "name": "be",
+  "version": "1.0.0",
+  "bin": {
+    "saasPlatform": "bin/blamerInfra.ts"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepare": "cp -r ./code/helper code/reports/",
+    "deploy": "yarn prepare && cd code && rm -rf './build' && tsc && cp -r node_modules build/node_modules && rm -r ./build/node_modules/typescript && rm -r ./build/node_modules/@types && yarn copyNodeModules && cd ../ && cdk deploy",
+    "clean_deploy": "cd code && rm -rf './build' && tsc && cp -r node_modules build/node_modules && rm -r ./build/node_modules/typescript && rm -r ./build/node_modules/@types && cd ../ && cdk deploy",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@aws-cdk/assert": "^1.125.0",
+    "@aws-cdk/aws-apigateway": "^1.159.0",
+    "@aws-cdk/aws-certificatemanager": "^1.159.0",
+    "@aws-cdk/aws-cloudfront": "^1.159.0",
+    "@aws-cdk/aws-cloudfront-origins": "^1.159.0",
+    "@aws-cdk/aws-iam": "^1.159.0",
+    "@aws-cdk/aws-lambda": "^1.159.0",
+    "@aws-cdk/aws-lambda-event-sources": "^1.159.0",
+    "@aws-cdk/aws-route53": "^1.159.0",
+    "@aws-cdk/aws-s3": "^1.159.0",
+    "@aws-cdk/aws-s3-deployment": "^1.159.0",
+    "@aws-cdk/core": "^1.159.0",
+    "@types/aws-lambda": "^8.10.100",
+    "@types/jest": "^26.0.10",
+    "@types/node": "10.17.27",
+    "aws-cdk": "^2.27.0",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.2.0",
+    "ts-node": "^9.0.0",
+    "typescript": "~3.9.7"
+  },
+  "dependencies": {
+    "cross-env": "5.0.5",
+    "fs": "0.0.1-security",
+    "source-map-support": "^0.5.16"
+  }
+}

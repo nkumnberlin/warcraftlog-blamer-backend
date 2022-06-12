@@ -1,0 +1,23 @@
+{
+   "compilerOptions": {
+      "target": "es6",
+      "module": "commonjs",
+      "lib": [
+         "es6",
+         "esnext.asynciterable"
+      ],
+      "allowJs": true,
+      "outDir": "build",
+      "rootDir": ".",
+      "strict": true,
+      "noImplicitAny": true,
+      "esModuleInterop": true,
+      "resolveJsonModule": true,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "allowSyntheticDefaultImports": true,
+      "strictPropertyInitialization": false,
+      "noImplicitReturns": false,
+   },
+   "exclude": ["./node_modules", "build"]
+}

@@ -44,6 +44,7 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
+.idea
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -158,7 +159,6 @@ dist
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
-.idea
 
 # yarn v2
 .yarn/cache
@@ -177,4 +177,4 @@ dist
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,node
-/code/.yarn/cache/
+/.yarn/cache/
