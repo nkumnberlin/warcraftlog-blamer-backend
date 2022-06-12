@@ -1,0 +1,11 @@
+Resources:
+  Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      Timeout: 300
+      MemorySize: 128
+      Handler: aws-toolkit-ts-output/reports/handleReports.handleReports
+      CodeUri: /Users/nicolaskumnick/WebstormProjects/warcraftlog-blamer-backend/code
+      Runtime: nodejs14.x
+      Architectures:
+        - arm64

@@ -1,7 +1,4 @@
 
-
-
-
 export const handleReports = async (id: string) => {
     console.log(id);
     // if (ACTIONS.USER.CREATE_USER === action) {
@@ -20,4 +17,3 @@ export const handleReports = async (id: string) => {
 
 
 handleReports("1");
-

@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "typeRoots": [
+          "/Users/nicolaskumnick/WebstormProjects/warcraftlog-blamer-backend/code/node_modules/@types"
+        ],
+        "types": [
+          "node"
+        ],
+        "target": "es6",
+        "module": "commonjs",
+        "outDir": "/Users/nicolaskumnick/WebstormProjects/warcraftlog-blamer-backend/code/aws-toolkit-ts-output",
+        "rootDir": ".",
+        "sourceRoot": "/Users/nicolaskumnick/WebstormProjects/warcraftlog-blamer-backend/code",
+        "sourceMap": true
+    }
+}

@@ -10,7 +10,7 @@
       "outDir": "build",
       "rootDir": ".",
       "skipLibCheck": true,
-      "strict": false,
+      "strict": true,
       "noImplicitAny": true,
       "esModuleInterop": true,
       "resolveJsonModule": true,

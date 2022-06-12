@@ -3,7 +3,7 @@ import * as iam from "@aws-cdk/aws-iam";
 import * as cloudfront from "@aws-cdk/aws-cloudfront";
 import {CachePolicy} from "@aws-cdk/aws-cloudfront";
 import * as origins from '@aws-cdk/aws-cloudfront-origins';
-import * as lambda from "@aws-cdk/aws-lambda";
+import * as lambda from "@aws-cdk/aws-lambda-nodejs";
 import * as s3 from "@aws-cdk/aws-s3";
 import * as apigw from "@aws-cdk/aws-apigateway";
 import {RestApi} from "@aws-cdk/aws-apigateway";
@@ -21,18 +21,18 @@ import * as path from 'path';
  */
 
 // add integrationResponse!!!
-const createApiGwLambdaIntegration = (api: RestApi, lambda: lambda.Function, resPath: string) => {
+const createApiGwLambdaIntegration = (api: RestApi, lambda: lambda.NodejsFunction, resPath: string) => {
     const resource = api.root.addResource(resPath);
     resource.addMethod(
         'POST',
-        new apigw.LambdaIntegration(lambda as lambda.Function, {
+        new apigw.LambdaIntegration(lambda as lambda.NodejsFunction, {
             passthroughBehavior: apigw.PassthroughBehavior.WHEN_NO_MATCH,
             allowTestInvoke: false,
         }),
     );
     resource.addMethod(
         'GET',
-        new apigw.LambdaIntegration(lambda as lambda.Function, {
+        new apigw.LambdaIntegration(lambda as lambda.NodejsFunction, {
             passthroughBehavior: apigw.PassthroughBehavior.WHEN_NO_MATCH,
             allowTestInvoke: false,
         }),
@@ -50,11 +50,14 @@ const createLambda = (context: cdk.Stack, name: string, codepath: string) => {
         ]
     });
 
-    const lam: lambda.Function = new lambda.Function(context, name, {
-        runtime: lambda.Runtime.NODEJS_14_X,
+    // manually add node-modules
+    const lam: lambda.NodejsFunction = new lambda.NodejsFunction(context, name, {
         memorySize: 512,
         handler: 'index.handler',
-        code: lambda.Code.fromAsset(path.join(__dirname, codepath)),
+        entry: codepath,
+        bundling: {
+            nodeModules: ['graphql-request'],
+        },
         role: lambdaExecRole,
         environment: {}
     });
@@ -64,7 +67,7 @@ const createLambda = (context: cdk.Stack, name: string, codepath: string) => {
 export class WLogsBlamerInfraStack extends cdk.Stack {
     constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
         super(scope, id, props);
-        const [lambdaExecRoleHandleReports, lambdaHandleReports] = createLambda(this, "ReportsHandler", "../code/build/reports");
+        const [lambdaExecRoleHandleReports, lambdaHandleReports] = createLambda(this, "ReportsHandler", "./code/build/reports/index.js");
         /**
          * S3
          * Microlance Frontend
@@ -97,10 +100,10 @@ export class WLogsBlamerInfraStack extends cdk.Stack {
         }));
 
         api.deploymentStage = devStage
-        const reportsHandlerResource = createApiGwLambdaIntegration(api, lambdaHandleReports as lambda.Function, "REPORTS");
+        const reportsHandlerResource = createApiGwLambdaIntegration(api, lambdaHandleReports as lambda.NodejsFunction, "REPORTS");
 
 
-        (lambdaHandleReports as lambda.Function).grantInvoke(new iam.ServicePrincipal('apigateway.amazonaws.com'));
+        (lambdaHandleReports as lambda.NodejsFunction).grantInvoke(new iam.ServicePrincipal('apigateway.amazonaws.com'));
 
         const s3_origin = new origins.S3Origin(blamerFrontend);
 
