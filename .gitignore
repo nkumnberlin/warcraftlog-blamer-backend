@@ -180,3 +180,5 @@ dist
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,node
 /code/.yarn/cache/
+/cdk.out/
+/.aws-sam/
