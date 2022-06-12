@@ -2,11 +2,15 @@
   "compilerOptions": {
     "target": "ES2018",
     "module": "commonjs",
-    "lib": ["es2018", "es6",
-      "esnext.asynciterable"],
+    "lib": [
+      "es2018",
+      "es6",
+      "esnext.asynciterable"
+    ],
     "declaration": true,
     "strict": false,
     "rootDir": ".",
+    "skipLibCheck": true,
     "noImplicitAny": false,
     "strictNullChecks": false,
     "noImplicitThis": false,
@@ -19,9 +23,21 @@
     "inlineSources": true,
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
-    "typeRoots": ["./node_modules/@types"],
-    "esModuleInterop": true,
-
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "esModuleInterop": true
   },
-  "exclude": ["cdk.out"]
+  "exclude": [
+    "cdk.out",
+    "code/node_modules",
+    "code/node_modules/@types",
+    "code/build",
+    ".yarn",
+    ".idea",
+    "build",
+    "node_modules",
+    "typings/globals",
+    "typings/modules"
+  ]
 }

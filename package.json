@@ -2,13 +2,12 @@
   "name": "be",
   "version": "1.0.0",
   "bin": {
-    "saasPlatform": "bin/blamerInfra.ts"
+    "blamerInfra": "bin/blamerInfra.ts"
   },
   "scripts": {
     "build": "tsc",
     "prepare": "cp -r ./code/helper code/reports/",
-    "deploy": "yarn prepare && cd code && rm -rf './build' && tsc && cp -r node_modules build/node_modules && rm -r ./build/node_modules/typescript && rm -r ./build/node_modules/@types && yarn copyNodeModules && cd ../ && cdk deploy",
-    "clean_deploy": "cd code && rm -rf './build' && tsc && cp -r node_modules build/node_modules && rm -r ./build/node_modules/typescript && rm -r ./build/node_modules/@types && cd ../ && cdk deploy",
+    "deploy": "cd code && rm -rf './build' && tsc && yarn copyNodeModules && cd ../ && cdk deploy",
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk"

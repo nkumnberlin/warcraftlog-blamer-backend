@@ -97,7 +97,7 @@ export class WLogsBlamerInfraStack extends cdk.Stack {
         }));
 
         api.deploymentStage = devStage
-        const userHandlerResource = createApiGwLambdaIntegration(api, lambdaHandleReports as lambda.Function, "USER");
+        const reportsHandlerResource = createApiGwLambdaIntegration(api, lambdaHandleReports as lambda.Function, "REPORTS");
 
 
         (lambdaHandleReports as lambda.Function).grantInvoke(new iam.ServicePrincipal('apigateway.amazonaws.com'));

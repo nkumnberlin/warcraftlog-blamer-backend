@@ -9,6 +9,7 @@
       "allowJs": true,
       "outDir": "build",
       "rootDir": ".",
+      "skipLibCheck": true,
       "strict": true,
       "noImplicitAny": true,
       "esModuleInterop": true,
@@ -19,5 +20,5 @@
       "strictPropertyInitialization": false,
       "noImplicitReturns": false,
    },
-   "exclude": ["./node_modules", "build"]
+   "exclude": ["node_modules", "build", "./node_modules", ".yarn"]
 }

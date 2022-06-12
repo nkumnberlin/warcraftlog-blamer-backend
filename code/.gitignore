@@ -90,8 +90,8 @@ web_modules/
 # Ignores compiled TypeScript files
 *.d.ts
 *.js
-./reports/*.d.ts
-./reports/*.js
+./*/*.d.ts
+./*/*.js
 
 # Optional npm cache directory
 .npm
