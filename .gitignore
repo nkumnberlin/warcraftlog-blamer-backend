@@ -115,7 +115,7 @@ web_modules/
 .env.development.local
 .env.test.local
 .env.production.local
-.env.local
+../warcraftlog-blamer-frontend/.env.local
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -182,3 +182,4 @@ dist
 /code/.yarn/cache/
 /cdk.out/
 /.aws-sam/
+

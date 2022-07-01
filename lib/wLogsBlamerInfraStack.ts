@@ -3,6 +3,7 @@ import * as iam from "@aws-cdk/aws-iam";
 import * as cloudfront from "@aws-cdk/aws-cloudfront";
 import {CachePolicy} from "@aws-cdk/aws-cloudfront";
 import * as origins from '@aws-cdk/aws-cloudfront-origins';
+import * as secretsmanager from '@aws-cdk/aws-secretsmanager';
 import * as lambda from "@aws-cdk/aws-lambda-nodejs";
 import * as s3 from "@aws-cdk/aws-s3";
 import * as apigw from "@aws-cdk/aws-apigateway";
@@ -50,16 +51,24 @@ const createLambda = (context: cdk.Stack, name: string, codepath: string) => {
         ]
     });
 
-    // manually add node-modules
+
+
+    const secret = secretsmanager.Secret.fromSecretCompleteArn(context,'wlogs','arn:aws:secretsmanager:eu-central-1:117152870695:secret:wlogs-rHzjJB')
+
+    const envs = secret.secretValue.toJSON();
+    console.log('env secret: ', secret.secretValue.toJSON())
     const lam: lambda.NodejsFunction = new lambda.NodejsFunction(context, name, {
         memorySize: 512,
-        handler: 'index.handler',
+        handler: 'handler',
         entry: codepath,
         bundling: {
-            nodeModules: ['graphql-request'],
+            nodeModules: ['graphql-request', 'graphql'],
         },
         role: lambdaExecRole,
-        environment: {}
+        environment: {
+            "WLOG_URL": envs.WLOG_URL,
+            "WLOG_BEARER": envs.WLOG_BEARER
+        }
     });
     return [lambdaExecRole, lam];
 }

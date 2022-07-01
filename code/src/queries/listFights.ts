@@ -1,17 +1,17 @@
 import {gql} from 'graphql-request';
 const LIST_FIGHTS = gql`
-  query LIST_FIGHTS
+  query LIST_FIGHTS($code: String!)
 {
     reportData {
-        report (code: "13D8TJHa24KAwRXj"){
+        report (code: $code){
             endTime
-            startTime 
+            startTime
             guild {
                 name
                 id
             }
             fights {
-                # encounterID !== 0 > boss. Encounter ID fetchen
+                    # encounterID !== 0 > boss. Encounter ID fetchen
                     startTime
                     endTime
                     encounterID  

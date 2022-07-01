@@ -6,11 +6,36 @@
   },
   "scripts": {
     "build": "tsc",
-    "prepare": "cp -r ./code/querys code/reports/",
-    "deploy": "cd code && rm -rf './build' && tsc && yarn copyNodeModules && cd ../ && cdk deploy",
+    "prepare": "cp -r code/src/queries code/reports/",
+    "deploy": "cd code && rm -rf './build' && tsc && cd ../ && cdk deploy",
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>",
+      "<rootDir>/src/"
+    ],
+    "transform": {
+      "^.+\\.ts?$": "ts-jest"
+    },
+    "preset": "ts-jest",
+    "testRegex": "test/*/.*.test.ts",
+    "moduleFileExtensions": [
+      "js",
+      "ts"
+    ],
+    "setupFilesAfterEnv": [
+      "jest-extended/all",
+      "./testSetup.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "moduleNameMapper": {
+    }
   },
   "devDependencies": {
     "@aws-cdk/assert": "^1.125.0",
@@ -25,6 +50,7 @@
     "@aws-cdk/aws-route53": "^1.159.0",
     "@aws-cdk/aws-s3": "^1.159.0",
     "@aws-cdk/aws-s3-deployment": "^1.159.0",
+    "@aws-cdk/aws-secretsmanager": "^1.159.0",
     "@aws-cdk/core": "^1.159.0",
     "@types/aws-lambda": "^8.10.100",
     "@types/jest": "^26.0.10",
