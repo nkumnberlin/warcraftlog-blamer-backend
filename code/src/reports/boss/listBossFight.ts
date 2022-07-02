@@ -1,10 +1,11 @@
-import LIST_BOSS_FIGHT from '../../queries/listFights';
 import graphQLClient from '../../client/gqlClient';
+import LIST_BOSS_FIGHT from "../../queries/listBossFight";
 
 const listBossFight = async (code: string) => {
-    const {data} =  await graphQLClient.request(LIST_BOSS_FIGHT, {code});
+    const data =  await graphQLClient.request(LIST_BOSS_FIGHT, {code});
+    console.log(data);
     const singleReport = data.reportData.report;
-    const onlyBossFights = singleReport.data.reportData.report.fights.filter(
+    const onlyBossFights = singleReport.fights.filter(
         (fight: { difficulty: number; }) => fight.difficulty !== null,
     );
 

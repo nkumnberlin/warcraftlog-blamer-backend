@@ -186,3 +186,4 @@ dist
 ./code/.graphqlconfig
 code/.graphqlconfig
 !/code/.graphqlconfig
+!/code/src/client/gqlClient.ts

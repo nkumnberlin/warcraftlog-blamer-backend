@@ -8,7 +8,8 @@
       "copyNodeModules": "cp -r ./node_modules ./build/reports/node_modules",
       "run_server": "node src/server.js",
       "run_db": "ts-node helper/services/db/index.ts",
-      "test": "jest"
+      "test": "jest",
+      "deploy": "cd ../ && yarn deploy"
    },
    "keywords": [],
    "author": "",

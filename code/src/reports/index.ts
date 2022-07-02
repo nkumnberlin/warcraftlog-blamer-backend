@@ -2,7 +2,7 @@ import {APIGatewayProxyEvent, APIGatewayProxyResult} from 'aws-lambda';
 import reportHandler from './reportHandler';
 
 const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-    console.log(event);
+    // console.log(event);
     const queryParam = event.queryStringParameters;
     const {reportType} = event.queryStringParameters;
 

@@ -1,6 +1,6 @@
 import {gql} from 'graphql-request';
 const LIST_BOSS_FIGHT = gql`
-  query LIST_BOSS_FIGHT($code: String!)
+  query LIST_BOSS_FIGHT($code: String)
 {
     reportData {
         report (code: $code){
