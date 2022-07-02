@@ -34,8 +34,7 @@
     "coveragePathIgnorePatterns": [
       "/node_modules/"
     ],
-    "moduleNameMapper": {
-    }
+    "moduleNameMapper": {}
   },
   "devDependencies": {
     "@aws-cdk/assert": "^1.125.0",

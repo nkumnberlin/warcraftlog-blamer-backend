@@ -1,0 +1,16 @@
+{
+  "name": "WCL GraphQL Schema",
+  "schemaPath": "schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "Default GraphQL Endpoint": {
+        "url": "https://classic.warcraftlogs.com/api/v2/client",
+        "headers": {
+          "user-agent": "JS GraphQL",
+          "Authorization": "process.env.WLOG_BEARER"
+        },
+        "introspect": false
+      }
+    }
+  }
+}

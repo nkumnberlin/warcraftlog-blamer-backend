@@ -92,8 +92,6 @@ web_modules/
 *.js
 ./*/*.d.ts
 ./*/*.js
-./*/*.js.map
-./*.js.map
 
 # Optional npm cache directory
 .npm
@@ -186,7 +184,3 @@ dist
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,node
 /.yarn/cache/
-
-
-#misc
-./src/.graphqlconfig
