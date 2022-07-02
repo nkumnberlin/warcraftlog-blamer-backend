@@ -183,4 +183,6 @@ dist
 /cdk.out/
 /.aws-sam/
 
+./code/.graphqlconfig
+code/.graphqlconfig
 !/code/.graphqlconfig
