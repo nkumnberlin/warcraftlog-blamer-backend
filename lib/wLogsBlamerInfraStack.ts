@@ -56,7 +56,7 @@ const createLambda = (context: cdk.Stack, name: string, codepath: string) => {
         handler: 'lambdaHandler',
         entry: codepath,
         bundling: {
-            nodeModules: ['graphql-request'],
+            nodeModules: ['graphql-request', 'graphql'],
         },
         role: lambdaExecRole,
         environment: {}

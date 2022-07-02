@@ -1,7 +1,6 @@
 import {APIGatewayProxyEvent} from 'aws-lambda';
 
-const queryParams = {code: '13D8TJHa24KAwRXj', reportType: 'pommes'};
-
+const queryParams = { code: 'aAXDYPG7MxbQ6WKV', reportType: 'boss' };
 export const eventData: APIGatewayProxyEvent = {
     resource: '/REPORTS',
     path: '/REPORTS',

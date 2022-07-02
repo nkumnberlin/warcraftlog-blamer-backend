@@ -18,7 +18,8 @@
       "experimentalDecorators": true,
       "allowSyntheticDefaultImports": true,
       "strictPropertyInitialization": false,
-      "noImplicitReturns": false,
+      "noImplicitReturns": false
    },
+   "include": ["src"],
    "exclude": ["node_modules", "build", "./node_modules", ".yarn"]
 }

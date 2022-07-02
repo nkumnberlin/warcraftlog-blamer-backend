@@ -28,8 +28,6 @@
       "ts"
     ],
     "setupFilesAfterEnv": [
-      "jest-extended/all",
-      "./testSetup.ts"
     ],
     "coveragePathIgnorePatterns": [
       "/node_modules/"
