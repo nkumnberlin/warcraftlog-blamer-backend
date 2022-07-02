@@ -1,6 +1,6 @@
 import {gql} from 'graphql-request';
-const LIST_FIGHTS = gql`
-  query LIST_FIGHTS($code: String!)
+const LIST_BOSS_FIGHT = gql`
+  query LIST_BOSS_FIGHT($code: String!)
 {
     reportData {
         report (code: $code){
@@ -9,9 +9,11 @@ const LIST_FIGHTS = gql`
             guild {
                 name
                 id
+                faction {
+                    name
+                }
             }
             fights {
-                    # encounterID !== 0 > boss. Encounter ID fetchen
                     startTime
                     endTime
                     encounterID  
@@ -32,4 +34,4 @@ const LIST_FIGHTS = gql`
     }
 }`;
 
-export default LIST_FIGHTS;
+export default LIST_BOSS_FIGHT;

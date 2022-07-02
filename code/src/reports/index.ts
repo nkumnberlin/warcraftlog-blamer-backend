@@ -2,35 +2,27 @@ import {APIGatewayProxyEvent, APIGatewayProxyResult} from 'aws-lambda';
 import reportHandler from './reportHandler';
 
 const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-    // console.log(event);
-    // console.log('test: ', event.queryStringParameters);
+    console.log(event);
+    const queryParam = event.queryStringParameters;
+    const {reportType} = event.queryStringParameters;
 
-
-    let response;
     let statusCode = 200;
-    let body = {};
 
-    try {
-        response  = await reportHandler('boss', {code: '13D8TJHa24KAwRXj'});
-        console.log('RESPONSE', response);
-        body = response;
-        console.log('BODY', body);
-    } catch (error) {
-        statusCode = 400;
-        body = {
-            errors: [
-                {
-                    status: statusCode,
-                    message: `${response} ___ ${error.message}`,
-                    stack: error.stack
-                }
-            ]
-        };
-    }
+    const response = await reportHandler(reportType, queryParam).catch((error) => {
+            statusCode = 404;
+            return {
+                message: error.message,
+                stack: error.stack
+            };
+        }
+    );
+
+    console.log('add gql');
+    console.log('BODY', response);
 
     return {
         statusCode,
-        body: JSON.stringify(body)
+        body: JSON.stringify(response)
     };
 };
 

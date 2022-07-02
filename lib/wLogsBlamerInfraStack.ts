@@ -3,7 +3,6 @@ import * as iam from "@aws-cdk/aws-iam";
 import * as cloudfront from "@aws-cdk/aws-cloudfront";
 import {CachePolicy} from "@aws-cdk/aws-cloudfront";
 import * as origins from '@aws-cdk/aws-cloudfront-origins';
-import * as secretsmanager from '@aws-cdk/aws-secretsmanager';
 import * as lambda from "@aws-cdk/aws-lambda-nodejs";
 import * as s3 from "@aws-cdk/aws-s3";
 import * as apigw from "@aws-cdk/aws-apigateway";
@@ -51,24 +50,16 @@ const createLambda = (context: cdk.Stack, name: string, codepath: string) => {
         ]
     });
 
-
-
-    const secret = secretsmanager.Secret.fromSecretCompleteArn(context,'wlogs','arn:aws:secretsmanager:eu-central-1:117152870695:secret:wlogs-rHzjJB')
-
-    const envs = secret.secretValue.toJSON();
-    console.log('env secret: ', secret.secretValue.toJSON())
+    // manually add node-modules
     const lam: lambda.NodejsFunction = new lambda.NodejsFunction(context, name, {
         memorySize: 512,
-        handler: 'handler',
+        handler: 'lambdaHandler',
         entry: codepath,
         bundling: {
-            nodeModules: ['graphql-request', 'graphql'],
+            nodeModules: ['graphql-request'],
         },
         role: lambdaExecRole,
-        environment: {
-            "WLOG_URL": envs.WLOG_URL,
-            "WLOG_BEARER": envs.WLOG_BEARER
-        }
+        environment: {}
     });
     return [lambdaExecRole, lam];
 }
@@ -76,7 +67,7 @@ const createLambda = (context: cdk.Stack, name: string, codepath: string) => {
 export class WLogsBlamerInfraStack extends cdk.Stack {
     constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
         super(scope, id, props);
-        const [lambdaExecRoleHandleReports, lambdaHandleReports] = createLambda(this, "ReportsHandler", "./code/build/reports/index.js");
+        const [lambdaExecRoleHandleReports, lambdaHandleReports] = createLambda(this, "ReportsHandler", "./code/build/src/reports/index.js");
         /**
          * S3
          * Microlance Frontend

@@ -4,17 +4,25 @@ interface IQueryVars {
     code?: string;
 }
 
-type ReportType = 'boss';
+const ReportType = {
+    boss: 'boss',
+    report: 'report'
+};
+
+function checkIfReportTypeExist(reportType: string) {
+    return reportType in ReportType;
+}
 
 
-async function reportHandler(reportType: ReportType, queryVars: IQueryVars ){
+async function reportHandler(reportType: string, queryVars: IQueryVars ){
+    if(!checkIfReportTypeExist(reportType)) throw new Error('Not a Valid Type');
     console.log('param ', reportType);
     switch (reportType) {
         case 'boss':  {
             const {code} = queryVars;
             return await listBossFight(code);
         }
-        default: new Error('Report does not exist');
+        default: throw new Error('Report does not exist');
     }
 }
 
