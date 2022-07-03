@@ -1,25 +1,16 @@
 import {gql} from 'graphql-request';
+import {generalData} from "./generalData";
+
 const LIST_BOSS = gql`
-  query LIST_BOSS($code: String)
-{
-    reportData {
-        report (code: $code){
-            endTime
-            startTime
-            zone {
-                name
-            }
-            guild {
-                name
-                id
-                faction {
-                    name
-                }
-            }
-            fights {
+    query LIST_BOSS($code: String)
+    {
+        reportData {
+            report (code: $code){
+                ${generalData}
+                fights {
                     startTime
                     endTime
-                    encounterID  
+                    encounterID
                     id
                     bossPercentage
                     encounterID
@@ -33,8 +24,8 @@ const LIST_BOSS = gql`
                     averageItemLevel
                     completeRaid
                 }
+            }
         }
-    }
-}`;
+    }`;
 
 export default LIST_BOSS;

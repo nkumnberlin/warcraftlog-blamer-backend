@@ -25,9 +25,10 @@ const ListPlayersToFight = async ({code, fight, encounterID, startTime, endTime}
     //     $serverRegion: guild.server.region.compactName,
     //     $name: player.name
     // }));
+    const {data: playerData} = playerDetails;
     return {
         guild,
-        playerDetails
+        playerData
     };
 };
 

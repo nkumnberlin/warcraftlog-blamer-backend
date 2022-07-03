@@ -9,19 +9,15 @@ interface IBossFight {
 }
 
 const listBossFight = async ({code, fight, encounterID}: IBossFight) => {
-    /**
-     * List Details of Fight which is necessary to display linked Players
-     */
+    // List Details of Fight which is necessary to display linked Players
     const data = await graphQLClient.request(LIST_FIGHT, {
         code: code,
         fightIds: [fight],
         encounterID: encounterID
     });
     const singleReport = data.reportData.report;
-    /**
-     * Returns a List of DPS, HEALER, TANK of Fight
-     */
-    const {playerDetails} = await ListPlayersToFight({
+    //Returns a List of DPS, HEALER, TANK of Fight
+    const {playerData} = await ListPlayersToFight({
         code,
         fight,
         encounterID,
@@ -29,6 +25,7 @@ const listBossFight = async ({code, fight, encounterID}: IBossFight) => {
         startTime: singleReport.fights[0].startTime
     });
 
+    const {playerDetails} = playerData;
     return {
         singleReport,
         playerDetails

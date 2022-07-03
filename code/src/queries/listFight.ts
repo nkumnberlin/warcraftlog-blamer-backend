@@ -1,4 +1,5 @@
 import {gql} from "graphql-request";
+import {generalData} from "./generalData";
 
 const LIST_FIGHT = gql`
     query LIST_FIGHT(
@@ -8,16 +9,7 @@ const LIST_FIGHT = gql`
     ) {
         reportData {
             report(code: $code) {
-                endTime
-                startTime
-                guild {
-                    name
-                    id
-                    faction {
-                        name
-                    }
-                }
-                code
+                ${generalData}
                 fights(
                     encounterID: $encounterId,
                     fightIDs: $fightIds,
