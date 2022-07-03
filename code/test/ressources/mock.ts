@@ -1,7 +1,6 @@
 import {APIGatewayProxyEvent} from 'aws-lambda';
 
-const queryParams = { code: 'aAXDYPG7MxbQ6WKV', reportType: 'boss' };
-export const eventData: APIGatewayProxyEvent = {
+const eventData: APIGatewayProxyEvent = {
     resource: '/REPORTS',
     path: '/REPORTS',
     httpMethod: 'GET',
@@ -51,7 +50,7 @@ export const eventData: APIGatewayProxyEvent = {
         'X-Forwarded-Port': ['443'],
         'X-Forwarded-Proto': ['https']
     },
-    queryStringParameters: queryParams,
+    queryStringParameters: {},
     multiValueQueryStringParameters: {id: ['13D8TJHa24KAwRXj']},
     pathParameters: null,
     stageVariables: null,
@@ -95,3 +94,21 @@ export const eventData: APIGatewayProxyEvent = {
     body: null,
     isBase64Encoded: false
 };
+
+interface IMockFactory {
+    action: string,
+    code?: string,
+    fight?: string,
+    encounterID?: string
+}
+
+export function MockFactory({code, action, fight, encounterID}: IMockFactory) {
+    if(action === 'boss'){
+        eventData.queryStringParameters = { code: code, action: action};
+    }
+    if(action === 'fight'){
+        eventData.queryStringParameters = { code: code, action: action, fight: fight, encounterID: encounterID};
+    }
+    return eventData;
+}
+

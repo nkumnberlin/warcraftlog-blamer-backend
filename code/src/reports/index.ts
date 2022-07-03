@@ -4,11 +4,11 @@ import reportHandler from './reportHandler';
 const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
     // console.log(event);
     const queryParam = event.queryStringParameters;
-    const {reportType} = event.queryStringParameters;
+    const {action} = event.queryStringParameters;
 
     let statusCode = 200;
 
-    const response = await reportHandler(reportType, queryParam).catch((error) => {
+    const response = await reportHandler(action, queryParam).catch((error) => {
             statusCode = 404;
             return {
                 message: error.message,

@@ -1,6 +1,6 @@
 import {gql} from 'graphql-request';
-const LIST_BOSS_FIGHT = gql`
-  query LIST_BOSS_FIGHT($code: String)
+const LIST_BOSS = gql`
+  query LIST_BOSS($code: String)
 {
     reportData {
         report (code: $code){
@@ -34,4 +34,4 @@ const LIST_BOSS_FIGHT = gql`
     }
 }`;
 
-export default LIST_BOSS_FIGHT;
+export default LIST_BOSS;
