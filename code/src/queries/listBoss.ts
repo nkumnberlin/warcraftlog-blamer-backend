@@ -6,6 +6,9 @@ const LIST_BOSS = gql`
         report (code: $code){
             endTime
             startTime
+            zone {
+                name
+            }
             guild {
                 name
                 id
