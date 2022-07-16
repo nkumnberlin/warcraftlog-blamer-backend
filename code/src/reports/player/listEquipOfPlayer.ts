@@ -1,23 +1,16 @@
 import graphQLClient from '../../client/gqlClient';
-import LIST_FRIENDLY_PLAYER from "../../queries/listFriendlyPlayer";
+import {LIST_EQUIPMENT_OF_PLAYER} from "../../queries";
+import {IListEquipOfPlayer} from "../../interfaces";
 
 
-interface IListEquipOfPlayer {
-    code?: string,
-    fight?: number,
-    encounterID?: number,
-    startTime: number,
-    endTime: number
-}
+const ListEquipOfPlayer = async ({name, serverRegion, encounterID, serverSlug}: IListEquipOfPlayer) => {
+    const data = await graphQLClient.request(LIST_EQUIPMENT_OF_PLAYER, {
+        serverSlug: serverSlug,
+        serverRegion: serverRegion,
+        name: name,
+        encounterId: encounterID,
 
-const ListEquipOfPlayer = async ({code, fight, encounterID, startTime, endTime}: IListEquipOfPlayer) => {
-    const data = await graphQLClient.request(LIST_FRIENDLY_PLAYER, {
-        code: code,
-        encounterID: encounterID,
-        fightIds: [fight],
-        startTime,
-        endTime
-    });
+    }).catch((e) => console.log('error ', e));
     return data.reportData.report.playerDetails;
 };
 

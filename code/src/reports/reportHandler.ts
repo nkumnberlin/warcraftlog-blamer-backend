@@ -1,25 +1,28 @@
 import listBoss from './boss/listBoss';
 import listFight from "./fight/listFight";
-
-interface IQueryVars  {
-    code?: string,
-    fight?: string,
-    encounterID?: string
-}
+import {Actions, IQueryVars} from "../interfaces";
+import missingEnchants from "../features/missingEnchants";
 
 
-async function reportHandler(action: string, queryVars: IQueryVars ){
+async function reportHandler(action: Actions, queryVars: IQueryVars) {
     console.log('action ', action);
     switch (action) {
-        case 'boss':  {
+        case 'BOSS': {
             const {code} = queryVars;
             return await listBoss(code);
         }
-        case 'fight': {
+        case 'FIGHT': {
             const {code, fight, encounterID} = queryVars;
             return await listFight({code, fight: parseInt(fight), encounterID: parseInt(encounterID)});
         }
-        default: throw new Error(`Error with Action ${action}, query: ${JSON.stringify(queryVars)}`);
+        case 'FEATURE-ENCHANTS': {
+            const {serverSlug, name, serverRegion, encounterID} = queryVars;
+            return await missingEnchants({
+                serverSlug, name, serverRegion, encounterID: parseInt(encounterID)
+            });
+        }
+        default:
+            throw new Error(`Error with Action ${action}, query: ${JSON.stringify(queryVars)}`);
     }
 }
 

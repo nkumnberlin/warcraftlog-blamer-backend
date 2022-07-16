@@ -41,4 +41,4 @@ const LIST_FIGHT = gql`
     }`;
 
 
-export default LIST_FIGHT;
+export {LIST_FIGHT};

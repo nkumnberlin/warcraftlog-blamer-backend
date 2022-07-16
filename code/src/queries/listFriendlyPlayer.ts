@@ -29,4 +29,4 @@ const LIST_FRIENDLY_PLAYER = gql`
             }
         }
     }`;
-export default LIST_FRIENDLY_PLAYER;
+export {LIST_FRIENDLY_PLAYER};

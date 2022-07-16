@@ -1,5 +1,5 @@
 import graphQLClient from '../../client/gqlClient';
-import LIST_FIGHT from "../../queries/listFight";
+import {LIST_FIGHT} from "../../queries";
 import ListPlayersToFight from "../player/listPlayersToFight";
 
 interface IBossFight {

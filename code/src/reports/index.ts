@@ -1,11 +1,14 @@
 import {APIGatewayProxyEvent, APIGatewayProxyResult} from 'aws-lambda';
 import reportHandler from './reportHandler';
+import {Actions} from "../interfaces";
 
 const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
     // console.log(event);
     const queryParam = event.queryStringParameters;
-    const {action} = event.queryStringParameters;
+    const {action: queryAction} = event.queryStringParameters;
 
+    console.log('aa ', event.queryStringParameters);
+    const action = queryAction as Actions;
     let statusCode = 200;
 
     const response = await reportHandler(action, queryParam).catch((error) => {
@@ -17,7 +20,6 @@ const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPro
         }
     );
 
-    console.log('add gql');
     console.log('BODY', response);
 
     return {

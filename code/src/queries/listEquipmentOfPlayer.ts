@@ -3,15 +3,12 @@ import {gql} from "graphql-request";
 const LIST_EQUIPMENT_OF_PLAYER = gql`
     query LIST_EQUIPMENT_OF_PLAYER(
         $encounterId: Int!,
-        $serverSlug: String,
-        $serverRegion: String,
-        $name: String
     ) {
         characterData {
             character(
-                serverSlug: $serverSlug,
-                name: $name,
-                serverRegion: $serverRegion
+                serverSlug: "venoxis",
+                name: "Balzác",
+                serverRegion: "EU"
             ) {
                 id
                 name
@@ -21,7 +18,8 @@ const LIST_EQUIPMENT_OF_PLAYER = gql`
                 )
             }
         }
+
     }`;
 
 
-export default LIST_EQUIPMENT_OF_PLAYER;
+export {LIST_EQUIPMENT_OF_PLAYER};

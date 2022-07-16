@@ -28,4 +28,4 @@ const LIST_BOSS = gql`
         }
     }`;
 
-export default LIST_BOSS;
+export {LIST_BOSS};

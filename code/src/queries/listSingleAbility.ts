@@ -12,4 +12,4 @@ const LIST_SINGLE_ABILITY = gql`
             }
         }
     }`;
-export default LIST_SINGLE_ABILITY;
+export {LIST_SINGLE_ABILITY};

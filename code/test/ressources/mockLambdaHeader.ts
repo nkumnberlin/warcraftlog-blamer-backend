@@ -1,4 +1,5 @@
 import {APIGatewayProxyEvent} from 'aws-lambda';
+import {Actions, IQueryVars} from "../../src/interfaces";
 
 const eventData: APIGatewayProxyEvent = {
     resource: '/REPORTS',
@@ -95,19 +96,30 @@ const eventData: APIGatewayProxyEvent = {
     isBase64Encoded: false
 };
 
-interface IMockFactory {
-    action: string,
-    code?: string,
-    fight?: string,
-    encounterID?: string
-}
 
-export function MockFactory({code, action, fight, encounterID}: IMockFactory) {
-    if(action === 'boss'){
-        eventData.queryStringParameters = { code: code, action: action};
+export function MockFactory(action: Actions, {code, fight, encounterID, serverSlug, serverRegion, name}: IQueryVars) {
+    if (action === 'BOSS') {
+        eventData.queryStringParameters = {
+            code: code,
+            action: action
+        };
     }
-    if(action === 'fight'){
-        eventData.queryStringParameters = { code: code, action: action, fight: fight, encounterID: encounterID};
+    if (action === 'FIGHT') {
+        eventData.queryStringParameters = {
+            code: code,
+            action: action,
+            fight: fight,
+            encounterID: encounterID
+        };
+    }
+    if (action === 'FEATURE-ENCHANTS') {
+        eventData.queryStringParameters = {
+            serverSlug: serverSlug,
+            serverRegion,
+            name,
+            encounterID: encounterID,
+            action
+        };
     }
     return eventData;
 }

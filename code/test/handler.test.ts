@@ -1,11 +1,11 @@
 import dotenv from 'dotenv';
+import {MockFactory} from './ressources/mockLambdaHeader';
 
 dotenv.config();
 
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const lambdaHandler = require('../src/reports/index.ts');
-import {MockFactory} from './ressources/mock';
 
 //      http://localhost:3000/aAXDYPG7MxbQ6WKV/41?encounterID=728
 //      "code": "aAXDYPG7MxbQ6WKV",
@@ -17,23 +17,41 @@ import {MockFactory} from './ressources/mock';
 describe('RunLambda', () => {
 
     it('should run case boss', async () => {
-        const mockData = MockFactory({
-            action: 'boss',
-            code: 'aAXDYPG7MxbQ6WKV'
-        });
+        const mockData = MockFactory(
+            'BOSS',
+            {
+                code: 'aAXDYPG7MxbQ6WKV'
+            });
         const response = await lambdaHandler.handler(mockData);
         expect(response.statusCode).toEqual(200);
         expect(JSON.parse(response.body).singleReport.endTime).toEqual(1656276914423);
     });
 
     it('should run case fight', async () => {
-        const mockData = MockFactory({
-            action: 'fight',
-            code: 'aAXDYPG7MxbQ6WKV',
-            fight: '41',
-            encounterID: '728'
-        });
+        const mockData = MockFactory(
+            'FIGHT',
+            {
+                code: 'aAXDYPG7MxbQ6WKV',
+                fight: '41',
+                encounterID: '728'
+            });
         const response = await lambdaHandler.handler(mockData);
         expect(response.statusCode).toEqual(200);
     });
+
+    it('should run case feature-enchants', async () => {
+        const mockData = MockFactory(
+            'FEATURE-ENCHANTS',
+            {
+                serverSlug: "venoxis",
+                name: "Balzác",
+                serverRegion: "EU",
+                encounterID: '724'
+
+            });
+        const response = await lambdaHandler.handler(mockData);
+        expect(response.statusCode).toEqual(200);
+    });
+
+
 });
