@@ -7,28 +7,36 @@ const ringSlots = [10, 11];
 const offHandSlot = [16];
 
 const checkEnchants = (gears: IGear[]) => {
-    const slotsWithPossibleEnchants = gears.filter((gear) => !ignoreSlots.includes(gear.slot));
-    return slotsWithPossibleEnchants.map((gear) => {
-        if (!gear.permanentEnchant && !ringSlots.includes(gear.slot)) {
-            return {
-                ...gear,
+    return gears.map((gear) => {
+        const errorObject = {
+            gear,
+            meta: {
                 error: 'Missing Enchant'
-            };
+            }
+        };
+        if (ignoreSlots.includes(gear.slot)) return {
+            gear,
+            meta: null
+        };
+        if (!gear.permanentEnchant && !ringSlots.includes(gear.slot)) {
+            return errorObject;
         }
         if (!gear.permanentEnchant && ringSlots.includes(gear.slot)) {
             return {
-                ...gear,
-                error: 'Missing Enchant (Requires Profession Enchanting 375)'
+                gear,
+                meta: {
+                    error: 'Missing Enchant (Requires Profession Enchanting 375)'
+                }
             };
         }
         // offHands can also be Tomes or Books, which cannot have enchantments
         if (!gear.permanentEnchant && offHandSlot.includes(gear.slot) && !gear.icon.includes('shield')) {
-            return {
-                ...gear,
-                error: 'Missing Enchant'
-            };
+            return errorObject;
         }
-        return gear;
+        return {
+            gear,
+            meta: null
+        };
     });
 };
 

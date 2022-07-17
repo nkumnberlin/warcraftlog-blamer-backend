@@ -8,8 +8,6 @@ const listFight = async ({code, fight, encounterID}: IBossFight) => {
     // List Details of Fight which is necessary to display linked Players
     const {reportData} = await listBossFight({code, fight, encounterID});
     const singleReport = reportData.report;
-    console.log(singleReport.fights.at(0).startTime);
-    console.log(singleReport.fights.at(0).endTime);
 
     const {
         guild,
@@ -25,12 +23,21 @@ const listFight = async ({code, fight, encounterID}: IBossFight) => {
         endTime: singleReport.fights.at(0).endTime,
         startTime: singleReport.fights.at(0).startTime
     });
-    console.log(playerDetails);
-    const missingEnchants = checkGear(playerDetails);
+    const gearCheck = checkGear(playerDetails);
+    const events = {
+        damageDone,
+        healingDone,
+        deathEvents,
+        damageTaken
+    };
     return {
         singleReport,
         guild,
-        playerDetails
+        player: {
+            info: playerDetails,
+            gear: gearCheck,
+            events
+        },
     };
 };
 

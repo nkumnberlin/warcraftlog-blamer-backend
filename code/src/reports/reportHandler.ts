@@ -4,7 +4,7 @@ import listFight from "./fight/listFight";
 
 
 async function reportHandler(action: Actions, queryVars: IQueryVars) {
-    console.log('action ', action);
+    console.log('DEBUG: action ', action);
     switch (action) {
         case 'BOSS': {
             const {code} = queryVars;

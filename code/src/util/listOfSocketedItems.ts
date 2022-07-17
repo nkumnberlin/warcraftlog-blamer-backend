@@ -1,6034 +1,1509 @@
-const listOfSocketItems = [
-    {
-        "id": 21846,
-        "numberSockets": 2
-    },
-    {
-        "id": 21847,
-        "numberSockets": 2
-    },
-    {
-        "id": 21848,
-        "numberSockets": 2
-    },
-    {
-        "id": 21863,
-        "numberSockets": 2
-    },
-    {
-        "id": 21864,
-        "numberSockets": 2
-    },
-    {
-        "id": 21865,
-        "numberSockets": 3
-    },
-    {
-        "id": 21869,
-        "numberSockets": 2
-    },
-    {
-        "id": 21870,
-        "numberSockets": 2
-    },
-    {
-        "id": 21871,
-        "numberSockets": 2
-    },
-    {
-        "id": 21873,
-        "numberSockets": 2
-    },
-    {
-        "id": 21875,
-        "numberSockets": 2
-    },
-    {
-        "id": 23229,
-        "numberSockets": 2
-    },
-    {
-        "id": 23230,
-        "numberSockets": 1
-    },
-    {
-        "id": 23232,
-        "numberSockets": 3
-    },
-    {
-        "id": 23362,
-        "numberSockets": 3
-    },
-    {
-        "id": 23363,
-        "numberSockets": 3
-    },
-    {
-        "id": 23506,
-        "numberSockets": 1
-    },
-    {
-        "id": 23507,
-        "numberSockets": 3
-    },
-    {
-        "id": 23508,
-        "numberSockets": 2
-    },
-    {
-        "id": 23509,
-        "numberSockets": 3
-    },
-    {
-        "id": 23510,
-        "numberSockets": 2
-    },
-    {
-        "id": 23511,
-        "numberSockets": 2
-    },
-    {
-        "id": 23512,
-        "numberSockets": 3
-    },
-    {
-        "id": 23513,
-        "numberSockets": 3
-    },
-    {
-        "id": 23514,
-        "numberSockets": 2
-    },
-    {
-        "id": 23515,
-        "numberSockets": 1
-    },
-    {
-        "id": 23516,
-        "numberSockets": 3
-    },
-    {
-        "id": 23517,
-        "numberSockets": 2
-    },
-    {
-        "id": 23518,
-        "numberSockets": 3
-    },
-    {
-        "id": 23519,
-        "numberSockets": 3
-    },
-    {
-        "id": 23526,
-        "numberSockets": 2
-    },
-    {
-        "id": 23531,
-        "numberSockets": 2
-    },
-    {
-        "id": 23532,
-        "numberSockets": 2
-    },
-    {
-        "id": 23533,
-        "numberSockets": 2
-    },
-    {
-        "id": 23534,
-        "numberSockets": 3
-    },
-    {
-        "id": 23535,
-        "numberSockets": 3
-    },
-    {
-        "id": 23536,
-        "numberSockets": 3
-    },
-    {
-        "id": 23542,
-        "numberSockets": 1
-    },
-    {
-        "id": 23563,
-        "numberSockets": 3
-    },
-    {
-        "id": 23564,
-        "numberSockets": 3
-    },
-    {
-        "id": 23565,
-        "numberSockets": 3
-    },
-    {
-        "id": 24021,
-        "numberSockets": 3
-    },
-    {
-        "id": 24022,
-        "numberSockets": 3
-    },
-    {
-        "id": 24046,
-        "numberSockets": 3
-    },
-    {
-        "id": 24063,
-        "numberSockets": 2
-    },
-    {
-        "id": 24064,
-        "numberSockets": 2
-    },
-    {
-        "id": 24083,
-        "numberSockets": 3
-    },
-    {
-        "id": 24090,
-        "numberSockets": 2
-    },
-    {
-        "id": 24091,
-        "numberSockets": 2
-    },
-    {
-        "id": 24249,
-        "numberSockets": 1
-    },
-    {
-        "id": 24250,
-        "numberSockets": 1
-    },
-    {
-        "id": 24251,
-        "numberSockets": 1
-    },
-    {
-        "id": 24255,
-        "numberSockets": 2
-    },
-    {
-        "id": 24256,
-        "numberSockets": 2
-    },
-    {
-        "id": 24257,
-        "numberSockets": 2
-    },
-    {
-        "id": 24259,
-        "numberSockets": 1
-    },
-    {
-        "id": 24261,
-        "numberSockets": 3
-    },
-    {
-        "id": 24262,
-        "numberSockets": 3
-    },
-    {
-        "id": 24263,
-        "numberSockets": 2
-    },
-    {
-        "id": 24264,
-        "numberSockets": 3
-    },
-    {
-        "id": 24266,
-        "numberSockets": 3
-    },
-    {
-        "id": 24267,
-        "numberSockets": 2
-    },
-    {
-        "id": 24357,
-        "numberSockets": 3
-    },
-    {
-        "id": 24363,
-        "numberSockets": 3
-    },
-    {
-        "id": 24365,
-        "numberSockets": 2
-    },
-    {
-        "id": 24366,
-        "numberSockets": 2
-    },
-    {
-        "id": 24387,
-        "numberSockets": 2
-    },
-    {
-        "id": 24388,
-        "numberSockets": 2
-    },
-    {
-        "id": 24391,
-        "numberSockets": 3
-    },
-    {
-        "id": 24393,
-        "numberSockets": 2
-    },
-    {
-        "id": 24395,
-        "numberSockets": 2
-    },
-    {
-        "id": 24396,
-        "numberSockets": 3
-    },
-    {
-        "id": 24397,
-        "numberSockets": 3
-    },
-    {
-        "id": 24450,
-        "numberSockets": 2
-    },
-    {
-        "id": 24452,
-        "numberSockets": 2
-    },
-    {
-        "id": 24455,
-        "numberSockets": 3
-    },
-    {
-        "id": 24456,
-        "numberSockets": 3
-    },
-    {
-        "id": 24457,
-        "numberSockets": 2
-    },
-    {
-        "id": 24458,
-        "numberSockets": 2
-    },
-    {
-        "id": 24461,
-        "numberSockets": 3
-    },
-    {
-        "id": 24463,
-        "numberSockets": 2
-    },
-    {
-        "id": 24465,
-        "numberSockets": 3
-    },
-    {
-        "id": 24466,
-        "numberSockets": 3
-    },
-    {
-        "id": 24481,
-        "numberSockets": 3
-    },
-    {
-        "id": 24544,
-        "numberSockets": 3
-    },
-    {
-        "id": 24545,
-        "numberSockets": 2
-    },
-    {
-        "id": 24546,
-        "numberSockets": 2
-    },
-    {
-        "id": 24552,
-        "numberSockets": 3
-    },
-    {
-        "id": 24553,
-        "numberSockets": 2
-    },
-    {
-        "id": 24554,
-        "numberSockets": 2
-    },
-    {
-        "id": 25685,
-        "numberSockets": 2
-    },
-    {
-        "id": 25686,
-        "numberSockets": 2
-    },
-    {
-        "id": 25687,
-        "numberSockets": 3
-    },
-    {
-        "id": 25689,
-        "numberSockets": 3
-    },
-    {
-        "id": 25690,
-        "numberSockets": 3
-    },
-    {
-        "id": 25691,
-        "numberSockets": 2
-    },
-    {
-        "id": 25692,
-        "numberSockets": 3
-    },
-    {
-        "id": 25693,
-        "numberSockets": 2
-    },
-    {
-        "id": 25694,
-        "numberSockets": 2
-    },
-    {
-        "id": 25695,
-        "numberSockets": 2
-    },
-    {
-        "id": 25696,
-        "numberSockets": 3
-    },
-    {
-        "id": 25697,
-        "numberSockets": 1
-    },
-    {
-        "id": 25830,
-        "numberSockets": 2
-    },
-    {
-        "id": 25831,
-        "numberSockets": 3
-    },
-    {
-        "id": 25832,
-        "numberSockets": 2
-    },
-    {
-        "id": 25838,
-        "numberSockets": 3
-    },
-    {
-        "id": 25854,
-        "numberSockets": 2
-    },
-    {
-        "id": 25855,
-        "numberSockets": 2
-    },
-    {
-        "id": 25856,
-        "numberSockets": 3
-    },
-    {
-        "id": 25922,
-        "numberSockets": 2
-    },
-    {
-        "id": 25923,
-        "numberSockets": 2
-    },
-    {
-        "id": 25924,
-        "numberSockets": 2
-    },
-    {
-        "id": 25925,
-        "numberSockets": 2
-    },
-    {
-        "id": 25929,
-        "numberSockets": 3
-    },
-    {
-        "id": 25930,
-        "numberSockets": 3
-    },
-    {
-        "id": 25931,
-        "numberSockets": 3
-    },
-    {
-        "id": 25932,
-        "numberSockets": 3
-    },
-    {
-        "id": 25942,
-        "numberSockets": 2
-    },
-    {
-        "id": 25955,
-        "numberSockets": 3
-    },
-    {
-        "id": 25967,
-        "numberSockets": 2
-    },
-    {
-        "id": 25968,
-        "numberSockets": 2
-    },
-    {
-        "id": 25969,
-        "numberSockets": 2
-    },
-    {
-        "id": 25970,
-        "numberSockets": 2
-    },
-    {
-        "id": 25997,
-        "numberSockets": 3
-    },
-    {
-        "id": 25998,
-        "numberSockets": 2
-    },
-    {
-        "id": 25999,
-        "numberSockets": 2
-    },
-    {
-        "id": 27408,
-        "numberSockets": 3
-    },
-    {
-        "id": 27409,
-        "numberSockets": 3
-    },
-    {
-        "id": 27411,
-        "numberSockets": 2
-    },
-    {
-        "id": 27414,
-        "numberSockets": 3
-    },
-    {
-        "id": 27417,
-        "numberSockets": 2
-    },
-    {
-        "id": 27427,
-        "numberSockets": 3
-    },
-    {
-        "id": 27428,
-        "numberSockets": 2
-    },
-    {
-        "id": 27430,
-        "numberSockets": 3
-    },
-    {
-        "id": 27433,
-        "numberSockets": 2
-    },
-    {
-        "id": 27434,
-        "numberSockets": 2
-    },
-    {
-        "id": 27465,
-        "numberSockets": 2
-    },
-    {
-        "id": 27469,
-        "numberSockets": 3
-    },
-    {
-        "id": 27471,
-        "numberSockets": 2
-    },
-    {
-        "id": 27473,
-        "numberSockets": 2
-    },
-    {
-        "id": 27474,
-        "numberSockets": 2
-    },
-    {
-        "id": 27475,
-        "numberSockets": 2
-    },
-    {
-        "id": 27478,
-        "numberSockets": 2
-    },
-    {
-        "id": 27487,
-        "numberSockets": 3
-    },
-    {
-        "id": 27492,
-        "numberSockets": 3
-    },
-    {
-        "id": 27497,
-        "numberSockets": 3
-    },
-    {
-        "id": 27514,
-        "numberSockets": 3
-    },
-    {
-        "id": 27527,
-        "numberSockets": 3
-    },
-    {
-        "id": 27528,
-        "numberSockets": 2
-    },
-    {
-        "id": 27531,
-        "numberSockets": 2
-    },
-    {
-        "id": 27545,
-        "numberSockets": 3
-    },
-    {
-        "id": 27647,
-        "numberSockets": 1
-    },
-    {
-        "id": 27648,
-        "numberSockets": 2
-    },
-    {
-        "id": 27649,
-        "numberSockets": 1
-    },
-    {
-        "id": 27650,
-        "numberSockets": 1
-    },
-    {
-        "id": 27652,
-        "numberSockets": 1
-    },
-    {
-        "id": 27653,
-        "numberSockets": 1
-    },
-    {
-        "id": 27654,
-        "numberSockets": 1
-    },
-    {
-        "id": 27672,
-        "numberSockets": 2
-    },
-    {
-        "id": 27702,
-        "numberSockets": 3
-    },
-    {
-        "id": 27704,
-        "numberSockets": 2
-    },
-    {
-        "id": 27706,
-        "numberSockets": 2
-    },
-    {
-        "id": 27708,
-        "numberSockets": 2
-    },
-    {
-        "id": 27710,
-        "numberSockets": 2
-    },
-    {
-        "id": 27711,
-        "numberSockets": 3
-    },
-    {
-        "id": 27713,
-        "numberSockets": 2
-    },
-    {
-        "id": 27715,
-        "numberSockets": 3
-    },
-    {
-        "id": 27717,
-        "numberSockets": 3
-    },
-    {
-        "id": 27718,
-        "numberSockets": 3
-    },
-    {
-        "id": 27719,
-        "numberSockets": 3
-    },
-    {
-        "id": 27720,
-        "numberSockets": 3
-    },
-    {
-        "id": 27737,
-        "numberSockets": 2
-    },
-    {
-        "id": 27738,
-        "numberSockets": 2
-    },
-    {
-        "id": 27739,
-        "numberSockets": 2
-    },
-    {
-        "id": 27743,
-        "numberSockets": 2
-    },
-    {
-        "id": 27755,
-        "numberSockets": 2
-    },
-    {
-        "id": 27760,
-        "numberSockets": 2
-    },
-    {
-        "id": 27771,
-        "numberSockets": 2
-    },
-    {
-        "id": 27773,
-        "numberSockets": 3
-    },
-    {
-        "id": 27775,
-        "numberSockets": 2
-    },
-    {
-        "id": 27776,
-        "numberSockets": 2
-    },
-    {
-        "id": 27778,
-        "numberSockets": 2
-    },
-    {
-        "id": 27793,
-        "numberSockets": 2
-    },
-    {
-        "id": 27796,
-        "numberSockets": 2
-    },
-    {
-        "id": 27797,
-        "numberSockets": 2
-    },
-    {
-        "id": 27798,
-        "numberSockets": 2
-    },
-    {
-        "id": 27801,
-        "numberSockets": 2
-    },
-    {
-        "id": 27802,
-        "numberSockets": 2
-    },
-    {
-        "id": 27803,
-        "numberSockets": 2
-    },
-    {
-        "id": 27813,
-        "numberSockets": 2
-    },
-    {
-        "id": 27830,
-        "numberSockets": 1
-    },
-    {
-        "id": 27832,
-        "numberSockets": 1
-    },
-    {
-        "id": 27833,
-        "numberSockets": 1
-    },
-    {
-        "id": 27834,
-        "numberSockets": 1
-    },
-    {
-        "id": 27837,
-        "numberSockets": 3
-    },
-    {
-        "id": 27843,
-        "numberSockets": 2
-    },
-    {
-        "id": 27846,
-        "numberSockets": 2
-    },
-    {
-        "id": 27847,
-        "numberSockets": 2
-    },
-    {
-        "id": 27879,
-        "numberSockets": 3
-    },
-    {
-        "id": 27881,
-        "numberSockets": 2
-    },
-    {
-        "id": 27883,
-        "numberSockets": 2
-    },
-    {
-        "id": 27893,
-        "numberSockets": 3
-    },
-    {
-        "id": 27901,
-        "numberSockets": 2
-    },
-    {
-        "id": 27985,
-        "numberSockets": 2
-    },
-    {
-        "id": 27986,
-        "numberSockets": 3
-    },
-    {
-        "id": 28124,
-        "numberSockets": 2
-    },
-    {
-        "id": 28127,
-        "numberSockets": 2
-    },
-    {
-        "id": 28129,
-        "numberSockets": 2
-    },
-    {
-        "id": 28130,
-        "numberSockets": 3
-    },
-    {
-        "id": 28137,
-        "numberSockets": 2
-    },
-    {
-        "id": 28139,
-        "numberSockets": 2
-    },
-    {
-        "id": 28140,
-        "numberSockets": 3
-    },
-    {
-        "id": 28167,
-        "numberSockets": 1
-    },
-    {
-        "id": 28170,
-        "numberSockets": 1
-    },
-    {
-        "id": 28171,
-        "numberSockets": 1
-    },
-    {
-        "id": 28174,
-        "numberSockets": 1
-    },
-    {
-        "id": 28176,
-        "numberSockets": 2
-    },
-    {
-        "id": 28177,
-        "numberSockets": 2
-    },
-    {
-        "id": 28178,
-        "numberSockets": 2
-    },
-    {
-        "id": 28179,
-        "numberSockets": 2
-    },
-    {
-        "id": 28180,
-        "numberSockets": 2
-    },
-    {
-        "id": 28181,
-        "numberSockets": 2
-    },
-    {
-        "id": 28182,
-        "numberSockets": 2
-    },
-    {
-        "id": 28183,
-        "numberSockets": 2
-    },
-    {
-        "id": 28185,
-        "numberSockets": 3
-    },
-    {
-        "id": 28186,
-        "numberSockets": 3
-    },
-    {
-        "id": 28191,
-        "numberSockets": 3
-    },
-    {
-        "id": 28192,
-        "numberSockets": 2
-    },
-    {
-        "id": 28193,
-        "numberSockets": 2
-    },
-    {
-        "id": 28202,
-        "numberSockets": 3
-    },
-    {
-        "id": 28203,
-        "numberSockets": 3
-    },
-    {
-        "id": 28204,
-        "numberSockets": 3
-    },
-    {
-        "id": 28205,
-        "numberSockets": 3
-    },
-    {
-        "id": 28212,
-        "numberSockets": 3
-    },
-    {
-        "id": 28218,
-        "numberSockets": 3
-    },
-    {
-        "id": 28219,
-        "numberSockets": 3
-    },
-    {
-        "id": 28222,
-        "numberSockets": 3
-    },
-    {
-        "id": 28224,
-        "numberSockets": 2
-    },
-    {
-        "id": 28225,
-        "numberSockets": 2
-    },
-    {
-        "id": 28228,
-        "numberSockets": 3
-    },
-    {
-        "id": 28229,
-        "numberSockets": 3
-    },
-    {
-        "id": 28230,
-        "numberSockets": 3
-    },
-    {
-        "id": 28231,
-        "numberSockets": 3
-    },
-    {
-        "id": 28232,
-        "numberSockets": 3
-    },
-    {
-        "id": 28244,
-        "numberSockets": 1
-    },
-    {
-        "id": 28245,
-        "numberSockets": 1
-    },
-    {
-        "id": 28264,
-        "numberSockets": 3
-    },
-    {
-        "id": 28275,
-        "numberSockets": 2
-    },
-    {
-        "id": 28278,
-        "numberSockets": 2
-    },
-    {
-        "id": 28285,
-        "numberSockets": 2
-    },
-    {
-        "id": 28318,
-        "numberSockets": 2
-    },
-    {
-        "id": 28331,
-        "numberSockets": 2
-    },
-    {
-        "id": 28333,
-        "numberSockets": 2
-    },
-    {
-        "id": 28334,
-        "numberSockets": 3
-    },
-    {
-        "id": 28337,
-        "numberSockets": 3
-    },
-    {
-        "id": 28338,
-        "numberSockets": 3
-    },
-    {
-        "id": 28339,
-        "numberSockets": 2
-    },
-    {
-        "id": 28342,
-        "numberSockets": 3
-    },
-    {
-        "id": 28348,
-        "numberSockets": 2
-    },
-    {
-        "id": 28349,
-        "numberSockets": 2
-    },
-    {
-        "id": 28350,
-        "numberSockets": 2
-    },
-    {
-        "id": 28381,
-        "numberSockets": 1
-    },
-    {
-        "id": 28393,
-        "numberSockets": 3
-    },
-    {
-        "id": 28396,
-        "numberSockets": 2
-    },
-    {
-        "id": 28401,
-        "numberSockets": 3
-    },
-    {
-        "id": 28403,
-        "numberSockets": 3
-    },
-    {
-        "id": 28405,
-        "numberSockets": 1
-    },
-    {
-        "id": 28406,
-        "numberSockets": 2
-    },
-    {
-        "id": 28411,
-        "numberSockets": 1
-    },
-    {
-        "id": 28413,
-        "numberSockets": 2
-    },
-    {
-        "id": 28414,
-        "numberSockets": 2
-    },
-    {
-        "id": 28415,
-        "numberSockets": 2
-    },
-    {
-        "id": 28424,
-        "numberSockets": 1
-    },
-    {
-        "id": 28445,
-        "numberSockets": 1
-    },
-    {
-        "id": 28448,
-        "numberSockets": 1
-    },
-    {
-        "id": 28451,
-        "numberSockets": 1
-    },
-    {
-        "id": 28483,
-        "numberSockets": 3
-    },
-    {
-        "id": 28484,
-        "numberSockets": 3
-    },
-    {
-        "id": 28485,
-        "numberSockets": 3
-    },
-    {
-        "id": 28502,
-        "numberSockets": 1
-    },
-    {
-        "id": 28505,
-        "numberSockets": 2
-    },
-    {
-        "id": 28506,
-        "numberSockets": 2
-    },
-    {
-        "id": 28507,
-        "numberSockets": 2
-    },
-    {
-        "id": 28508,
-        "numberSockets": 2
-    },
-    {
-        "id": 28517,
-        "numberSockets": 2
-    },
-    {
-        "id": 28518,
-        "numberSockets": 2
-    },
-    {
-        "id": 28519,
-        "numberSockets": 2
-    },
-    {
-        "id": 28520,
-        "numberSockets": 2
-    },
-    {
-        "id": 28521,
-        "numberSockets": 2
-    },
-    {
-        "id": 28545,
-        "numberSockets": 2
-    },
-    {
-        "id": 28559,
-        "numberSockets": 1
-    },
-    {
-        "id": 28560,
-        "numberSockets": 1
-    },
-    {
-        "id": 28561,
-        "numberSockets": 1
-    },
-    {
-        "id": 28566,
-        "numberSockets": 2
-    },
-    {
-        "id": 28572,
-        "numberSockets": 3
-    },
-    {
-        "id": 28574,
-        "numberSockets": 1
-    },
-    {
-        "id": 28575,
-        "numberSockets": 1
-    },
-    {
-        "id": 28576,
-        "numberSockets": 1
-    },
-    {
-        "id": 28577,
-        "numberSockets": 1
-    },
-    {
-        "id": 28591,
-        "numberSockets": 3
-    },
-    {
-        "id": 28593,
-        "numberSockets": 3
-    },
-    {
-        "id": 28594,
-        "numberSockets": 3
-    },
-    {
-        "id": 28597,
-        "numberSockets": 3
-    },
-    {
-        "id": 28605,
-        "numberSockets": 1
-    },
-    {
-        "id": 28608,
-        "numberSockets": 2
-    },
-    {
-        "id": 28610,
-        "numberSockets": 2
-    },
-    {
-        "id": 28613,
-        "numberSockets": 3
-    },
-    {
-        "id": 28615,
-        "numberSockets": 2
-    },
-    {
-        "id": 28617,
-        "numberSockets": 2
-    },
-    {
-        "id": 28619,
-        "numberSockets": 2
-    },
-    {
-        "id": 28621,
-        "numberSockets": 3
-    },
-    {
-        "id": 28622,
-        "numberSockets": 2
-    },
-    {
-        "id": 28623,
-        "numberSockets": 3
-    },
-    {
-        "id": 28625,
-        "numberSockets": 2
-    },
-    {
-        "id": 28627,
-        "numberSockets": 2
-    },
-    {
-        "id": 28628,
-        "numberSockets": 3
-    },
-    {
-        "id": 28638,
-        "numberSockets": 1
-    },
-    {
-        "id": 28643,
-        "numberSockets": 1
-    },
-    {
-        "id": 28646,
-        "numberSockets": 1
-    },
-    {
-        "id": 28657,
-        "numberSockets": 1
-    },
-    {
-        "id": 28679,
-        "numberSockets": 3
-    },
-    {
-        "id": 28681,
-        "numberSockets": 2
-    },
-    {
-        "id": 28683,
-        "numberSockets": 2
-    },
-    {
-        "id": 28685,
-        "numberSockets": 2
-    },
-    {
-        "id": 28687,
-        "numberSockets": 2
-    },
-    {
-        "id": 28688,
-        "numberSockets": 3
-    },
-    {
-        "id": 28689,
-        "numberSockets": 3
-    },
-    {
-        "id": 28691,
-        "numberSockets": 2
-    },
-    {
-        "id": 28693,
-        "numberSockets": 2
-    },
-    {
-        "id": 28694,
-        "numberSockets": 3
-    },
-    {
-        "id": 28696,
-        "numberSockets": 2
-    },
-    {
-        "id": 28698,
-        "numberSockets": 2
-    },
-    {
-        "id": 28699,
-        "numberSockets": 3
-    },
-    {
-        "id": 28701,
-        "numberSockets": 2
-    },
-    {
-        "id": 28703,
-        "numberSockets": 2
-    },
-    {
-        "id": 28705,
-        "numberSockets": 2
-    },
-    {
-        "id": 28707,
-        "numberSockets": 2
-    },
-    {
-        "id": 28708,
-        "numberSockets": 3
-    },
-    {
-        "id": 28709,
-        "numberSockets": 3
-    },
-    {
-        "id": 28711,
-        "numberSockets": 2
-    },
-    {
-        "id": 28713,
-        "numberSockets": 2
-    },
-    {
-        "id": 28714,
-        "numberSockets": 2
-    },
-    {
-        "id": 28715,
-        "numberSockets": 2
-    },
-    {
-        "id": 28717,
-        "numberSockets": 3
-    },
-    {
-        "id": 28720,
-        "numberSockets": 2
-    },
-    {
-        "id": 28722,
-        "numberSockets": 2
-    },
-    {
-        "id": 28723,
-        "numberSockets": 3
-    },
-    {
-        "id": 28740,
-        "numberSockets": 3
-    },
-    {
-        "id": 28741,
-        "numberSockets": 3
-    },
-    {
-        "id": 28742,
-        "numberSockets": 3
-    },
-    {
-        "id": 28743,
-        "numberSockets": 2
-    },
-    {
-        "id": 28746,
-        "numberSockets": 2
-    },
-    {
-        "id": 28747,
-        "numberSockets": 2
-    },
-    {
-        "id": 28748,
-        "numberSockets": 3
-    },
-    {
-        "id": 28750,
-        "numberSockets": 2
-    },
-    {
-        "id": 28751,
-        "numberSockets": 3
-    },
-    {
-        "id": 28752,
-        "numberSockets": 2
-    },
-    {
-        "id": 28755,
-        "numberSockets": 2
-    },
-    {
-        "id": 28758,
-        "numberSockets": 1
-    },
-    {
-        "id": 28759,
-        "numberSockets": 1
-    },
-    {
-        "id": 28760,
-        "numberSockets": 1
-    },
-    {
-        "id": 28761,
-        "numberSockets": 1
-    },
-    {
-        "id": 28774,
-        "numberSockets": 3
-    },
-    {
-        "id": 28776,
-        "numberSockets": 2
-    },
-    {
-        "id": 28778,
-        "numberSockets": 2
-    },
-    {
-        "id": 28779,
-        "numberSockets": 2
-    },
-    {
-        "id": 28780,
-        "numberSockets": 2
-    },
-    {
-        "id": 28795,
-        "numberSockets": 2
-    },
-    {
-        "id": 28799,
-        "numberSockets": 2
-    },
-    {
-        "id": 28800,
-        "numberSockets": 3
-    },
-    {
-        "id": 28805,
-        "numberSockets": 3
-    },
-    {
-        "id": 28807,
-        "numberSockets": 2
-    },
-    {
-        "id": 28809,
-        "numberSockets": 2
-    },
-    {
-        "id": 28812,
-        "numberSockets": 2
-    },
-    {
-        "id": 28814,
-        "numberSockets": 2
-    },
-    {
-        "id": 28815,
-        "numberSockets": 3
-    },
-    {
-        "id": 28818,
-        "numberSockets": 2
-    },
-    {
-        "id": 28820,
-        "numberSockets": 2
-    },
-    {
-        "id": 28821,
-        "numberSockets": 3
-    },
-    {
-        "id": 28824,
-        "numberSockets": 2
-    },
-    {
-        "id": 28825,
-        "numberSockets": 1
-    },
-    {
-        "id": 28827,
-        "numberSockets": 2
-    },
-    {
-        "id": 28828,
-        "numberSockets": 2
-    },
-    {
-        "id": 28831,
-        "numberSockets": 3
-    },
-    {
-        "id": 28833,
-        "numberSockets": 2
-    },
-    {
-        "id": 28835,
-        "numberSockets": 2
-    },
-    {
-        "id": 28837,
-        "numberSockets": 2
-    },
-    {
-        "id": 28839,
-        "numberSockets": 2
-    },
-    {
-        "id": 28840,
-        "numberSockets": 3
-    },
-    {
-        "id": 28841,
-        "numberSockets": 3
-    },
-    {
-        "id": 28843,
-        "numberSockets": 2
-    },
-    {
-        "id": 28845,
-        "numberSockets": 2
-    },
-    {
-        "id": 28846,
-        "numberSockets": 3
-    },
-    {
-        "id": 28848,
-        "numberSockets": 2
-    },
-    {
-        "id": 28850,
-        "numberSockets": 2
-    },
-    {
-        "id": 28851,
-        "numberSockets": 3
-    },
-    {
-        "id": 28853,
-        "numberSockets": 2
-    },
-    {
-        "id": 28855,
-        "numberSockets": 2
-    },
-    {
-        "id": 28857,
-        "numberSockets": 2
-    },
-    {
-        "id": 28859,
-        "numberSockets": 2
-    },
-    {
-        "id": 28860,
-        "numberSockets": 3
-    },
-    {
-        "id": 28861,
-        "numberSockets": 3
-    },
-    {
-        "id": 28863,
-        "numberSockets": 2
-    },
-    {
-        "id": 28865,
-        "numberSockets": 2
-    },
-    {
-        "id": 28866,
-        "numberSockets": 2
-    },
-    {
-        "id": 28867,
-        "numberSockets": 2
-    },
-    {
-        "id": 28869,
-        "numberSockets": 3
-    },
-    {
-        "id": 28872,
-        "numberSockets": 2
-    },
-    {
-        "id": 28874,
-        "numberSockets": 2
-    },
-    {
-        "id": 28875,
-        "numberSockets": 3
-    },
-    {
-        "id": 28963,
-        "numberSockets": 2
-    },
-    {
-        "id": 28964,
-        "numberSockets": 3
-    },
-    {
-        "id": 28967,
-        "numberSockets": 2
-    },
-    {
-        "id": 28973,
-        "numberSockets": 1
-    },
-    {
-        "id": 28978,
-        "numberSockets": 1
-    },
-    {
-        "id": 28981,
-        "numberSockets": 1
-    },
-    {
-        "id": 28984,
-        "numberSockets": 1
-    },
-    {
-        "id": 28988,
-        "numberSockets": 1
-    },
-    {
-        "id": 28989,
-        "numberSockets": 1
-    },
-    {
-        "id": 28992,
-        "numberSockets": 1
-    },
-    {
-        "id": 28996,
-        "numberSockets": 1
-    },
-    {
-        "id": 28999,
-        "numberSockets": 1
-    },
-    {
-        "id": 29002,
-        "numberSockets": 1
-    },
-    {
-        "id": 29006,
-        "numberSockets": 1
-    },
-    {
-        "id": 29011,
-        "numberSockets": 2
-    },
-    {
-        "id": 29012,
-        "numberSockets": 3
-    },
-    {
-        "id": 29016,
-        "numberSockets": 2
-    },
-    {
-        "id": 29019,
-        "numberSockets": 3
-    },
-    {
-        "id": 29021,
-        "numberSockets": 2
-    },
-    {
-        "id": 29023,
-        "numberSockets": 2
-    },
-    {
-        "id": 29028,
-        "numberSockets": 2
-    },
-    {
-        "id": 29029,
-        "numberSockets": 3
-    },
-    {
-        "id": 29031,
-        "numberSockets": 2
-    },
-    {
-        "id": 29033,
-        "numberSockets": 3
-    },
-    {
-        "id": 29035,
-        "numberSockets": 2
-    },
-    {
-        "id": 29037,
-        "numberSockets": 2
-    },
-    {
-        "id": 29038,
-        "numberSockets": 3
-    },
-    {
-        "id": 29040,
-        "numberSockets": 2
-    },
-    {
-        "id": 29043,
-        "numberSockets": 2
-    },
-    {
-        "id": 29044,
-        "numberSockets": 2
-    },
-    {
-        "id": 29045,
-        "numberSockets": 3
-    },
-    {
-        "id": 29047,
-        "numberSockets": 2
-    },
-    {
-        "id": 29049,
-        "numberSockets": 2
-    },
-    {
-        "id": 29050,
-        "numberSockets": 3
-    },
-    {
-        "id": 29054,
-        "numberSockets": 2
-    },
-    {
-        "id": 29056,
-        "numberSockets": 3
-    },
-    {
-        "id": 29058,
-        "numberSockets": 2
-    },
-    {
-        "id": 29060,
-        "numberSockets": 2
-    },
-    {
-        "id": 29061,
-        "numberSockets": 2
-    },
-    {
-        "id": 29062,
-        "numberSockets": 3
-    },
-    {
-        "id": 29064,
-        "numberSockets": 2
-    },
-    {
-        "id": 29066,
-        "numberSockets": 3
-    },
-    {
-        "id": 29068,
-        "numberSockets": 2
-    },
-    {
-        "id": 29070,
-        "numberSockets": 2
-    },
-    {
-        "id": 29071,
-        "numberSockets": 3
-    },
-    {
-        "id": 29073,
-        "numberSockets": 2
-    },
-    {
-        "id": 29075,
-        "numberSockets": 2
-    },
-    {
-        "id": 29076,
-        "numberSockets": 2
-    },
-    {
-        "id": 29077,
-        "numberSockets": 3
-    },
-    {
-        "id": 29079,
-        "numberSockets": 2
-    },
-    {
-        "id": 29081,
-        "numberSockets": 2
-    },
-    {
-        "id": 29082,
-        "numberSockets": 3
-    },
-    {
-        "id": 29084,
-        "numberSockets": 2
-    },
-    {
-        "id": 29086,
-        "numberSockets": 2
-    },
-    {
-        "id": 29087,
-        "numberSockets": 3
-    },
-    {
-        "id": 29089,
-        "numberSockets": 2
-    },
-    {
-        "id": 29091,
-        "numberSockets": 3
-    },
-    {
-        "id": 29093,
-        "numberSockets": 2
-    },
-    {
-        "id": 29095,
-        "numberSockets": 2
-    },
-    {
-        "id": 29096,
-        "numberSockets": 3
-    },
-    {
-        "id": 29098,
-        "numberSockets": 2
-    },
-    {
-        "id": 29100,
-        "numberSockets": 2
-    },
-    {
-        "id": 29122,
-        "numberSockets": 2
-    },
-    {
-        "id": 29129,
-        "numberSockets": 3
-    },
-    {
-        "id": 29135,
-        "numberSockets": 3
-    },
-    {
-        "id": 29136,
-        "numberSockets": 3
-    },
-    {
-        "id": 29141,
-        "numberSockets": 3
-    },
-    {
-        "id": 29142,
-        "numberSockets": 3
-    },
-    {
-        "id": 29176,
-        "numberSockets": 2
-    },
-    {
-        "id": 29184,
-        "numberSockets": 3
-    },
-    {
-        "id": 29316,
-        "numberSockets": 2
-    },
-    {
-        "id": 29317,
-        "numberSockets": 2
-    },
-    {
-        "id": 29318,
-        "numberSockets": 2
-    },
-    {
-        "id": 29319,
-        "numberSockets": 2
-    },
-    {
-        "id": 29337,
-        "numberSockets": 3
-    },
-    {
-        "id": 29339,
-        "numberSockets": 3
-    },
-    {
-        "id": 29340,
-        "numberSockets": 3
-    },
-    {
-        "id": 29341,
-        "numberSockets": 3
-    },
-    {
-        "id": 29342,
-        "numberSockets": 3
-    },
-    {
-        "id": 29343,
-        "numberSockets": 3
-    },
-    {
-        "id": 29344,
-        "numberSockets": 3
-    },
-    {
-        "id": 29345,
-        "numberSockets": 3
-    },
-    {
-        "id": 29489,
-        "numberSockets": 3
-    },
-    {
-        "id": 29490,
-        "numberSockets": 2
-    },
-    {
-        "id": 29491,
-        "numberSockets": 2
-    },
-    {
-        "id": 29492,
-        "numberSockets": 3
-    },
-    {
-        "id": 29493,
-        "numberSockets": 2
-    },
-    {
-        "id": 29494,
-        "numberSockets": 2
-    },
-    {
-        "id": 29495,
-        "numberSockets": 3
-    },
-    {
-        "id": 29496,
-        "numberSockets": 2
-    },
-    {
-        "id": 29497,
-        "numberSockets": 2
-    },
-    {
-        "id": 29498,
-        "numberSockets": 3
-    },
-    {
-        "id": 29499,
-        "numberSockets": 2
-    },
-    {
-        "id": 29500,
-        "numberSockets": 2
-    },
-    {
-        "id": 29515,
-        "numberSockets": 3
-    },
-    {
-        "id": 29516,
-        "numberSockets": 2
-    },
-    {
-        "id": 29517,
-        "numberSockets": 1
-    },
-    {
-        "id": 29519,
-        "numberSockets": 3
-    },
-    {
-        "id": 29520,
-        "numberSockets": 2
-    },
-    {
-        "id": 29521,
-        "numberSockets": 1
-    },
-    {
-        "id": 29522,
-        "numberSockets": 3
-    },
-    {
-        "id": 29523,
-        "numberSockets": 1
-    },
-    {
-        "id": 29524,
-        "numberSockets": 2
-    },
-    {
-        "id": 29950,
-        "numberSockets": 3
-    },
-    {
-        "id": 29951,
-        "numberSockets": 2
-    },
-    {
-        "id": 29966,
-        "numberSockets": 1
-    },
-    {
-        "id": 29972,
-        "numberSockets": 3
-    },
-    {
-        "id": 29976,
-        "numberSockets": 2
-    },
-    {
-        "id": 29984,
-        "numberSockets": 2
-    },
-    {
-        "id": 29985,
-        "numberSockets": 3
-    },
-    {
-        "id": 29986,
-        "numberSockets": 3
-    },
-    {
-        "id": 29991,
-        "numberSockets": 3
-    },
-    {
-        "id": 29993,
-        "numberSockets": 3
-    },
-    {
-        "id": 29998,
-        "numberSockets": 2
-    },
-    {
-        "id": 30030,
-        "numberSockets": 2
-    },
-    {
-        "id": 30032,
-        "numberSockets": 2
-    },
-    {
-        "id": 30034,
-        "numberSockets": 2
-    },
-    {
-        "id": 30036,
-        "numberSockets": 2
-    },
-    {
-        "id": 30038,
-        "numberSockets": 2
-    },
-    {
-        "id": 30040,
-        "numberSockets": 2
-    },
-    {
-        "id": 30042,
-        "numberSockets": 2
-    },
-    {
-        "id": 30044,
-        "numberSockets": 2
-    },
-    {
-        "id": 30046,
-        "numberSockets": 2
-    },
-    {
-        "id": 30047,
-        "numberSockets": 1
-    },
-    {
-        "id": 30053,
-        "numberSockets": 2
-    },
-    {
-        "id": 30054,
-        "numberSockets": 3
-    },
-    {
-        "id": 30055,
-        "numberSockets": 1
-    },
-    {
-        "id": 30056,
-        "numberSockets": 3
-    },
-    {
-        "id": 30057,
-        "numberSockets": 1
-    },
-    {
-        "id": 30064,
-        "numberSockets": 2
-    },
-    {
-        "id": 30074,
-        "numberSockets": 3
-    },
-    {
-        "id": 30076,
-        "numberSockets": 3
-    },
-    {
-        "id": 30079,
-        "numberSockets": 2
-    },
-    {
-        "id": 30091,
-        "numberSockets": 1
-    },
-    {
-        "id": 30092,
-        "numberSockets": 2
-    },
-    {
-        "id": 30096,
-        "numberSockets": 2
-    },
-    {
-        "id": 30097,
-        "numberSockets": 2
-    },
-    {
-        "id": 30100,
-        "numberSockets": 2
-    },
-    {
-        "id": 30101,
-        "numberSockets": 3
-    },
-    {
-        "id": 30104,
-        "numberSockets": 2
-    },
-    {
-        "id": 30106,
-        "numberSockets": 2
-    },
-    {
-        "id": 30107,
-        "numberSockets": 3
-    },
-    {
-        "id": 30112,
-        "numberSockets": 2
-    },
-    {
-        "id": 30113,
-        "numberSockets": 3
-    },
-    {
-        "id": 30115,
-        "numberSockets": 2
-    },
-    {
-        "id": 30116,
-        "numberSockets": 1
-    },
-    {
-        "id": 30117,
-        "numberSockets": 2
-    },
-    {
-        "id": 30118,
-        "numberSockets": 3
-    },
-    {
-        "id": 30120,
-        "numberSockets": 2
-    },
-    {
-        "id": 30121,
-        "numberSockets": 1
-    },
-    {
-        "id": 30122,
-        "numberSockets": 2
-    },
-    {
-        "id": 30123,
-        "numberSockets": 3
-    },
-    {
-        "id": 30125,
-        "numberSockets": 2
-    },
-    {
-        "id": 30126,
-        "numberSockets": 1
-    },
-    {
-        "id": 30127,
-        "numberSockets": 2
-    },
-    {
-        "id": 30129,
-        "numberSockets": 3
-    },
-    {
-        "id": 30131,
-        "numberSockets": 2
-    },
-    {
-        "id": 30132,
-        "numberSockets": 1
-    },
-    {
-        "id": 30133,
-        "numberSockets": 2
-    },
-    {
-        "id": 30134,
-        "numberSockets": 3
-    },
-    {
-        "id": 30136,
-        "numberSockets": 2
-    },
-    {
-        "id": 30137,
-        "numberSockets": 1
-    },
-    {
-        "id": 30138,
-        "numberSockets": 2
-    },
-    {
-        "id": 30139,
-        "numberSockets": 3
-    },
-    {
-        "id": 30141,
-        "numberSockets": 2
-    },
-    {
-        "id": 30142,
-        "numberSockets": 1
-    },
-    {
-        "id": 30143,
-        "numberSockets": 2
-    },
-    {
-        "id": 30144,
-        "numberSockets": 3
-    },
-    {
-        "id": 30146,
-        "numberSockets": 2
-    },
-    {
-        "id": 30148,
-        "numberSockets": 1
-    },
-    {
-        "id": 30149,
-        "numberSockets": 2
-    },
-    {
-        "id": 30150,
-        "numberSockets": 3
-    },
-    {
-        "id": 30152,
-        "numberSockets": 2
-    },
-    {
-        "id": 30153,
-        "numberSockets": 1
-    },
-    {
-        "id": 30154,
-        "numberSockets": 2
-    },
-    {
-        "id": 30159,
-        "numberSockets": 3
-    },
-    {
-        "id": 30161,
-        "numberSockets": 2
-    },
-    {
-        "id": 30162,
-        "numberSockets": 1
-    },
-    {
-        "id": 30163,
-        "numberSockets": 2
-    },
-    {
-        "id": 30164,
-        "numberSockets": 3
-    },
-    {
-        "id": 30166,
-        "numberSockets": 2
-    },
-    {
-        "id": 30167,
-        "numberSockets": 1
-    },
-    {
-        "id": 30168,
-        "numberSockets": 2
-    },
-    {
-        "id": 30169,
-        "numberSockets": 3
-    },
-    {
-        "id": 30171,
-        "numberSockets": 2
-    },
-    {
-        "id": 30172,
-        "numberSockets": 1
-    },
-    {
-        "id": 30173,
-        "numberSockets": 2
-    },
-    {
-        "id": 30185,
-        "numberSockets": 3
-    },
-    {
-        "id": 30186,
-        "numberSockets": 2
-    },
-    {
-        "id": 30187,
-        "numberSockets": 2
-    },
-    {
-        "id": 30190,
-        "numberSockets": 2
-    },
-    {
-        "id": 30192,
-        "numberSockets": 1
-    },
-    {
-        "id": 30194,
-        "numberSockets": 2
-    },
-    {
-        "id": 30196,
-        "numberSockets": 3
-    },
-    {
-        "id": 30200,
-        "numberSockets": 3
-    },
-    {
-        "id": 30206,
-        "numberSockets": 2
-    },
-    {
-        "id": 30207,
-        "numberSockets": 1
-    },
-    {
-        "id": 30210,
-        "numberSockets": 2
-    },
-    {
-        "id": 30212,
-        "numberSockets": 2
-    },
-    {
-        "id": 30213,
-        "numberSockets": 1
-    },
-    {
-        "id": 30214,
-        "numberSockets": 3
-    },
-    {
-        "id": 30215,
-        "numberSockets": 2
-    },
-    {
-        "id": 30216,
-        "numberSockets": 3
-    },
-    {
-        "id": 30219,
-        "numberSockets": 2
-    },
-    {
-        "id": 30220,
-        "numberSockets": 1
-    },
-    {
-        "id": 30221,
-        "numberSockets": 2
-    },
-    {
-        "id": 30222,
-        "numberSockets": 3
-    },
-    {
-        "id": 30228,
-        "numberSockets": 2
-    },
-    {
-        "id": 30229,
-        "numberSockets": 1
-    },
-    {
-        "id": 30230,
-        "numberSockets": 2
-    },
-    {
-        "id": 30231,
-        "numberSockets": 3
-    },
-    {
-        "id": 30233,
-        "numberSockets": 2
-    },
-    {
-        "id": 30234,
-        "numberSockets": 1
-    },
-    {
-        "id": 30235,
-        "numberSockets": 2
-    },
-    {
-        "id": 30486,
-        "numberSockets": 3
-    },
-    {
-        "id": 30488,
-        "numberSockets": 2
-    },
-    {
-        "id": 30490,
-        "numberSockets": 2
-    },
-    {
-        "id": 30531,
-        "numberSockets": 3
-    },
-    {
-        "id": 30532,
-        "numberSockets": 3
-    },
-    {
-        "id": 30533,
-        "numberSockets": 3
-    },
-    {
-        "id": 30534,
-        "numberSockets": 3
-    },
-    {
-        "id": 30535,
-        "numberSockets": 3
-    },
-    {
-        "id": 30536,
-        "numberSockets": 3
-    },
-    {
-        "id": 30538,
-        "numberSockets": 3
-    },
-    {
-        "id": 30541,
-        "numberSockets": 3
-    },
-    {
-        "id": 30543,
-        "numberSockets": 3
-    },
-    {
-        "id": 30722,
-        "numberSockets": 3
-    },
-    {
-        "id": 30723,
-        "numberSockets": 2
-    },
-    {
-        "id": 30724,
-        "numberSockets": 2
-    },
-    {
-        "id": 30725,
-        "numberSockets": 2
-    },
-    {
-        "id": 30727,
-        "numberSockets": 3
-    },
-    {
-        "id": 30728,
-        "numberSockets": 3
-    },
-    {
-        "id": 30730,
-        "numberSockets": 3
-    },
-    {
-        "id": 30731,
-        "numberSockets": 3
-    },
-    {
-        "id": 30732,
-        "numberSockets": 3
-    },
-    {
-        "id": 30734,
-        "numberSockets": 3
-    },
-    {
-        "id": 30737,
-        "numberSockets": 2
-    },
-    {
-        "id": 30739,
-        "numberSockets": 3
-    },
-    {
-        "id": 30740,
-        "numberSockets": 2
-    },
-    {
-        "id": 30741,
-        "numberSockets": 2
-    },
-    {
-        "id": 30861,
-        "numberSockets": 1
-    },
-    {
-        "id": 30862,
-        "numberSockets": 1
-    },
-    {
-        "id": 30863,
-        "numberSockets": 1
-    },
-    {
-        "id": 30864,
-        "numberSockets": 1
-    },
-    {
-        "id": 30868,
-        "numberSockets": 1
-    },
-    {
-        "id": 30869,
-        "numberSockets": 1
-    },
-    {
-        "id": 30870,
-        "numberSockets": 1
-    },
-    {
-        "id": 30871,
-        "numberSockets": 1
-    },
-    {
-        "id": 30878,
-        "numberSockets": 2
-    },
-    {
-        "id": 30879,
-        "numberSockets": 2
-    },
-    {
-        "id": 30880,
-        "numberSockets": 2
-    },
-    {
-        "id": 30882,
-        "numberSockets": 1
-    },
-    {
-        "id": 30884,
-        "numberSockets": 2
-    },
-    {
-        "id": 30888,
-        "numberSockets": 2
-    },
-    {
-        "id": 30889,
-        "numberSockets": 1
-    },
-    {
-        "id": 30893,
-        "numberSockets": 3
-    },
-    {
-        "id": 30897,
-        "numberSockets": 2
-    },
-    {
-        "id": 30900,
-        "numberSockets": 3
-    },
-    {
-        "id": 30905,
-        "numberSockets": 3
-    },
-    {
-        "id": 30912,
-        "numberSockets": 3
-    },
-    {
-        "id": 30916,
-        "numberSockets": 3
-    },
-    {
-        "id": 30969,
-        "numberSockets": 1
-    },
-    {
-        "id": 30970,
-        "numberSockets": 1
-    },
-    {
-        "id": 30972,
-        "numberSockets": 2
-    },
-    {
-        "id": 30974,
-        "numberSockets": 2
-    },
-    {
-        "id": 30975,
-        "numberSockets": 3
-    },
-    {
-        "id": 30976,
-        "numberSockets": 3
-    },
-    {
-        "id": 30977,
-        "numberSockets": 1
-    },
-    {
-        "id": 30978,
-        "numberSockets": 1
-    },
-    {
-        "id": 30979,
-        "numberSockets": 2
-    },
-    {
-        "id": 30980,
-        "numberSockets": 2
-    },
-    {
-        "id": 30982,
-        "numberSockets": 1
-    },
-    {
-        "id": 30983,
-        "numberSockets": 1
-    },
-    {
-        "id": 30985,
-        "numberSockets": 1
-    },
-    {
-        "id": 30987,
-        "numberSockets": 2
-    },
-    {
-        "id": 30988,
-        "numberSockets": 2
-    },
-    {
-        "id": 30989,
-        "numberSockets": 2
-    },
-    {
-        "id": 30990,
-        "numberSockets": 3
-    },
-    {
-        "id": 30991,
-        "numberSockets": 3
-    },
-    {
-        "id": 30992,
-        "numberSockets": 3
-    },
-    {
-        "id": 30993,
-        "numberSockets": 1
-    },
-    {
-        "id": 30994,
-        "numberSockets": 1
-    },
-    {
-        "id": 30995,
-        "numberSockets": 1
-    },
-    {
-        "id": 30996,
-        "numberSockets": 2
-    },
-    {
-        "id": 30997,
-        "numberSockets": 2
-    },
-    {
-        "id": 30998,
-        "numberSockets": 2
-    },
-    {
-        "id": 31001,
-        "numberSockets": 1
-    },
-    {
-        "id": 31003,
-        "numberSockets": 2
-    },
-    {
-        "id": 31004,
-        "numberSockets": 3
-    },
-    {
-        "id": 31005,
-        "numberSockets": 1
-    },
-    {
-        "id": 31006,
-        "numberSockets": 2
-    },
-    {
-        "id": 31007,
-        "numberSockets": 1
-    },
-    {
-        "id": 31008,
-        "numberSockets": 1
-    },
-    {
-        "id": 31011,
-        "numberSockets": 1
-    },
-    {
-        "id": 31012,
-        "numberSockets": 2
-    },
-    {
-        "id": 31014,
-        "numberSockets": 2
-    },
-    {
-        "id": 31015,
-        "numberSockets": 2
-    },
-    {
-        "id": 31016,
-        "numberSockets": 3
-    },
-    {
-        "id": 31017,
-        "numberSockets": 3
-    },
-    {
-        "id": 31018,
-        "numberSockets": 3
-    },
-    {
-        "id": 31019,
-        "numberSockets": 1
-    },
-    {
-        "id": 31020,
-        "numberSockets": 1
-    },
-    {
-        "id": 31021,
-        "numberSockets": 1
-    },
-    {
-        "id": 31022,
-        "numberSockets": 2
-    },
-    {
-        "id": 31023,
-        "numberSockets": 2
-    },
-    {
-        "id": 31024,
-        "numberSockets": 2
-    },
-    {
-        "id": 31026,
-        "numberSockets": 1
-    },
-    {
-        "id": 31027,
-        "numberSockets": 2
-    },
-    {
-        "id": 31028,
-        "numberSockets": 3
-    },
-    {
-        "id": 31029,
-        "numberSockets": 1
-    },
-    {
-        "id": 31030,
-        "numberSockets": 2
-    },
-    {
-        "id": 31032,
-        "numberSockets": 1
-    },
-    {
-        "id": 31034,
-        "numberSockets": 1
-    },
-    {
-        "id": 31035,
-        "numberSockets": 1
-    },
-    {
-        "id": 31037,
-        "numberSockets": 2
-    },
-    {
-        "id": 31039,
-        "numberSockets": 2
-    },
-    {
-        "id": 31040,
-        "numberSockets": 2
-    },
-    {
-        "id": 31041,
-        "numberSockets": 3
-    },
-    {
-        "id": 31042,
-        "numberSockets": 3
-    },
-    {
-        "id": 31043,
-        "numberSockets": 3
-    },
-    {
-        "id": 31044,
-        "numberSockets": 1
-    },
-    {
-        "id": 31045,
-        "numberSockets": 1
-    },
-    {
-        "id": 31046,
-        "numberSockets": 1
-    },
-    {
-        "id": 31047,
-        "numberSockets": 2
-    },
-    {
-        "id": 31048,
-        "numberSockets": 2
-    },
-    {
-        "id": 31049,
-        "numberSockets": 2
-    },
-    {
-        "id": 31050,
-        "numberSockets": 1
-    },
-    {
-        "id": 31051,
-        "numberSockets": 2
-    },
-    {
-        "id": 31052,
-        "numberSockets": 3
-    },
-    {
-        "id": 31053,
-        "numberSockets": 1
-    },
-    {
-        "id": 31054,
-        "numberSockets": 2
-    },
-    {
-        "id": 31055,
-        "numberSockets": 1
-    },
-    {
-        "id": 31056,
-        "numberSockets": 2
-    },
-    {
-        "id": 31057,
-        "numberSockets": 3
-    },
-    {
-        "id": 31058,
-        "numberSockets": 1
-    },
-    {
-        "id": 31059,
-        "numberSockets": 2
-    },
-    {
-        "id": 31060,
-        "numberSockets": 1
-    },
-    {
-        "id": 31061,
-        "numberSockets": 1
-    },
-    {
-        "id": 31063,
-        "numberSockets": 2
-    },
-    {
-        "id": 31064,
-        "numberSockets": 2
-    },
-    {
-        "id": 31065,
-        "numberSockets": 3
-    },
-    {
-        "id": 31066,
-        "numberSockets": 3
-    },
-    {
-        "id": 31067,
-        "numberSockets": 1
-    },
-    {
-        "id": 31068,
-        "numberSockets": 1
-    },
-    {
-        "id": 31069,
-        "numberSockets": 2
-    },
-    {
-        "id": 31070,
-        "numberSockets": 2
-    },
-    {
-        "id": 31104,
-        "numberSockets": 3
-    },
-    {
-        "id": 31105,
-        "numberSockets": 3
-    },
-    {
-        "id": 31106,
-        "numberSockets": 3
-    },
-    {
-        "id": 31107,
-        "numberSockets": 3
-    },
-    {
-        "id": 31109,
-        "numberSockets": 3
-    },
-    {
-        "id": 31110,
-        "numberSockets": 3
-    },
-    {
-        "id": 31376,
-        "numberSockets": 2
-    },
-    {
-        "id": 31378,
-        "numberSockets": 2
-    },
-    {
-        "id": 31379,
-        "numberSockets": 3
-    },
-    {
-        "id": 31396,
-        "numberSockets": 3
-    },
-    {
-        "id": 31400,
-        "numberSockets": 2
-    },
-    {
-        "id": 31407,
-        "numberSockets": 2
-    },
-    {
-        "id": 31410,
-        "numberSockets": 2
-    },
-    {
-        "id": 31412,
-        "numberSockets": 2
-    },
-    {
-        "id": 31413,
-        "numberSockets": 3
-    },
-    {
-        "id": 31585,
-        "numberSockets": 2
-    },
-    {
-        "id": 31587,
-        "numberSockets": 2
-    },
-    {
-        "id": 31588,
-        "numberSockets": 3
-    },
-    {
-        "id": 31590,
-        "numberSockets": 2
-    },
-    {
-        "id": 31592,
-        "numberSockets": 2
-    },
-    {
-        "id": 31593,
-        "numberSockets": 3
-    },
-    {
-        "id": 31598,
-        "numberSockets": 1
-    },
-    {
-        "id": 31599,
-        "numberSockets": 1
-    },
-    {
-        "id": 31613,
-        "numberSockets": 3
-    },
-    {
-        "id": 31616,
-        "numberSockets": 2
-    },
-    {
-        "id": 31619,
-        "numberSockets": 2
-    },
-    {
-        "id": 31622,
-        "numberSockets": 2
-    },
-    {
-        "id": 31624,
-        "numberSockets": 2
-    },
-    {
-        "id": 31625,
-        "numberSockets": 3
-    },
-    {
-        "id": 31626,
-        "numberSockets": 2
-    },
-    {
-        "id": 31628,
-        "numberSockets": 2
-    },
-    {
-        "id": 31629,
-        "numberSockets": 3
-    },
-    {
-        "id": 31630,
-        "numberSockets": 3
-    },
-    {
-        "id": 31632,
-        "numberSockets": 2
-    },
-    {
-        "id": 31634,
-        "numberSockets": 2
-    },
-    {
-        "id": 31635,
-        "numberSockets": 3
-    },
-    {
-        "id": 31637,
-        "numberSockets": 2
-    },
-    {
-        "id": 31639,
-        "numberSockets": 2
-    },
-    {
-        "id": 31640,
-        "numberSockets": 3
-    },
-    {
-        "id": 31642,
-        "numberSockets": 2
-    },
-    {
-        "id": 31644,
-        "numberSockets": 2
-    },
-    {
-        "id": 31646,
-        "numberSockets": 3
-    },
-    {
-        "id": 31648,
-        "numberSockets": 2
-    },
-    {
-        "id": 31650,
-        "numberSockets": 2
-    },
-    {
-        "id": 31657,
-        "numberSockets": 3
-    },
-    {
-        "id": 31658,
-        "numberSockets": 3
-    },
-    {
-        "id": 31960,
-        "numberSockets": 3
-    },
-    {
-        "id": 31962,
-        "numberSockets": 2
-    },
-    {
-        "id": 31964,
-        "numberSockets": 2
-    },
-    {
-        "id": 31968,
-        "numberSockets": 2
-    },
-    {
-        "id": 31971,
-        "numberSockets": 2
-    },
-    {
-        "id": 31972,
-        "numberSockets": 3
-    },
-    {
-        "id": 31974,
-        "numberSockets": 2
-    },
-    {
-        "id": 31976,
-        "numberSockets": 2
-    },
-    {
-        "id": 31977,
-        "numberSockets": 3
-    },
-    {
-        "id": 31979,
-        "numberSockets": 2
-    },
-    {
-        "id": 31980,
-        "numberSockets": 2
-    },
-    {
-        "id": 31982,
-        "numberSockets": 3
-    },
-    {
-        "id": 31988,
-        "numberSockets": 2
-    },
-    {
-        "id": 31990,
-        "numberSockets": 2
-    },
-    {
-        "id": 31991,
-        "numberSockets": 3
-    },
-    {
-        "id": 31992,
-        "numberSockets": 3
-    },
-    {
-        "id": 31996,
-        "numberSockets": 2
-    },
-    {
-        "id": 31997,
-        "numberSockets": 2
-    },
-    {
-        "id": 31999,
-        "numberSockets": 2
-    },
-    {
-        "id": 32001,
-        "numberSockets": 2
-    },
-    {
-        "id": 32002,
-        "numberSockets": 3
-    },
-    {
-        "id": 32004,
-        "numberSockets": 3
-    },
-    {
-        "id": 32006,
-        "numberSockets": 2
-    },
-    {
-        "id": 32008,
-        "numberSockets": 2
-    },
-    {
-        "id": 32009,
-        "numberSockets": 3
-    },
-    {
-        "id": 32011,
-        "numberSockets": 2
-    },
-    {
-        "id": 32013,
-        "numberSockets": 2
-    },
-    {
-        "id": 32016,
-        "numberSockets": 2
-    },
-    {
-        "id": 32018,
-        "numberSockets": 2
-    },
-    {
-        "id": 32019,
-        "numberSockets": 3
-    },
-    {
-        "id": 32020,
-        "numberSockets": 3
-    },
-    {
-        "id": 32022,
-        "numberSockets": 2
-    },
-    {
-        "id": 32024,
-        "numberSockets": 2
-    },
-    {
-        "id": 32029,
-        "numberSockets": 3
-    },
-    {
-        "id": 32031,
-        "numberSockets": 2
-    },
-    {
-        "id": 32033,
-        "numberSockets": 2
-    },
-    {
-        "id": 32035,
-        "numberSockets": 2
-    },
-    {
-        "id": 32037,
-        "numberSockets": 2
-    },
-    {
-        "id": 32038,
-        "numberSockets": 3
-    },
-    {
-        "id": 32039,
-        "numberSockets": 3
-    },
-    {
-        "id": 32041,
-        "numberSockets": 2
-    },
-    {
-        "id": 32043,
-        "numberSockets": 2
-    },
-    {
-        "id": 32047,
-        "numberSockets": 2
-    },
-    {
-        "id": 32048,
-        "numberSockets": 2
-    },
-    {
-        "id": 32050,
-        "numberSockets": 3
-    },
-    {
-        "id": 32057,
-        "numberSockets": 2
-    },
-    {
-        "id": 32059,
-        "numberSockets": 2
-    },
-    {
-        "id": 32060,
-        "numberSockets": 3
-    },
-    {
-        "id": 32083,
-        "numberSockets": 2
-    },
-    {
-        "id": 32084,
-        "numberSockets": 2
-    },
-    {
-        "id": 32085,
-        "numberSockets": 2
-    },
-    {
-        "id": 32086,
-        "numberSockets": 2
-    },
-    {
-        "id": 32087,
-        "numberSockets": 2
-    },
-    {
-        "id": 32088,
-        "numberSockets": 2
-    },
-    {
-        "id": 32089,
-        "numberSockets": 2
-    },
-    {
-        "id": 32090,
-        "numberSockets": 2
-    },
-    {
-        "id": 32094,
-        "numberSockets": 2
-    },
-    {
-        "id": 32096,
-        "numberSockets": 2
-    },
-    {
-        "id": 32097,
-        "numberSockets": 3
-    },
-    {
-        "id": 32098,
-        "numberSockets": 2
-    },
-    {
-        "id": 32101,
-        "numberSockets": 2
-    },
-    {
-        "id": 32102,
-        "numberSockets": 3
-    },
-    {
-        "id": 32104,
-        "numberSockets": 2
-    },
-    {
-        "id": 32106,
-        "numberSockets": 2
-    },
-    {
-        "id": 32107,
-        "numberSockets": 3
-    },
-    {
-        "id": 32108,
-        "numberSockets": 2
-    },
-    {
-        "id": 32109,
-        "numberSockets": 2
-    },
-    {
-        "id": 32111,
-        "numberSockets": 3
-    },
-    {
-        "id": 32114,
-        "numberSockets": 2
-    },
-    {
-        "id": 32116,
-        "numberSockets": 2
-    },
-    {
-        "id": 32117,
-        "numberSockets": 3
-    },
-    {
-        "id": 32119,
-        "numberSockets": 2
-    },
-    {
-        "id": 32121,
-        "numberSockets": 2
-    },
-    {
-        "id": 32123,
-        "numberSockets": 3
-    },
-    {
-        "id": 32125,
-        "numberSockets": 2
-    },
-    {
-        "id": 32126,
-        "numberSockets": 2
-    },
-    {
-        "id": 32127,
-        "numberSockets": 3
-    },
-    {
-        "id": 32129,
-        "numberSockets": 2
-    },
-    {
-        "id": 32131,
-        "numberSockets": 2
-    },
-    {
-        "id": 32132,
-        "numberSockets": 3
-    },
-    {
-        "id": 32133,
-        "numberSockets": 3
-    },
-    {
-        "id": 32135,
-        "numberSockets": 2
-    },
-    {
-        "id": 32137,
-        "numberSockets": 2
-    },
-    {
-        "id": 32138,
-        "numberSockets": 3
-    },
-    {
-        "id": 32140,
-        "numberSockets": 2
-    },
-    {
-        "id": 32142,
-        "numberSockets": 2
-    },
-    {
-        "id": 32143,
-        "numberSockets": 3
-    },
-    {
-        "id": 32145,
-        "numberSockets": 2
-    },
-    {
-        "id": 32147,
-        "numberSockets": 2
-    },
-    {
-        "id": 32148,
-        "numberSockets": 3
-    },
-    {
-        "id": 32150,
-        "numberSockets": 2
-    },
-    {
-        "id": 32152,
-        "numberSockets": 2
-    },
-    {
-        "id": 32153,
-        "numberSockets": 3
-    },
-    {
-        "id": 32155,
-        "numberSockets": 2
-    },
-    {
-        "id": 32157,
-        "numberSockets": 2
-    },
-    {
-        "id": 32158,
-        "numberSockets": 3
-    },
-    {
-        "id": 32160,
-        "numberSockets": 2
-    },
-    {
-        "id": 32162,
-        "numberSockets": 2
-    },
-    {
-        "id": 32163,
-        "numberSockets": 3
-    },
-    {
-        "id": 32165,
-        "numberSockets": 2
-    },
-    {
-        "id": 32167,
-        "numberSockets": 2
-    },
-    {
-        "id": 32168,
-        "numberSockets": 3
-    },
-    {
-        "id": 32170,
-        "numberSockets": 2
-    },
-    {
-        "id": 32172,
-        "numberSockets": 2
-    },
-    {
-        "id": 32235,
-        "numberSockets": 2
-    },
-    {
-        "id": 32239,
-        "numberSockets": 2
-    },
-    {
-        "id": 32240,
-        "numberSockets": 2
-    },
-    {
-        "id": 32241,
-        "numberSockets": 2
-    },
-    {
-        "id": 32245,
-        "numberSockets": 2
-    },
-    {
-        "id": 32252,
-        "numberSockets": 3
-    },
-    {
-        "id": 32263,
-        "numberSockets": 3
-    },
-    {
-        "id": 32267,
-        "numberSockets": 2
-    },
-    {
-        "id": 32268,
-        "numberSockets": 2
-    },
-    {
-        "id": 32271,
-        "numberSockets": 3
-    },
-    {
-        "id": 32278,
-        "numberSockets": 2
-    },
-    {
-        "id": 32324,
-        "numberSockets": 1
-    },
-    {
-        "id": 32328,
-        "numberSockets": 2
-    },
-    {
-        "id": 32329,
-        "numberSockets": 2
-    },
-    {
-        "id": 32333,
-        "numberSockets": 2
-    },
-    {
-        "id": 32342,
-        "numberSockets": 2
-    },
-    {
-        "id": 32345,
-        "numberSockets": 2
-    },
-    {
-        "id": 32352,
-        "numberSockets": 2
-    },
-    {
-        "id": 32353,
-        "numberSockets": 2
-    },
-    {
-        "id": 32354,
-        "numberSockets": 2
-    },
-    {
-        "id": 32366,
-        "numberSockets": 2
-    },
-    {
-        "id": 32367,
-        "numberSockets": 3
-    },
-    {
-        "id": 32373,
-        "numberSockets": 2
-    },
-    {
-        "id": 32376,
-        "numberSockets": 2
-    },
-    {
-        "id": 32461,
-        "numberSockets": 2
-    },
-    {
-        "id": 32472,
-        "numberSockets": 2
-    },
-    {
-        "id": 32473,
-        "numberSockets": 2
-    },
-    {
-        "id": 32474,
-        "numberSockets": 2
-    },
-    {
-        "id": 32475,
-        "numberSockets": 2
-    },
-    {
-        "id": 32476,
-        "numberSockets": 2
-    },
-    {
-        "id": 32478,
-        "numberSockets": 2
-    },
-    {
-        "id": 32479,
-        "numberSockets": 2
-    },
-    {
-        "id": 32480,
-        "numberSockets": 2
-    },
-    {
-        "id": 32494,
-        "numberSockets": 2
-    },
-    {
-        "id": 32495,
-        "numberSockets": 2
-    },
-    {
-        "id": 32508,
-        "numberSockets": 2
-    },
-    {
-        "id": 32519,
-        "numberSockets": 2
-    },
-    {
-        "id": 32521,
-        "numberSockets": 2
-    },
-    {
-        "id": 32525,
-        "numberSockets": 2
-    },
-    {
-        "id": 32609,
-        "numberSockets": 2
-    },
-    {
-        "id": 32647,
-        "numberSockets": 1
-    },
-    {
-        "id": 32648,
-        "numberSockets": 2
-    },
-    {
-        "id": 32652,
-        "numberSockets": 2
-    },
-    {
-        "id": 32655,
-        "numberSockets": 1
-    },
-    {
-        "id": 32656,
-        "numberSockets": 2
-    },
-    {
-        "id": 32756,
-        "numberSockets": 1
-    },
-    {
-        "id": 32769,
-        "numberSockets": 2
-    },
-    {
-        "id": 32776,
-        "numberSockets": 3
-    },
-    {
-        "id": 32781,
-        "numberSockets": 1
-    },
-    {
-        "id": 32809,
-        "numberSockets": 1
-    },
-    {
-        "id": 32810,
-        "numberSockets": 1
-    },
-    {
-        "id": 32811,
-        "numberSockets": 1
-    },
-    {
-        "id": 32812,
-        "numberSockets": 1
-    },
-    {
-        "id": 32813,
-        "numberSockets": 1
-    },
-    {
-        "id": 32814,
-        "numberSockets": 1
-    },
-    {
-        "id": 32816,
-        "numberSockets": 1
-    },
-    {
-        "id": 32817,
-        "numberSockets": 1
-    },
-    {
-        "id": 32818,
-        "numberSockets": 1
-    },
-    {
-        "id": 32819,
-        "numberSockets": 1
-    },
-    {
-        "id": 32820,
-        "numberSockets": 1
-    },
-    {
-        "id": 32821,
-        "numberSockets": 1
-    },
-    {
-        "id": 32865,
-        "numberSockets": 2
-    },
-    {
-        "id": 32866,
-        "numberSockets": 2
-    },
-    {
-        "id": 32867,
-        "numberSockets": 2
-    },
-    {
-        "id": 32868,
-        "numberSockets": 2
-    },
-    {
-        "id": 32869,
-        "numberSockets": 3
-    },
-    {
-        "id": 32870,
-        "numberSockets": 3
-    },
-    {
-        "id": 32871,
-        "numberSockets": 3
-    },
-    {
-        "id": 32872,
-        "numberSockets": 1
-    },
-    {
-        "id": 32973,
-        "numberSockets": 1
-    },
-    {
-        "id": 32977,
-        "numberSockets": 1
-    },
-    {
-        "id": 32980,
-        "numberSockets": 1
-    },
-    {
-        "id": 32983,
-        "numberSockets": 1
-    },
-    {
-        "id": 32986,
-        "numberSockets": 1
-    },
-    {
-        "id": 32989,
-        "numberSockets": 1
-    },
-    {
-        "id": 32991,
-        "numberSockets": 1
-    },
-    {
-        "id": 32994,
-        "numberSockets": 1
-    },
-    {
-        "id": 32997,
-        "numberSockets": 1
-    },
-    {
-        "id": 33065,
-        "numberSockets": 1
-    },
-    {
-        "id": 33066,
-        "numberSockets": 1
-    },
-    {
-        "id": 33067,
-        "numberSockets": 1
-    },
-    {
-        "id": 33068,
-        "numberSockets": 1
-    },
-    {
-        "id": 33118,
-        "numberSockets": 2
-    },
-    {
-        "id": 33122,
-        "numberSockets": 1
-    },
-    {
-        "id": 33173,
-        "numberSockets": 2
-    },
-    {
-        "id": 33191,
-        "numberSockets": 1
-    },
-    {
-        "id": 33192,
-        "numberSockets": 1
-    },
-    {
-        "id": 33203,
-        "numberSockets": 3
-    },
-    {
-        "id": 33204,
-        "numberSockets": 3
-    },
-    {
-        "id": 33206,
-        "numberSockets": 2
-    },
-    {
-        "id": 33207,
-        "numberSockets": 2
-    },
-    {
-        "id": 33211,
-        "numberSockets": 1
-    },
-    {
-        "id": 33216,
-        "numberSockets": 3
-    },
-    {
-        "id": 33222,
-        "numberSockets": 2
-    },
-    {
-        "id": 33279,
-        "numberSockets": 2
-    },
-    {
-        "id": 33285,
-        "numberSockets": 1
-    },
-    {
-        "id": 33286,
-        "numberSockets": 3
-    },
-    {
-        "id": 33287,
-        "numberSockets": 2
-    },
-    {
-        "id": 33293,
-        "numberSockets": 1
-    },
-    {
-        "id": 33303,
-        "numberSockets": 2
-    },
-    {
-        "id": 33324,
-        "numberSockets": 2
-    },
-    {
-        "id": 33326,
-        "numberSockets": 1
-    },
-    {
-        "id": 33327,
-        "numberSockets": 3
-    },
-    {
-        "id": 33331,
-        "numberSockets": 2
-    },
-    {
-        "id": 33332,
-        "numberSockets": 1
-    },
-    {
-        "id": 33356,
-        "numberSockets": 3
-    },
-    {
-        "id": 33421,
-        "numberSockets": 3
-    },
-    {
-        "id": 33432,
-        "numberSockets": 3
-    },
-    {
-        "id": 33446,
-        "numberSockets": 2
-    },
-    {
-        "id": 33453,
-        "numberSockets": 3
-    },
-    {
-        "id": 33463,
-        "numberSockets": 3
-    },
-    {
-        "id": 33471,
-        "numberSockets": 2
-    },
-    {
-        "id": 33473,
-        "numberSockets": 3
-    },
-    {
-        "id": 33476,
-        "numberSockets": 1
-    },
-    {
-        "id": 33479,
-        "numberSockets": 3
-    },
-    {
-        "id": 33480,
-        "numberSockets": 2
-    },
-    {
-        "id": 33481,
-        "numberSockets": 2
-    },
-    {
-        "id": 33483,
-        "numberSockets": 2
-    },
-    {
-        "id": 33490,
-        "numberSockets": 3
-    },
-    {
-        "id": 33492,
-        "numberSockets": 2
-    },
-    {
-        "id": 33493,
-        "numberSockets": 2
-    },
-    {
-        "id": 33494,
-        "numberSockets": 3
-    },
-    {
-        "id": 33495,
-        "numberSockets": 1
-    },
-    {
-        "id": 33501,
-        "numberSockets": 3
-    },
-    {
-        "id": 33512,
-        "numberSockets": 2
-    },
-    {
-        "id": 33515,
-        "numberSockets": 3
-    },
-    {
-        "id": 33517,
-        "numberSockets": 2
-    },
-    {
-        "id": 33518,
-        "numberSockets": 3
-    },
-    {
-        "id": 33520,
-        "numberSockets": 1
-    },
-    {
-        "id": 33522,
-        "numberSockets": 3
-    },
-    {
-        "id": 33523,
-        "numberSockets": 2
-    },
-    {
-        "id": 33524,
-        "numberSockets": 2
-    },
-    {
-        "id": 33528,
-        "numberSockets": 2
-    },
-    {
-        "id": 33530,
-        "numberSockets": 3
-    },
-    {
-        "id": 33533,
-        "numberSockets": 3
-    },
-    {
-        "id": 33534,
-        "numberSockets": 2
-    },
-    {
-        "id": 33535,
-        "numberSockets": 1
-    },
-    {
-        "id": 33536,
-        "numberSockets": 2
-    },
-    {
-        "id": 33537,
-        "numberSockets": 2
-    },
-    {
-        "id": 33540,
-        "numberSockets": 1
-    },
-    {
-        "id": 33552,
-        "numberSockets": 3
-    },
-    {
-        "id": 33557,
-        "numberSockets": 1
-    },
-    {
-        "id": 33559,
-        "numberSockets": 2
-    },
-    {
-        "id": 33566,
-        "numberSockets": 3
-    },
-    {
-        "id": 33577,
-        "numberSockets": 2
-    },
-    {
-        "id": 33578,
-        "numberSockets": 1
-    },
-    {
-        "id": 33580,
-        "numberSockets": 1
-    },
-    {
-        "id": 33582,
-        "numberSockets": 2
-    },
-    {
-        "id": 33583,
-        "numberSockets": 2
-    },
-    {
-        "id": 33586,
-        "numberSockets": 2
-    },
-    {
-        "id": 33587,
-        "numberSockets": 2
-    },
-    {
-        "id": 33589,
-        "numberSockets": 1
-    },
-    {
-        "id": 33640,
-        "numberSockets": 1
-    },
-    {
-        "id": 33664,
-        "numberSockets": 3
-    },
-    {
-        "id": 33666,
-        "numberSockets": 2
-    },
-    {
-        "id": 33668,
-        "numberSockets": 2
-    },
-    {
-        "id": 33672,
-        "numberSockets": 2
-    },
-    {
-        "id": 33674,
-        "numberSockets": 2
-    },
-    {
-        "id": 33675,
-        "numberSockets": 3
-    },
-    {
-        "id": 33677,
-        "numberSockets": 2
-    },
-    {
-        "id": 33679,
-        "numberSockets": 2
-    },
-    {
-        "id": 33680,
-        "numberSockets": 3
-    },
-    {
-        "id": 33682,
-        "numberSockets": 2
-    },
-    {
-        "id": 33683,
-        "numberSockets": 2
-    },
-    {
-        "id": 33685,
-        "numberSockets": 3
-    },
-    {
-        "id": 33691,
-        "numberSockets": 2
-    },
-    {
-        "id": 33693,
-        "numberSockets": 2
-    },
-    {
-        "id": 33694,
-        "numberSockets": 3
-    },
-    {
-        "id": 33695,
-        "numberSockets": 3
-    },
-    {
-        "id": 33697,
-        "numberSockets": 2
-    },
-    {
-        "id": 33699,
-        "numberSockets": 2
-    },
-    {
-        "id": 33701,
-        "numberSockets": 2
-    },
-    {
-        "id": 33703,
-        "numberSockets": 2
-    },
-    {
-        "id": 33704,
-        "numberSockets": 3
-    },
-    {
-        "id": 33706,
-        "numberSockets": 3
-    },
-    {
-        "id": 33708,
-        "numberSockets": 2
-    },
-    {
-        "id": 33710,
-        "numberSockets": 2
-    },
-    {
-        "id": 33711,
-        "numberSockets": 3
-    },
-    {
-        "id": 33713,
-        "numberSockets": 2
-    },
-    {
-        "id": 33715,
-        "numberSockets": 2
-    },
-    {
-        "id": 33718,
-        "numberSockets": 2
-    },
-    {
-        "id": 33720,
-        "numberSockets": 2
-    },
-    {
-        "id": 33721,
-        "numberSockets": 3
-    },
-    {
-        "id": 33722,
-        "numberSockets": 3
-    },
-    {
-        "id": 33724,
-        "numberSockets": 2
-    },
-    {
-        "id": 33726,
-        "numberSockets": 2
-    },
-    {
-        "id": 33728,
-        "numberSockets": 3
-    },
-    {
-        "id": 33730,
-        "numberSockets": 2
-    },
-    {
-        "id": 33732,
-        "numberSockets": 2
-    },
-    {
-        "id": 33738,
-        "numberSockets": 3
-    },
-    {
-        "id": 33740,
-        "numberSockets": 2
-    },
-    {
-        "id": 33742,
-        "numberSockets": 2
-    },
-    {
-        "id": 33745,
-        "numberSockets": 2
-    },
-    {
-        "id": 33747,
-        "numberSockets": 2
-    },
-    {
-        "id": 33748,
-        "numberSockets": 3
-    },
-    {
-        "id": 33749,
-        "numberSockets": 3
-    },
-    {
-        "id": 33751,
-        "numberSockets": 2
-    },
-    {
-        "id": 33753,
-        "numberSockets": 2
-    },
-    {
-        "id": 33757,
-        "numberSockets": 2
-    },
-    {
-        "id": 33758,
-        "numberSockets": 2
-    },
-    {
-        "id": 33760,
-        "numberSockets": 3
-    },
-    {
-        "id": 33768,
-        "numberSockets": 2
-    },
-    {
-        "id": 33770,
-        "numberSockets": 2
-    },
-    {
-        "id": 33771,
-        "numberSockets": 3
-    },
-    {
-        "id": 33772,
-        "numberSockets": 2
-    },
-    {
-        "id": 33808,
-        "numberSockets": 3
-    },
-    {
-        "id": 33810,
-        "numberSockets": 3
-    },
-    {
-        "id": 33813,
-        "numberSockets": 1
-    },
-    {
-        "id": 33876,
-        "numberSockets": 1
-    },
-    {
-        "id": 33881,
-        "numberSockets": 1
-    },
-    {
-        "id": 33883,
-        "numberSockets": 1
-    },
-    {
-        "id": 33887,
-        "numberSockets": 1
-    },
-    {
-        "id": 33889,
-        "numberSockets": 1
-    },
-    {
-        "id": 33893,
-        "numberSockets": 1
-    },
-    {
-        "id": 33894,
-        "numberSockets": 1
-    },
-    {
-        "id": 33897,
-        "numberSockets": 1
-    },
-    {
-        "id": 33901,
-        "numberSockets": 1
-    },
-    {
-        "id": 33904,
-        "numberSockets": 1
-    },
-    {
-        "id": 33906,
-        "numberSockets": 1
-    },
-    {
-        "id": 33910,
-        "numberSockets": 1
-    },
-    {
-        "id": 33913,
-        "numberSockets": 1
-    },
-    {
-        "id": 33917,
-        "numberSockets": 1
-    },
-    {
-        "id": 33920,
-        "numberSockets": 1
-    },
-    {
-        "id": 33921,
-        "numberSockets": 1
-    },
-    {
-        "id": 33922,
-        "numberSockets": 1
-    },
-    {
-        "id": 33923,
-        "numberSockets": 1
-    },
-    {
-        "id": 33964,
-        "numberSockets": 3
-    },
-    {
-        "id": 33971,
-        "numberSockets": 3
-    },
-    {
-        "id": 33972,
-        "numberSockets": 3
-    },
-    {
-        "id": 33973,
-        "numberSockets": 2
-    },
-    {
-        "id": 34167,
-        "numberSockets": 3
-    },
-    {
-        "id": 34168,
-        "numberSockets": 3
-    },
-    {
-        "id": 34169,
-        "numberSockets": 3
-    },
-    {
-        "id": 34170,
-        "numberSockets": 3
-    },
-    {
-        "id": 34180,
-        "numberSockets": 3
-    },
-    {
-        "id": 34181,
-        "numberSockets": 3
-    },
-    {
-        "id": 34182,
-        "numberSockets": 3
-    },
-    {
-        "id": 34183,
-        "numberSockets": 1
-    },
-    {
-        "id": 34185,
-        "numberSockets": 1
-    },
-    {
-        "id": 34186,
-        "numberSockets": 3
-    },
-    {
-        "id": 34188,
-        "numberSockets": 3
-    },
-    {
-        "id": 34192,
-        "numberSockets": 2
-    },
-    {
-        "id": 34193,
-        "numberSockets": 2
-    },
-    {
-        "id": 34194,
-        "numberSockets": 2
-    },
-    {
-        "id": 34199,
-        "numberSockets": 1
-    },
-    {
-        "id": 34202,
-        "numberSockets": 2
-    },
-    {
-        "id": 34208,
-        "numberSockets": 2
-    },
-    {
-        "id": 34209,
-        "numberSockets": 2
-    },
-    {
-        "id": 34210,
-        "numberSockets": 2
-    },
-    {
-        "id": 34211,
-        "numberSockets": 3
-    },
-    {
-        "id": 34212,
-        "numberSockets": 3
-    },
-    {
-        "id": 34215,
-        "numberSockets": 3
-    },
-    {
-        "id": 34216,
-        "numberSockets": 3
-    },
-    {
-        "id": 34228,
-        "numberSockets": 3
-    },
-    {
-        "id": 34229,
-        "numberSockets": 3
-    },
-    {
-        "id": 34232,
-        "numberSockets": 3
-    },
-    {
-        "id": 34233,
-        "numberSockets": 3
-    },
-    {
-        "id": 34234,
-        "numberSockets": 2
-    },
-    {
-        "id": 34240,
-        "numberSockets": 2
-    },
-    {
-        "id": 34241,
-        "numberSockets": 1
-    },
-    {
-        "id": 34242,
-        "numberSockets": 1
-    },
-    {
-        "id": 34243,
-        "numberSockets": 2
-    },
-    {
-        "id": 34244,
-        "numberSockets": 2
-    },
-    {
-        "id": 34245,
-        "numberSockets": 2
-    },
-    {
-        "id": 34247,
-        "numberSockets": 3
-    },
-    {
-        "id": 34329,
-        "numberSockets": 1
-    },
-    {
-        "id": 34331,
-        "numberSockets": 2
-    },
-    {
-        "id": 34332,
-        "numberSockets": 2
-    },
-    {
-        "id": 34333,
-        "numberSockets": 2
-    },
-    {
-        "id": 34335,
-        "numberSockets": 1
-    },
-    {
-        "id": 34337,
-        "numberSockets": 3
-    },
-    {
-        "id": 34339,
-        "numberSockets": 2
-    },
-    {
-        "id": 34340,
-        "numberSockets": 2
-    },
-    {
-        "id": 34341,
-        "numberSockets": 2
-    },
-    {
-        "id": 34342,
-        "numberSockets": 2
-    },
-    {
-        "id": 34343,
-        "numberSockets": 2
-    },
-    {
-        "id": 34344,
-        "numberSockets": 2
-    },
-    {
-        "id": 34345,
-        "numberSockets": 2
-    },
-    {
-        "id": 34346,
-        "numberSockets": 2
-    },
-    {
-        "id": 34347,
-        "numberSockets": 1
-    },
-    {
-        "id": 34348,
-        "numberSockets": 1
-    },
-    {
-        "id": 34349,
-        "numberSockets": 1
-    },
-    {
-        "id": 34350,
-        "numberSockets": 2
-    },
-    {
-        "id": 34351,
-        "numberSockets": 2
-    },
-    {
-        "id": 34352,
-        "numberSockets": 2
-    },
-    {
-        "id": 34353,
-        "numberSockets": 2
-    },
-    {
-        "id": 34354,
-        "numberSockets": 2
-    },
-    {
-        "id": 34355,
-        "numberSockets": 2
-    },
-    {
-        "id": 34356,
-        "numberSockets": 2
-    },
-    {
-        "id": 34357,
-        "numberSockets": 2
-    },
-    {
-        "id": 34358,
-        "numberSockets": 1
-    },
-    {
-        "id": 34359,
-        "numberSockets": 1
-    },
-    {
-        "id": 34360,
-        "numberSockets": 1
-    },
-    {
-        "id": 34364,
-        "numberSockets": 3
-    },
-    {
-        "id": 34365,
-        "numberSockets": 3
-    },
-    {
-        "id": 34366,
-        "numberSockets": 2
-    },
-    {
-        "id": 34367,
-        "numberSockets": 2
-    },
-    {
-        "id": 34369,
-        "numberSockets": 3
-    },
-    {
-        "id": 34370,
-        "numberSockets": 2
-    },
-    {
-        "id": 34371,
-        "numberSockets": 3
-    },
-    {
-        "id": 34372,
-        "numberSockets": 2
-    },
-    {
-        "id": 34373,
-        "numberSockets": 3
-    },
-    {
-        "id": 34374,
-        "numberSockets": 2
-    },
-    {
-        "id": 34375,
-        "numberSockets": 3
-    },
-    {
-        "id": 34376,
-        "numberSockets": 2
-    },
-    {
-        "id": 34377,
-        "numberSockets": 3
-    },
-    {
-        "id": 34378,
-        "numberSockets": 2
-    },
-    {
-        "id": 34379,
-        "numberSockets": 3
-    },
-    {
-        "id": 34380,
-        "numberSockets": 2
-    },
-    {
-        "id": 34381,
-        "numberSockets": 3
-    },
-    {
-        "id": 34382,
-        "numberSockets": 3
-    },
-    {
-        "id": 34383,
-        "numberSockets": 3
-    },
-    {
-        "id": 34384,
-        "numberSockets": 3
-    },
-    {
-        "id": 34385,
-        "numberSockets": 3
-    },
-    {
-        "id": 34386,
-        "numberSockets": 3
-    },
-    {
-        "id": 34388,
-        "numberSockets": 2
-    },
-    {
-        "id": 34389,
-        "numberSockets": 2
-    },
-    {
-        "id": 34390,
-        "numberSockets": 2
-    },
-    {
-        "id": 34391,
-        "numberSockets": 2
-    },
-    {
-        "id": 34392,
-        "numberSockets": 2
-    },
-    {
-        "id": 34393,
-        "numberSockets": 2
-    },
-    {
-        "id": 34394,
-        "numberSockets": 3
-    },
-    {
-        "id": 34395,
-        "numberSockets": 3
-    },
-    {
-        "id": 34396,
-        "numberSockets": 3
-    },
-    {
-        "id": 34397,
-        "numberSockets": 3
-    },
-    {
-        "id": 34398,
-        "numberSockets": 3
-    },
-    {
-        "id": 34399,
-        "numberSockets": 3
-    },
-    {
-        "id": 34400,
-        "numberSockets": 2
-    },
-    {
-        "id": 34401,
-        "numberSockets": 2
-    },
-    {
-        "id": 34402,
-        "numberSockets": 2
-    },
-    {
-        "id": 34403,
-        "numberSockets": 2
-    },
-    {
-        "id": 34404,
-        "numberSockets": 2
-    },
-    {
-        "id": 34405,
-        "numberSockets": 2
-    },
-    {
-        "id": 34406,
-        "numberSockets": 2
-    },
-    {
-        "id": 34407,
-        "numberSockets": 2
-    },
-    {
-        "id": 34408,
-        "numberSockets": 2
-    },
-    {
-        "id": 34409,
-        "numberSockets": 2
-    },
-    {
-        "id": 34431,
-        "numberSockets": 1
-    },
-    {
-        "id": 34432,
-        "numberSockets": 1
-    },
-    {
-        "id": 34433,
-        "numberSockets": 1
-    },
-    {
-        "id": 34434,
-        "numberSockets": 1
-    },
-    {
-        "id": 34435,
-        "numberSockets": 1
-    },
-    {
-        "id": 34436,
-        "numberSockets": 1
-    },
-    {
-        "id": 34437,
-        "numberSockets": 1
-    },
-    {
-        "id": 34438,
-        "numberSockets": 1
-    },
-    {
-        "id": 34439,
-        "numberSockets": 1
-    },
-    {
-        "id": 34441,
-        "numberSockets": 1
-    },
-    {
-        "id": 34442,
-        "numberSockets": 1
-    },
-    {
-        "id": 34443,
-        "numberSockets": 1
-    },
-    {
-        "id": 34444,
-        "numberSockets": 1
-    },
-    {
-        "id": 34445,
-        "numberSockets": 1
-    },
-    {
-        "id": 34446,
-        "numberSockets": 1
-    },
-    {
-        "id": 34447,
-        "numberSockets": 1
-    },
-    {
-        "id": 34448,
-        "numberSockets": 1
-    },
-    {
-        "id": 34485,
-        "numberSockets": 1
-    },
-    {
-        "id": 34487,
-        "numberSockets": 1
-    },
-    {
-        "id": 34488,
-        "numberSockets": 1
-    },
-    {
-        "id": 34527,
-        "numberSockets": 1
-    },
-    {
-        "id": 34528,
-        "numberSockets": 1
-    },
-    {
-        "id": 34541,
-        "numberSockets": 1
-    },
-    {
-        "id": 34542,
-        "numberSockets": 1
-    },
-    {
-        "id": 34543,
-        "numberSockets": 1
-    },
-    {
-        "id": 34545,
-        "numberSockets": 1
-    },
-    {
-        "id": 34546,
-        "numberSockets": 1
-    },
-    {
-        "id": 34547,
-        "numberSockets": 1
-    },
-    {
-        "id": 34549,
-        "numberSockets": 1
-    },
-    {
-        "id": 34554,
-        "numberSockets": 1
-    },
-    {
-        "id": 34555,
-        "numberSockets": 1
-    },
-    {
-        "id": 34556,
-        "numberSockets": 1
-    },
-    {
-        "id": 34557,
-        "numberSockets": 1
-    },
-    {
-        "id": 34558,
-        "numberSockets": 1
-    },
-    {
-        "id": 34559,
-        "numberSockets": 1
-    },
-    {
-        "id": 34560,
-        "numberSockets": 1
-    },
-    {
-        "id": 34561,
-        "numberSockets": 1
-    },
-    {
-        "id": 34562,
-        "numberSockets": 1
-    },
-    {
-        "id": 34563,
-        "numberSockets": 1
-    },
-    {
-        "id": 34564,
-        "numberSockets": 1
-    },
-    {
-        "id": 34565,
-        "numberSockets": 1
-    },
-    {
-        "id": 34566,
-        "numberSockets": 1
-    },
-    {
-        "id": 34567,
-        "numberSockets": 1
-    },
-    {
-        "id": 34568,
-        "numberSockets": 1
-    },
-    {
-        "id": 34569,
-        "numberSockets": 1
-    },
-    {
-        "id": 34570,
-        "numberSockets": 1
-    },
-    {
-        "id": 34571,
-        "numberSockets": 1
-    },
-    {
-        "id": 34572,
-        "numberSockets": 1
-    },
-    {
-        "id": 34573,
-        "numberSockets": 1
-    },
-    {
-        "id": 34574,
-        "numberSockets": 1
-    },
-    {
-        "id": 34575,
-        "numberSockets": 1
-    },
-    {
-        "id": 34601,
-        "numberSockets": 2
-    },
-    {
-        "id": 34602,
-        "numberSockets": 1
-    },
-    {
-        "id": 34605,
-        "numberSockets": 3
-    },
-    {
-        "id": 34607,
-        "numberSockets": 2
-    },
-    {
-        "id": 34608,
-        "numberSockets": 3
-    },
-    {
-        "id": 34610,
-        "numberSockets": 3
-    },
-    {
-        "id": 34611,
-        "numberSockets": 1
-    },
-    {
-        "id": 34612,
-        "numberSockets": 2
-    },
-    {
-        "id": 34615,
-        "numberSockets": 3
-    },
-    {
-        "id": 34616,
-        "numberSockets": 1
-    },
-    {
-        "id": 34625,
-        "numberSockets": 1
-    },
-    {
-        "id": 34626,
-        "numberSockets": 3
-    },
-    {
-        "id": 34697,
-        "numberSockets": 1
-    },
-    {
-        "id": 34698,
-        "numberSockets": 1
-    },
-    {
-        "id": 34700,
-        "numberSockets": 2
-    },
-    {
-        "id": 34701,
-        "numberSockets": 3
-    },
-    {
-        "id": 34705,
-        "numberSockets": 1
-    },
-    {
-        "id": 34707,
-        "numberSockets": 2
-    },
-    {
-        "id": 34788,
-        "numberSockets": 2
-    },
-    {
-        "id": 34789,
-        "numberSockets": 1
-    },
-    {
-        "id": 34790,
-        "numberSockets": 1
-    },
-    {
-        "id": 34791,
-        "numberSockets": 2
-    },
-    {
-        "id": 34792,
-        "numberSockets": 1
-    },
-    {
-        "id": 34793,
-        "numberSockets": 2
-    },
-    {
-        "id": 34795,
-        "numberSockets": 3
-    },
-    {
-        "id": 34796,
-        "numberSockets": 3
-    },
-    {
-        "id": 34797,
-        "numberSockets": 3
-    },
-    {
-        "id": 34799,
-        "numberSockets": 3
-    },
-    {
-        "id": 34807,
-        "numberSockets": 2
-    },
-    {
-        "id": 34808,
-        "numberSockets": 2
-    },
-    {
-        "id": 34809,
-        "numberSockets": 1
-    },
-    {
-        "id": 34847,
-        "numberSockets": 2
-    },
-    {
-        "id": 34900,
-        "numberSockets": 1
-    },
-    {
-        "id": 34901,
-        "numberSockets": 2
-    },
-    {
-        "id": 34902,
-        "numberSockets": 1
-    },
-    {
-        "id": 34903,
-        "numberSockets": 1
-    },
-    {
-        "id": 34904,
-        "numberSockets": 1
-    },
-    {
-        "id": 34905,
-        "numberSockets": 2
-    },
-    {
-        "id": 34906,
-        "numberSockets": 1
-    },
-    {
-        "id": 34910,
-        "numberSockets": 2
-    },
-    {
-        "id": 34911,
-        "numberSockets": 1
-    },
-    {
-        "id": 34912,
-        "numberSockets": 1
-    },
-    {
-        "id": 34914,
-        "numberSockets": 2
-    },
-    {
-        "id": 34916,
-        "numberSockets": 1
-    },
-    {
-        "id": 34917,
-        "numberSockets": 1
-    },
-    {
-        "id": 34918,
-        "numberSockets": 2
-    },
-    {
-        "id": 34919,
-        "numberSockets": 1
-    },
-    {
-        "id": 34921,
-        "numberSockets": 1
-    },
-    {
-        "id": 34922,
-        "numberSockets": 2
-    },
-    {
-        "id": 34923,
-        "numberSockets": 1
-    },
-    {
-        "id": 34924,
-        "numberSockets": 1
-    },
-    {
-        "id": 34925,
-        "numberSockets": 2
-    },
-    {
-        "id": 34926,
-        "numberSockets": 1
-    },
-    {
-        "id": 34927,
-        "numberSockets": 1
-    },
-    {
-        "id": 34928,
-        "numberSockets": 2
-    },
-    {
-        "id": 34929,
-        "numberSockets": 1
-    },
-    {
-        "id": 34930,
-        "numberSockets": 1
-    },
-    {
-        "id": 34931,
-        "numberSockets": 2
-    },
-    {
-        "id": 34932,
-        "numberSockets": 1
-    },
-    {
-        "id": 34933,
-        "numberSockets": 1
-    },
-    {
-        "id": 34934,
-        "numberSockets": 2
-    },
-    {
-        "id": 34935,
-        "numberSockets": 1
-    },
-    {
-        "id": 34936,
-        "numberSockets": 1
-    },
-    {
-        "id": 34937,
-        "numberSockets": 2
-    },
-    {
-        "id": 34938,
-        "numberSockets": 1
-    },
-    {
-        "id": 34939,
-        "numberSockets": 1
-    },
-    {
-        "id": 34940,
-        "numberSockets": 2
-    },
-    {
-        "id": 34941,
-        "numberSockets": 1
-    },
-    {
-        "id": 34942,
-        "numberSockets": 1
-    },
-    {
-        "id": 34943,
-        "numberSockets": 2
-    },
-    {
-        "id": 34944,
-        "numberSockets": 1
-    },
-    {
-        "id": 34945,
-        "numberSockets": 1
-    },
-    {
-        "id": 34946,
-        "numberSockets": 2
-    },
-    {
-        "id": 34947,
-        "numberSockets": 1
-    },
-    {
-        "id": 34990,
-        "numberSockets": 3
-    },
-    {
-        "id": 34992,
-        "numberSockets": 2
-    },
-    {
-        "id": 34994,
-        "numberSockets": 2
-    },
-    {
-        "id": 34999,
-        "numberSockets": 2
-    },
-    {
-        "id": 35001,
-        "numberSockets": 2
-    },
-    {
-        "id": 35002,
-        "numberSockets": 3
-    },
-    {
-        "id": 35004,
-        "numberSockets": 2
-    },
-    {
-        "id": 35006,
-        "numberSockets": 2
-    },
-    {
-        "id": 35007,
-        "numberSockets": 3
-    },
-    {
-        "id": 35009,
-        "numberSockets": 2
-    },
-    {
-        "id": 35010,
-        "numberSockets": 2
-    },
-    {
-        "id": 35012,
-        "numberSockets": 3
-    },
-    {
-        "id": 35023,
-        "numberSockets": 2
-    },
-    {
-        "id": 35025,
-        "numberSockets": 2
-    },
-    {
-        "id": 35026,
-        "numberSockets": 3
-    },
-    {
-        "id": 35027,
-        "numberSockets": 3
-    },
-    {
-        "id": 35029,
-        "numberSockets": 2
-    },
-    {
-        "id": 35031,
-        "numberSockets": 2
-    },
-    {
-        "id": 35033,
-        "numberSockets": 2
-    },
-    {
-        "id": 35035,
-        "numberSockets": 2
-    },
-    {
-        "id": 35036,
-        "numberSockets": 3
-    },
-    {
-        "id": 35042,
-        "numberSockets": 3
-    },
-    {
-        "id": 35044,
-        "numberSockets": 2
-    },
-    {
-        "id": 35046,
-        "numberSockets": 2
-    },
-    {
-        "id": 35048,
-        "numberSockets": 3
-    },
-    {
-        "id": 35050,
-        "numberSockets": 2
-    },
-    {
-        "id": 35052,
-        "numberSockets": 2
-    },
-    {
-        "id": 35054,
-        "numberSockets": 2
-    },
-    {
-        "id": 35056,
-        "numberSockets": 2
-    },
-    {
-        "id": 35057,
-        "numberSockets": 3
-    },
-    {
-        "id": 35059,
-        "numberSockets": 3
-    },
-    {
-        "id": 35061,
-        "numberSockets": 2
-    },
-    {
-        "id": 35063,
-        "numberSockets": 2
-    },
-    {
-        "id": 35066,
-        "numberSockets": 3
-    },
-    {
-        "id": 35068,
-        "numberSockets": 2
-    },
-    {
-        "id": 35070,
-        "numberSockets": 2
-    },
-    {
-        "id": 35077,
-        "numberSockets": 3
-    },
-    {
-        "id": 35079,
-        "numberSockets": 2
-    },
-    {
-        "id": 35081,
-        "numberSockets": 2
-    },
-    {
-        "id": 35084,
-        "numberSockets": 2
-    },
-    {
-        "id": 35086,
-        "numberSockets": 2
-    },
-    {
-        "id": 35087,
-        "numberSockets": 3
-    },
-    {
-        "id": 35088,
-        "numberSockets": 3
-    },
-    {
-        "id": 35090,
-        "numberSockets": 2
-    },
-    {
-        "id": 35092,
-        "numberSockets": 2
-    },
-    {
-        "id": 35096,
-        "numberSockets": 2
-    },
-    {
-        "id": 35097,
-        "numberSockets": 2
-    },
-    {
-        "id": 35099,
-        "numberSockets": 3
-    },
-    {
-        "id": 35112,
-        "numberSockets": 2
-    },
-    {
-        "id": 35114,
-        "numberSockets": 2
-    },
-    {
-        "id": 35115,
-        "numberSockets": 3
-    },
-    {
-        "id": 35132,
-        "numberSockets": 1
-    },
-    {
-        "id": 35133,
-        "numberSockets": 1
-    },
-    {
-        "id": 35134,
-        "numberSockets": 1
-    },
-    {
-        "id": 35135,
-        "numberSockets": 1
-    },
-    {
-        "id": 35166,
-        "numberSockets": 1
-    },
-    {
-        "id": 35167,
-        "numberSockets": 1
-    },
-    {
-        "id": 35168,
-        "numberSockets": 1
-    },
-    {
-        "id": 35169,
-        "numberSockets": 1
-    },
-    {
-        "id": 35170,
-        "numberSockets": 1
-    },
-    {
-        "id": 35171,
-        "numberSockets": 1
-    },
-    {
-        "id": 35172,
-        "numberSockets": 1
-    },
-    {
-        "id": 35173,
-        "numberSockets": 1
-    },
-    {
-        "id": 35174,
-        "numberSockets": 1
-    },
-    {
-        "id": 35175,
-        "numberSockets": 1
-    },
-    {
-        "id": 35176,
-        "numberSockets": 1
-    },
-    {
-        "id": 35177,
-        "numberSockets": 1
-    },
-    {
-        "id": 35178,
-        "numberSockets": 1
-    },
-    {
-        "id": 35179,
-        "numberSockets": 1
-    },
-    {
-        "id": 35180,
-        "numberSockets": 1
-    },
-    {
-        "id": 35181,
-        "numberSockets": 2
-    },
-    {
-        "id": 35182,
-        "numberSockets": 2
-    },
-    {
-        "id": 35183,
-        "numberSockets": 2
-    },
-    {
-        "id": 35184,
-        "numberSockets": 2
-    },
-    {
-        "id": 35185,
-        "numberSockets": 2
-    },
-    {
-        "id": 35290,
-        "numberSockets": 1
-    },
-    {
-        "id": 35291,
-        "numberSockets": 1
-    },
-    {
-        "id": 35292,
-        "numberSockets": 1
-    },
-    {
-        "id": 35317,
-        "numberSockets": 1
-    },
-    {
-        "id": 35319,
-        "numberSockets": 1
-    },
-    {
-        "id": 35329,
-        "numberSockets": 2
-    },
-    {
-        "id": 35331,
-        "numberSockets": 2
-    },
-    {
-        "id": 35332,
-        "numberSockets": 3
-    },
-    {
-        "id": 35333,
-        "numberSockets": 2
-    },
-    {
-        "id": 35336,
-        "numberSockets": 2
-    },
-    {
-        "id": 35337,
-        "numberSockets": 3
-    },
-    {
-        "id": 35339,
-        "numberSockets": 2
-    },
-    {
-        "id": 35341,
-        "numberSockets": 2
-    },
-    {
-        "id": 35342,
-        "numberSockets": 3
-    },
-    {
-        "id": 35343,
-        "numberSockets": 2
-    },
-    {
-        "id": 35344,
-        "numberSockets": 2
-    },
-    {
-        "id": 35346,
-        "numberSockets": 3
-    },
-    {
-        "id": 35357,
-        "numberSockets": 2
-    },
-    {
-        "id": 35359,
-        "numberSockets": 2
-    },
-    {
-        "id": 35360,
-        "numberSockets": 3
-    },
-    {
-        "id": 35362,
-        "numberSockets": 2
-    },
-    {
-        "id": 35364,
-        "numberSockets": 2
-    },
-    {
-        "id": 35365,
-        "numberSockets": 3
-    },
-    {
-        "id": 35367,
-        "numberSockets": 2
-    },
-    {
-        "id": 35369,
-        "numberSockets": 2
-    },
-    {
-        "id": 35370,
-        "numberSockets": 3
-    },
-    {
-        "id": 35372,
-        "numberSockets": 2
-    },
-    {
-        "id": 35374,
-        "numberSockets": 2
-    },
-    {
-        "id": 35375,
-        "numberSockets": 3
-    },
-    {
-        "id": 35376,
-        "numberSockets": 3
-    },
-    {
-        "id": 35378,
-        "numberSockets": 2
-    },
-    {
-        "id": 35380,
-        "numberSockets": 2
-    },
-    {
-        "id": 35381,
-        "numberSockets": 3
-    },
-    {
-        "id": 35383,
-        "numberSockets": 2
-    },
-    {
-        "id": 35385,
-        "numberSockets": 2
-    },
-    {
-        "id": 35386,
-        "numberSockets": 3
-    },
-    {
-        "id": 35388,
-        "numberSockets": 2
-    },
-    {
-        "id": 35390,
-        "numberSockets": 2
-    },
-    {
-        "id": 35391,
-        "numberSockets": 3
-    },
-    {
-        "id": 35393,
-        "numberSockets": 2
-    },
-    {
-        "id": 35395,
-        "numberSockets": 2
-    },
-    {
-        "id": 35402,
-        "numberSockets": 3
-    },
-    {
-        "id": 35404,
-        "numberSockets": 2
-    },
-    {
-        "id": 35406,
-        "numberSockets": 2
-    },
-    {
-        "id": 35407,
-        "numberSockets": 3
-    },
-    {
-        "id": 35409,
-        "numberSockets": 2
-    },
-    {
-        "id": 35411,
-        "numberSockets": 2
-    },
-    {
-        "id": 35412,
-        "numberSockets": 3
-    },
-    {
-        "id": 35414,
-        "numberSockets": 2
-    },
-    {
-        "id": 35416,
-        "numberSockets": 2
-    },
-    {
-        "id": 35464,
-        "numberSockets": 3
-    },
-    {
-        "id": 35465,
-        "numberSockets": 2
-    },
-    {
-        "id": 35466,
-        "numberSockets": 2
-    },
-    {
-        "id": 35467,
-        "numberSockets": 3
-    },
-    {
-        "id": 35469,
-        "numberSockets": 3
-    },
-    {
-        "id": 35470,
-        "numberSockets": 2
-    },
-    {
-        "id": 35472,
-        "numberSockets": 3
-    },
-    {
-        "id": 35474,
-        "numberSockets": 2
-    },
-    {
-        "id": 35476,
-        "numberSockets": 2
-    },
-    {
-        "id": 35478,
-        "numberSockets": 2
-    },
-    {
-        "id": 37928,
-        "numberSockets": 1
-    },
-    {
-        "id": 37929,
-        "numberSockets": 1
-    },
-    {
-        "id": null,
-        "numberSockets": null
-    },
-    {
-        "id": null,
-        "numberSockets": null
-    },
-    {
-        "id": null,
-        "numberSockets": null
-    }
-];
+export const listOfSocketItems: { [key: number]: number } = {
+    21846: 2
+    , 21847: 2
+    , 21848: 2
+    , 21863: 2
+    , 21864: 2
+    , 21865: 3
+    , 21869: 2
+    , 21870: 2
+    , 21871: 2
+    , 21873: 2
+    , 21875: 2
+    , 23229: 2
+    , 23230: 1
+    , 23232: 3
+    , 23362: 3
+    , 23363: 3
+    , 23506: 1
+    , 23507: 3
+    , 23508: 2
+    , 23509: 3
+    , 23510: 2
+    , 23511: 2
+    , 23512: 3
+    , 23513: 3
+    , 23514: 2
+    , 23515: 1
+    , 23516: 3
+    , 23517: 2
+    , 23518: 3
+    , 23519: 3
+    , 23526: 2
+    , 23531: 2
+    , 23532: 2
+    , 23533: 2
+    , 23534: 3
+    , 23535: 3
+    , 23536: 3
+    , 23542: 1
+    , 23563: 3
+    , 23564: 3
+    , 23565: 3
+    , 24021: 3
+    , 24022: 3
+    , 24046: 3
+    , 24063: 2
+    , 24064: 2
+    , 24083: 3
+    , 24090: 2
+    , 24091: 2
+    , 24249: 1
+    , 24250: 1
+    , 24251: 1
+    , 24255: 2
+    , 24256: 2
+    , 24257: 2
+    , 24259: 1
+    , 24261: 3
+    , 24262: 3
+    , 24263: 2
+    , 24264: 3
+    , 24266: 3
+    , 24267: 2
+    , 24357: 3
+    , 24363: 3
+    , 24365: 2
+    , 24366: 2
+    , 24387: 2
+    , 24388: 2
+    , 24391: 3
+    , 24393: 2
+    , 24395: 2
+    , 24396: 3
+    , 24397: 3
+    , 24450: 2
+    , 24452: 2
+    , 24455: 3
+    , 24456: 3
+    , 24457: 2
+    , 24458: 2
+    , 24461: 3
+    , 24463: 2
+    , 24465: 3
+    , 24466: 3
+    , 24481: 3
+    , 24544: 3
+    , 24545: 2
+    , 24546: 2
+    , 24552: 3
+    , 24553: 2
+    , 24554: 2
+    , 25685: 2
+    , 25686: 2
+    , 25687: 3
+    , 25689: 3
+    , 25690: 3
+    , 25691: 2
+    , 25692: 3
+    , 25693: 2
+    , 25694: 2
+    , 25695: 2
+    , 25696: 3
+    , 25697: 1
+    , 25830: 2
+    , 25831: 3
+    , 25832: 2
+    , 25838: 3
+    , 25854: 2
+    , 25855: 2
+    , 25856: 3
+    , 25922: 2
+    , 25923: 2
+    , 25924: 2
+    , 25925: 2
+    , 25929: 3
+    , 25930: 3
+    , 25931: 3
+    , 25932: 3
+    , 25942: 2
+    , 25955: 3
+    , 25967: 2
+    , 25968: 2
+    , 25969: 2
+    , 25970: 2
+    , 25997: 3
+    , 25998: 2
+    , 25999: 2
+    , 27408: 3
+    , 27409: 3
+    , 27411: 2
+    , 27414: 3
+    , 27417: 2
+    , 27427: 3
+    , 27428: 2
+    , 27430: 3
+    , 27433: 2
+    , 27434: 2
+    , 27465: 2
+    , 27469: 3
+    , 27471: 2
+    , 27473: 2
+    , 27474: 2
+    , 27475: 2
+    , 27478: 2
+    , 27487: 3
+    , 27492: 3
+    , 27497: 3
+    , 27514: 3
+    , 27527: 3
+    , 27528: 2
+    , 27531: 2
+    , 27545: 3
+    , 27647: 1
+    , 27648: 2
+    , 27649: 1
+    , 27650: 1
+    , 27652: 1
+    , 27653: 1
+    , 27654: 1
+    , 27672: 2
+    , 27702: 3
+    , 27704: 2
+    , 27706: 2
+    , 27708: 2
+    , 27710: 2
+    , 27711: 3
+    , 27713: 2
+    , 27715: 3
+    , 27717: 3
+    , 27718: 3
+    , 27719: 3
+    , 27720: 3
+    , 27737: 2
+    , 27738: 2
+    , 27739: 2
+    , 27743: 2
+    , 27755: 2
+    , 27760: 2
+    , 27771: 2
+    , 27773: 3
+    , 27775: 2
+    , 27776: 2
+    , 27778: 2
+    , 27793: 2
+    , 27796: 2
+    , 27797: 2
+    , 27798: 2
+    , 27801: 2
+    , 27802: 2
+    , 27803: 2
+    , 27813: 2
+    , 27830: 1
+    , 27832: 1
+    , 27833: 1
+    , 27834: 1
+    , 27837: 3
+    , 27843: 2
+    , 27846: 2
+    , 27847: 2
+    , 27879: 3
+    , 27881: 2
+    , 27883: 2
+    , 27893: 3
+    , 27901: 2
+    , 27985: 2
+    , 27986: 3
+    , 28124: 2
+    , 28127: 2
+    , 28129: 2
+    , 28130: 3
+    , 28137: 2
+    , 28139: 2
+    , 28140: 3
+    , 28167: 1
+    , 28170: 1
+    , 28171: 1
+    , 28174: 1
+    , 28176: 2
+    , 28177: 2
+    , 28178: 2
+    , 28179: 2
+    , 28180: 2
+    , 28181: 2
+    , 28182: 2
+    , 28183: 2
+    , 28185: 3
+    , 28186: 3
+    , 28191: 3
+    , 28192: 2
+    , 28193: 2
+    , 28202: 3
+    , 28203: 3
+    , 28204: 3
+    , 28205: 3
+    , 28212: 3
+    , 28218: 3
+    , 28219: 3
+    , 28222: 3
+    , 28224: 2
+    , 28225: 2
+    , 28228: 3
+    , 28229: 3
+    , 28230: 3
+    , 28231: 3
+    , 28232: 3
+    , 28244: 1
+    , 28245: 1
+    , 28264: 3
+    , 28275: 2
+    , 28278: 2
+    , 28285: 2
+    , 28318: 2
+    , 28331: 2
+    , 28333: 2
+    , 28334: 3
+    , 28337: 3
+    , 28338: 3
+    , 28339: 2
+    , 28342: 3
+    , 28348: 2
+    , 28349: 2
+    , 28350: 2
+    , 28381: 1
+    , 28393: 3
+    , 28396: 2
+    , 28401: 3
+    , 28403: 3
+    , 28405: 1
+    , 28406: 2
+    , 28411: 1
+    , 28413: 2
+    , 28414: 2
+    , 28415: 2
+    , 28424: 1
+    , 28445: 1
+    , 28448: 1
+    , 28451: 1
+    , 28483: 3
+    , 28484: 3
+    , 28485: 3
+    , 28502: 1
+    , 28505: 2
+    , 28506: 2
+    , 28507: 2
+    , 28508: 2
+    , 28517: 2
+    , 28518: 2
+    , 28519: 2
+    , 28520: 2
+    , 28521: 2
+    , 28545: 2
+    , 28559: 1
+    , 28560: 1
+    , 28561: 1
+    , 28566: 2
+    , 28572: 3
+    , 28574: 1
+    , 28575: 1
+    , 28576: 1
+    , 28577: 1
+    , 28591: 3
+    , 28593: 3
+    , 28594: 3
+    , 28597: 3
+    , 28605: 1
+    , 28608: 2
+    , 28610: 2
+    , 28613: 3
+    , 28615: 2
+    , 28617: 2
+    , 28619: 2
+    , 28621: 3
+    , 28622: 2
+    , 28623: 3
+    , 28625: 2
+    , 28627: 2
+    , 28628: 3
+    , 28638: 1
+    , 28643: 1
+    , 28646: 1
+    , 28657: 1
+    , 28679: 3
+    , 28681: 2
+    , 28683: 2
+    , 28685: 2
+    , 28687: 2
+    , 28688: 3
+    , 28689: 3
+    , 28691: 2
+    , 28693: 2
+    , 28694: 3
+    , 28696: 2
+    , 28698: 2
+    , 28699: 3
+    , 28701: 2
+    , 28703: 2
+    , 28705: 2
+    , 28707: 2
+    , 28708: 3
+    , 28709: 3
+    , 28711: 2
+    , 28713: 2
+    , 28714: 2
+    , 28715: 2
+    , 28717: 3
+    , 28720: 2
+    , 28722: 2
+    , 28723: 3
+    , 28740: 3
+    , 28741: 3
+    , 28742: 3
+    , 28743: 2
+    , 28746: 2
+    , 28747: 2
+    , 28748: 3
+    , 28750: 2
+    , 28751: 3
+    , 28752: 2
+    , 28755: 2
+    , 28758: 1
+    , 28759: 1
+    , 28760: 1
+    , 28761: 1
+    , 28774: 3
+    , 28776: 2
+    , 28778: 2
+    , 28779: 2
+    , 28780: 2
+    , 28795: 2
+    , 28799: 2
+    , 28800: 3
+    , 28805: 3
+    , 28807: 2
+    , 28809: 2
+    , 28812: 2
+    , 28814: 2
+    , 28815: 3
+    , 28818: 2
+    , 28820: 2
+    , 28821: 3
+    , 28824: 2
+    , 28825: 1
+    , 28827: 2
+    , 28828: 2
+    , 28831: 3
+    , 28833: 2
+    , 28835: 2
+    , 28837: 2
+    , 28839: 2
+    , 28840: 3
+    , 28841: 3
+    , 28843: 2
+    , 28845: 2
+    , 28846: 3
+    , 28848: 2
+    , 28850: 2
+    , 28851: 3
+    , 28853: 2
+    , 28855: 2
+    , 28857: 2
+    , 28859: 2
+    , 28860: 3
+    , 28861: 3
+    , 28863: 2
+    , 28865: 2
+    , 28866: 2
+    , 28867: 2
+    , 28869: 3
+    , 28872: 2
+    , 28874: 2
+    , 28875: 3
+    , 28963: 2
+    , 28964: 3
+    , 28967: 2
+    , 28973: 1
+    , 28978: 1
+    , 28981: 1
+    , 28984: 1
+    , 28988: 1
+    , 28989: 1
+    , 28992: 1
+    , 28996: 1
+    , 28999: 1
+    , 29002: 1
+    , 29006: 1
+    , 29011: 2
+    , 29012: 3
+    , 29016: 2
+    , 29019: 3
+    , 29021: 2
+    , 29023: 2
+    , 29028: 2
+    , 29029: 3
+    , 29031: 2
+    , 29033: 3
+    , 29035: 2
+    , 29037: 2
+    , 29038: 3
+    , 29040: 2
+    , 29043: 2
+    , 29044: 2
+    , 29045: 3
+    , 29047: 2
+    , 29049: 2
+    , 29050: 3
+    , 29054: 2
+    , 29056: 3
+    , 29058: 2
+    , 29060: 2
+    , 29061: 2
+    , 29062: 3
+    , 29064: 2
+    , 29066: 3
+    , 29068: 2
+    , 29070: 2
+    , 29071: 3
+    , 29073: 2
+    , 29075: 2
+    , 29076: 2
+    , 29077: 3
+    , 29079: 2
+    , 29081: 2
+    , 29082: 3
+    , 29084: 2
+    , 29086: 2
+    , 29087: 3
+    , 29089: 2
+    , 29091: 3
+    , 29093: 2
+    , 29095: 2
+    , 29096: 3
+    , 29098: 2
+    , 29100: 2
+    , 29122: 2
+    , 29129: 3
+    , 29135: 3
+    , 29136: 3
+    , 29141: 3
+    , 29142: 3
+    , 29176: 2
+    , 29184: 3
+    , 29316: 2
+    , 29317: 2
+    , 29318: 2
+    , 29319: 2
+    , 29337: 3
+    , 29339: 3
+    , 29340: 3
+    , 29341: 3
+    , 29342: 3
+    , 29343: 3
+    , 29344: 3
+    , 29345: 3
+    , 29489: 3
+    , 29490: 2
+    , 29491: 2
+    , 29492: 3
+    , 29493: 2
+    , 29494: 2
+    , 29495: 3
+    , 29496: 2
+    , 29497: 2
+    , 29498: 3
+    , 29499: 2
+    , 29500: 2
+    , 29515: 3
+    , 29516: 2
+    , 29517: 1
+    , 29519: 3
+    , 29520: 2
+    , 29521: 1
+    , 29522: 3
+    , 29523: 1
+    , 29524: 2
+    , 29950: 3
+    , 29951: 2
+    , 29966: 1
+    , 29972: 3
+    , 29976: 2
+    , 29984: 2
+    , 29985: 3
+    , 29986: 3
+    , 29991: 3
+    , 29993: 3
+    , 29998: 2,
+    30030: 2
+    , 30032: 2
+    , 30034: 2
+    , 30036: 2
+    , 30038: 2
+    , 30040: 2
+    , 30042: 2
+    , 30044: 2
+    , 30046: 2
+    , 30047: 1
+    , 30053: 2
+    , 30054: 3
+    , 30055: 1
+    , 30056: 3
+    , 30057: 1
+    , 30064: 2
+    , 30074: 3
+    , 30076: 3
+    , 30079: 2
+    , 30091: 1
+    , 30092: 2
+    , 30096: 2
+    , 30097: 2
+    , 30100: 2
+    , 30101: 3
+    , 30104: 2
+    , 30106: 2
+    , 30107: 3
+    , 30112: 2
+    , 30113: 3
+    , 30115: 2
+    , 30116: 1
+    , 30117: 2
+    , 30118: 3
+    , 30120: 2
+    , 30121: 1
+    , 30122: 2
+    , 30123: 3
+    , 30125: 2
+    , 30126: 1
+    , 30127: 2
+    , 30129: 3
+    , 30131: 2
+    , 30132: 1
+    , 30133: 2
+    , 30134: 3
+    , 30136: 2
+    , 30137: 1
+    , 30138: 2
+    , 30139: 3
+    , 30141: 2
+    , 30142: 1
+    , 30143: 2
+    , 30144: 3
+    , 30146: 2
+    , 30148: 1
+    , 30149: 2
+    , 30150: 3
+    , 30152: 2
+    , 30153: 1
+    , 30154: 2
+    , 30159: 3
+    , 30161: 2
+    , 30162: 1
+    , 30163: 2
+    , 30164: 3
+    , 30166: 2
+    , 30167: 1
+    , 30168: 2
+    , 30169: 3
+    , 30171: 2
+    , 30172: 1
+    , 30173: 2
+    , 30185: 3
+    , 30186: 2
+    , 30187: 2
+    , 30190: 2
+    , 30192: 1
+    , 30194: 2
+    , 30196: 3
+    , 30200: 3
+    , 30206: 2
+    , 30207: 1
+    , 30210: 2
+    , 30212: 2
+    , 30213: 1
+    , 30214: 3
+    , 30215: 2
+    , 30216: 3
+    , 30219: 2
+    , 30220: 1
+    , 30221: 2
+    , 30222: 3
+    , 30228: 2
+    , 30229: 1
+    , 30230: 2
+    , 30231: 3
+    , 30233: 2
+    , 30234: 1
+    , 30235: 2
+    , 30486: 3
+    , 30488: 2
+    , 30490: 2
+    , 30531: 3
+    , 30532: 3
+    , 30533: 3
+    , 30534: 3
+    , 30535: 3
+    , 30536: 3
+    , 30538: 3
+    , 30541: 3
+    , 30543: 3
+    , 30722: 3
+    , 30723: 2
+    , 30724: 2
+    , 30725: 2
+    , 30727: 3
+    , 30728: 3
+    , 30730: 3
+    , 30731: 3
+    , 30732: 3
+    , 30734: 3
+    , 30737: 2
+    , 30739: 3
+    , 30740: 2
+    , 30741: 2
+    , 30861: 1
+    , 30862: 1
+    , 30863: 1
+    , 30864: 1
+    , 30868: 1
+    , 30869: 1
+    , 30870: 1
+    , 30871: 1
+    , 30878: 2
+    , 30879: 2
+    , 30880: 2
+    , 30882: 1
+    , 30884: 2
+    , 30888: 2
+    , 30889: 1
+    , 30893: 3
+    , 30897: 2
+    , 30900: 3
+    , 30905: 3
+    , 30912: 3
+    , 30916: 3
+    , 30969: 1
+    , 30970: 1
+    , 30972: 2
+    , 30974: 2
+    , 30975: 3
+    , 30976: 3
+    , 30977: 1
+    , 30978: 1
+    , 30979: 2
+    , 30980: 2
+    , 30982: 1
+    , 30983: 1
+    , 30985: 1
+    , 30987: 2
+    , 30988: 2
+    , 30989: 2
+    , 30990: 3
+    , 30991: 3
+    , 30992: 3
+    , 30993: 1
+    , 30994: 1
+    , 30995: 1
+    , 30996: 2
+    , 30997: 2
+    , 30998: 2
+    , 31001: 1
+    , 31003: 2
+    , 31004: 3
+    , 31005: 1
+    , 31006: 2
+    , 31007: 1
+    , 31008: 1
+    , 31011: 1
+    , 31012: 2
+    , 31014: 2
+    , 31015: 2
+    , 31016: 3
+    , 31017: 3
+    , 31018: 3
+    , 31019: 1
+    , 31020: 1
+    , 31021: 1
+    , 31022: 2
+    , 31023: 2
+    , 31024: 2
+    , 31026: 1
+    , 31027: 2
+    , 31028: 3
+    , 31029: 1
+    , 31030: 2
+    , 31032: 1
+    , 31034: 1
+    , 31035: 1
+    , 31037: 2
+    , 31039: 2
+    , 31040: 2
+    , 31041: 3
+    , 31042: 3
+    , 31043: 3
+    , 31044: 1
+    , 31045: 1
+    , 31046: 1
+    , 31047: 2
+    , 31048: 2
+    , 31049: 2
+    , 31050: 1
+    , 31051: 2
+    , 31052: 3
+    , 31053: 1
+    , 31054: 2
+    , 31055: 1
+    , 31056: 2
+    , 31057: 3
+    , 31058: 1
+    , 31059: 2
+    , 31060: 1
+    , 31061: 1
+    , 31063: 2
+    , 31064: 2
+    , 31065: 3
+    , 31066: 3
+    , 31067: 1
+    , 31068: 1
+    , 31069: 2
+    , 31070: 2
+    , 31104: 3
+    , 31105: 3
+    , 31106: 3
+    , 31107: 3
+    , 31109: 3
+    , 31110: 3
+    , 31376: 2
+    , 31378: 2
+    , 31379: 3
+    , 31396: 3
+    , 31400: 2
+    , 31407: 2
+    , 31410: 2
+    , 31412: 2
+    , 31413: 3
+    , 31585: 2
+    , 31587: 2
+    , 31588: 3
+    , 31590: 2
+    , 31592: 2
+    , 31593: 3
+    , 31598: 1
+    , 31599: 1
+    , 31613: 3
+    , 31616: 2
+    , 31619: 2
+    , 31622: 2
+    , 31624: 2
+    , 31625: 3
+    , 31626: 2
+    , 31628: 2
+    , 31629: 3
+    , 31630: 3
+    , 31632: 2
+    , 31634: 2
+    , 31635: 3
+    , 31637: 2
+    , 31639: 2
+    , 31640: 3
+    , 31642: 2
+    , 31644: 2
+    , 31646: 3
+    , 31648: 2
+    , 31650: 2
+    , 31657: 3
+    , 31658: 3
+    , 31960: 3
+    , 31962: 2
+    , 31964: 2
+    , 31968: 2
+    , 31971: 2
+    , 31972: 3
+    , 31974: 2
+    , 31976: 2
+    , 31977: 3
+    , 31979: 2
+    , 31980: 2
+    , 31982: 3
+    , 31988: 2
+    , 31990: 2
+    , 31991: 3
+    , 31992: 3
+    , 31996: 2
+    , 31997: 2
+    , 31999: 2
+    , 32001: 2
+    , 32002: 3
+    , 32004: 3
+    , 32006: 2
+    , 32008: 2
+    , 32009: 3
+    , 32011: 2
+    , 32013: 2
+    , 32016: 2
+    , 32018: 2
+    , 32019: 3
+    , 32020: 3
+    , 32022: 2
+    , 32024: 2
+    , 32029: 3
+    , 32031: 2
+    , 32033: 2
+    , 32035: 2
+    , 32037: 2
+    , 32038: 3
+    , 32039: 3
+    , 32041: 2
+    , 32043: 2
+    , 32047: 2
+    , 32048: 2
+    , 32050: 3
+    , 32057: 2
+    , 32059: 2
+    , 32060: 3
+    , 32083: 2
+    , 32084: 2
+    , 32085: 2
+    , 32086: 2
+    , 32087: 2
+    , 32088: 2
+    , 32089: 2
+    , 32090: 2
+    , 32094: 2
+    , 32096: 2
+    , 32097: 3
+    , 32098: 2
+    , 32101: 2
+    , 32102: 3
+    , 32104: 2
+    , 32106: 2
+    , 32107: 3
+    , 32108: 2
+    , 32109: 2
+    , 32111: 3
+    , 32114: 2
+    , 32116: 2
+    , 32117: 3
+    , 32119: 2
+    , 32121: 2
+    , 32123: 3
+    , 32125: 2
+    , 32126: 2
+    , 32127: 3
+    , 32129: 2
+    , 32131: 2
+    , 32132: 3
+    , 32133: 3
+    , 32135: 2
+    , 32137: 2
+    , 32138: 3
+    , 32140: 2
+    , 32142: 2
+    , 32143: 3
+    , 32145: 2
+    , 32147: 2
+    , 32148: 3
+    , 32150: 2
+    , 32152: 2
+    , 32153: 3
+    , 32155: 2
+    , 32157: 2
+    , 32158: 3
+    , 32160: 2
+    , 32162: 2
+    , 32163: 3
+    , 32165: 2
+    , 32167: 2
+    , 32168: 3
+    , 32170: 2
+    , 32172: 2
+    , 32235: 2
+    , 32239: 2
+    , 32240: 2
+    , 32241: 2
+    , 32245: 2
+    , 32252: 3
+    , 32263: 3
+    , 32267: 2
+    , 32268: 2
+    , 32271: 3
+    , 32278: 2
+    , 32324: 1
+    , 32328: 2
+    , 32329: 2
+    , 32333: 2
+    , 32342: 2
+    , 32345: 2
+    , 32352: 2
+    , 32353: 2
+    , 32354: 2
+    , 32366: 2
+    , 32367: 3
+    , 32373: 2
+    , 32376: 2
+    , 32461: 2
+    , 32472: 2
+    , 32473: 2
+    , 32474: 2
+    , 32475: 2
+    , 32476: 2
+    , 32478: 2
+    , 32479: 2
+    , 32480: 2
+    , 32494: 2
+    , 32495: 2
+    , 32508: 2
+    , 32519: 2
+    , 32521: 2
+    , 32525: 2
+    , 32609: 2
+    , 32647: 1
+    , 32648: 2
+    , 32652: 2
+    , 32655: 1
+    , 32656: 2
+    , 32756: 1
+    , 32769: 2
+    , 32776: 3
+    , 32781: 1
+    , 32809: 1
+    , 32810: 1
+    , 32811: 1
+    , 32812: 1
+    , 32813: 1
+    , 32814: 1
+    , 32816: 1
+    , 32817: 1
+    , 32818: 1
+    , 32819: 1
+    , 32820: 1
+    , 32821: 1
+    , 32865: 2
+    , 32866: 2
+    , 32867: 2
+    , 32868: 2
+    , 32869: 3
+    , 32870: 3
+    , 32871: 3
+    , 32872: 1
+    , 32973: 1
+    , 32977: 1
+    , 32980: 1
+    , 32983: 1
+    , 32986: 1
+    , 32989: 1
+    , 32991: 1
+    , 32994: 1
+    , 32997: 1
+    , 33065: 1
+    , 33066: 1
+    , 33067: 1
+    , 33068: 1
+    , 33118: 2
+    , 33122: 1
+    , 33173: 2
+    , 33191: 1
+    , 33192: 1
+    , 33203: 3
+    , 33204: 3
+    , 33206: 2
+    , 33207: 2
+    , 33211: 1
+    , 33216: 3
+    , 33222: 2
+    , 33279: 2
+    , 33285: 1
+    , 33286: 3
+    , 33287: 2
+    , 33293: 1
+    , 33303: 2
+    , 33324: 2
+    , 33326: 1
+    , 33327: 3
+    , 33331: 2
+    , 33332: 1
+    , 33356: 3
+    , 33421: 3
+    , 33432: 3
+    , 33446: 2
+    , 33453: 3
+    , 33463: 3
+    , 33471: 2
+    , 33473: 3
+    , 33476: 1
+    , 33479: 3
+    , 33480: 2
+    , 33481: 2
+    , 33483: 2
+    , 33490: 3
+    , 33492: 2
+    , 33493: 2
+    , 33494: 3
+    , 33495: 1
+    , 33501: 3
+    , 33512: 2
+    , 33515: 3
+    , 33517: 2
+    , 33518: 3
+    , 33520: 1
+    , 33522: 3
+    , 33523: 2
+    , 33524: 2
+    , 33528: 2
+    , 33530: 3
+    , 33533: 3
+    , 33534: 2
+    , 33535: 1
+    , 33536: 2
+    , 33537: 2
+    , 33540: 1
+    , 33552: 3
+    , 33557: 1
+    , 33559: 2
+    , 33566: 3
+    , 33577: 2
+    , 33578: 1
+    , 33580: 1
+    , 33582: 2
+    , 33583: 2
+    , 33586: 2
+    , 33587: 2
+    , 33589: 1
+    , 33640: 1
+    , 33664: 3
+    , 33666: 2
+    , 33668: 2
+    , 33672: 2
+    , 33674: 2
+    , 33675: 3
+    , 33677: 2
+    , 33679: 2
+    , 33680: 3
+    , 33682: 2
+    , 33683: 2
+    , 33685: 3
+    , 33691: 2
+    , 33693: 2
+    , 33694: 3
+    , 33695: 3
+    , 33697: 2
+    , 33699: 2
+    , 33701: 2
+    , 33703: 2
+    , 33704: 3
+    , 33706: 3
+    , 33708: 2
+    , 33710: 2
+    , 33711: 3
+    , 33713: 2
+    , 33715: 2
+    , 33718: 2
+    , 33720: 2
+    , 33721: 3
+    , 33722: 3
+    , 33724: 2
+    , 33726: 2
+    , 33728: 3
+    , 33730: 2
+    , 33732: 2
+    , 33738: 3
+    , 33740: 2
+    , 33742: 2
+    , 33745: 2
+    , 33747: 2
+    , 33748: 3
+    , 33749: 3
+    , 33751: 2
+    , 33753: 2
+    , 33757: 2
+    , 33758: 2
+    , 33760: 3
+    , 33768: 2
+    , 33770: 2
+    , 33771: 3
+    , 33772: 2
+    , 33808: 3
+    , 33810: 3
+    , 33813: 1
+    , 33876: 1
+    , 33881: 1
+    , 33883: 1
+    , 33887: 1
+    , 33889: 1
+    , 33893: 1
+    , 33894: 1
+    , 33897: 1
+    , 33901: 1
+    , 33904: 1
+    , 33906: 1
+    , 33910: 1
+    , 33913: 1
+    , 33917: 1
+    , 33920: 1
+    , 33921: 1
+    , 33922: 1
+    , 33923: 1
+    , 33964: 3
+    , 33971: 3
+    , 33972: 3
+    , 33973: 2
+    , 34167: 3
+    , 34168: 3
+    , 34169: 3
+    , 34170: 3
+    , 34180: 3
+    , 34181: 3
+    , 34182: 3
+    , 34183: 1
+    , 34185: 1
+    , 34186: 3
+    , 34188: 3
+    , 34192: 2
+    , 34193: 2
+    , 34194: 2
+    , 34199: 1
+    , 34202: 2
+    , 34208: 2
+    , 34209: 2
+    , 34210: 2
+    , 34211: 3
+    , 34212: 3
+    , 34215: 3
+    , 34216: 3
+    , 34228: 3
+    , 34229: 3
+    , 34232: 3
+    , 34233: 3
+    , 34234: 2
+    , 34240: 2
+    , 34241: 1
+    , 34242: 1
+    , 34243: 2
+    , 34244: 2
+    , 34245: 2
+    , 34247: 3
+    , 34329: 1
+    , 34331: 2
+    , 34332: 2
+    , 34333: 2
+    , 34335: 1
+    , 34337: 3
+    , 34339: 2
+    , 34340: 2
+    , 34341: 2
+    , 34342: 2
+    , 34343: 2
+    , 34344: 2
+    , 34345: 2
+    , 34346: 2
+    , 34347: 1
+    , 34348: 1
+    , 34349: 1
+    , 34350: 2
+    , 34351: 2
+    , 34352: 2
+    , 34353: 2
+    , 34354: 2
+    , 34355: 2
+    , 34356: 2
+    , 34357: 2
+    , 34358: 1
+    , 34359: 1
+    , 34360: 1
+    , 34364: 3
+    , 34365: 3
+    , 34366: 2
+    , 34367: 2
+    , 34369: 3
+    , 34370: 2
+    , 34371: 3
+    , 34372: 2
+    , 34373: 3
+    , 34374: 2
+    , 34375: 3
+    , 34376: 2
+    , 34377: 3
+    , 34378: 2
+    , 34379: 3
+    , 34380: 2
+    , 34381: 3
+    , 34382: 3
+    , 34383: 3
+    , 34384: 3
+    , 34385: 3
+    , 34386: 3
+    , 34388: 2
+    , 34389: 2
+    , 34390: 2
+    , 34391: 2
+    , 34392: 2
+    , 34393: 2
+    , 34394: 3
+    , 34395: 3
+    , 34396: 3
+    , 34397: 3
+    , 34398: 3
+    , 34399: 3
+    , 34400: 2
+    , 34401: 2
+    , 34402: 2
+    , 34403: 2
+    , 34404: 2
+    , 34405: 2
+    , 34406: 2
+    , 34407: 2
+    , 34408: 2
+    , 34409: 2
+    , 34431: 1
+    , 34432: 1
+    , 34433: 1
+    , 34434: 1
+    , 34435: 1
+    , 34436: 1
+    , 34437: 1
+    , 34438: 1
+    , 34439: 1
+    , 34441: 1
+    , 34442: 1
+    , 34443: 1
+    , 34444: 1
+    , 34445: 1
+    , 34446: 1
+    , 34447: 1
+    , 34448: 1
+    , 34485: 1
+    , 34487: 1
+    , 34488: 1
+    , 34527: 1
+    , 34528: 1
+    , 34541: 1
+    , 34542: 1
+    , 34543: 1
+    , 34545: 1
+    , 34546: 1
+    , 34547: 1
+    , 34549: 1
+    , 34554: 1
+    , 34555: 1
+    , 34556: 1
+    , 34557: 1
+    , 34558: 1
+    , 34559: 1
+    , 34560: 1
+    , 34561: 1
+    , 34562: 1
+    , 34563: 1
+    , 34564: 1
+    , 34565: 1
+    , 34566: 1
+    , 34567: 1
+    , 34568: 1
+    , 34569: 1
+    , 34570: 1
+    , 34571: 1
+    , 34572: 1
+    , 34573: 1
+    , 34574: 1
+    , 34575: 1
+    , 34601: 2
+    , 34602: 1
+    , 34605: 3
+    , 34607: 2
+    , 34608: 3
+    , 34610: 3
+    , 34611: 1
+    , 34612: 2
+    , 34615: 3
+    , 34616: 1
+    , 34625: 1
+    , 34626: 3
+    , 34697: 1
+    , 34698: 1
+    , 34700: 2
+    , 34701: 3
+    , 34705: 1
+    , 34707: 2
+    , 34788: 2
+    , 34789: 1
+    , 34790: 1
+    , 34791: 2
+    , 34792: 1
+    , 34793: 2
+    , 34795: 3
+    , 34796: 3
+    , 34797: 3
+    , 34799: 3
+    , 34807: 2
+    , 34808: 2
+    , 34809: 1
+    , 34847: 2
+    , 34900: 1
+    , 34901: 2
+    , 34902: 1
+    , 34903: 1
+    , 34904: 1
+    , 34905: 2
+    , 34906: 1
+    , 34910: 2
+    , 34911: 1
+    , 34912: 1
+    , 34914: 2
+    , 34916: 1
+    , 34917: 1
+    , 34918: 2
+    , 34919: 1
+    , 34921: 1
+    , 34922: 2
+    , 34923: 1
+    , 34924: 1
+    , 34925: 2
+    , 34926: 1
+    , 34927: 1
+    , 34928: 2
+    , 34929: 1
+    , 34930: 1
+    , 34931: 2
+    , 34932: 1
+    , 34933: 1
+    , 34934: 2
+    , 34935: 1
+    , 34936: 1
+    , 34937: 2
+    , 34938: 1
+    , 34939: 1
+    , 34940: 2
+    , 34941: 1
+    , 34942: 1
+    , 34943: 2
+    , 34944: 1
+    , 34945: 1
+    , 34946: 2
+    , 34947: 1
+    , 34990: 3
+    , 34992: 2
+    , 34994: 2
+    , 34999: 2
+    , 35001: 2
+    , 35002: 3
+    , 35004: 2
+    , 35006: 2
+    , 35007: 3
+    , 35009: 2
+    , 35010: 2
+    , 35012: 3
+    , 35023: 2
+    , 35025: 2
+    , 35026: 3
+    , 35027: 3
+    , 35029: 2
+    , 35031: 2
+    , 35033: 2
+    , 35035: 2
+    , 35036: 3
+    , 35042: 3
+    , 35044: 2
+    , 35046: 2
+    , 35048: 3
+    , 35050: 2
+    , 35052: 2
+    , 35054: 2
+    , 35056: 2
+    , 35057: 3
+    , 35059: 3
+    , 35061: 2
+    , 35063: 2
+    , 35066: 3
+    , 35068: 2
+    , 35070: 2
+    , 35077: 3
+    , 35079: 2
+    , 35081: 2
+    , 35084: 2
+    , 35086: 2
+    , 35087: 3
+    , 35088: 3
+    , 35090: 2
+    , 35092: 2
+    , 35096: 2
+    , 35097: 2
+    , 35099: 3
+    , 35112: 2
+    , 35114: 2
+    , 35115: 3
+    , 35132: 1
+    , 35133: 1
+    , 35134: 1
+    , 35135: 1
+    , 35166: 1
+    , 35167: 1
+    , 35168: 1
+    , 35169: 1
+    , 35170: 1
+    , 35171: 1
+    , 35172: 1
+    , 35173: 1
+    , 35174: 1
+    , 35175: 1
+    , 35176: 1
+    , 35177: 1
+    , 35178: 1
+    , 35179: 1
+    , 35180: 1
+    , 35181: 2
+    , 35182: 2
+    , 35183: 2
+    , 35184: 2
+    , 35185: 2
+    , 35290: 1
+    , 35291: 1
+    , 35292: 1
+    , 35317: 1
+    , 35319: 1
+    , 35329: 2
+    , 35331: 2
+    , 35332: 3
+    , 35333: 2
+    , 35336: 2
+    , 35337: 3
+    , 35339: 2
+    , 35341: 2
+    , 35342: 3
+    , 35343: 2
+    , 35344: 2
+    , 35346: 3
+    , 35357: 2
+    , 35359: 2
+    , 35360: 3
+    , 35362: 2
+    , 35364: 2
+    , 35365: 3
+    , 35367: 2
+    , 35369: 2
+    , 35370: 3
+    , 35372: 2
+    , 35374: 2
+    , 35375: 3
+    , 35376: 3
+    , 35378: 2
+    , 35380: 2
+    , 35381: 3
+    , 35383: 2
+    , 35385: 2
+    , 35386: 3
+    , 35388: 2
+    , 35390: 2
+    , 35391: 3
+    , 35393: 2
+    , 35395: 2
+    , 35402: 3
+    , 35404: 2
+    , 35406: 2
+    , 35407: 3
+    , 35409: 2
+    , 35411: 2
+    , 35412: 3
+    , 35414: 2
+    , 35416: 2
+    , 35464: 3
+    , 35465: 2
+    , 35466: 2
+    , 35467: 3
+    , 35469: 3
+    , 35470: 2
+    , 35472: 3
+    , 35474: 2
+    , 35476: 2
+    , 35478: 2
+    , 37928: 1
+    , 37929: 1
+};
+
+

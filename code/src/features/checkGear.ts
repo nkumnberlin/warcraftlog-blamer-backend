@@ -25,12 +25,13 @@ function checkForIssues(role: IPlayerDetails[]) {
             maxItemLevel: maxItemLevel,
             stats: combatantInfo.stats
         };
-        const hasEnchantIssues = checkEnchants(combatantInfo.gear);
-        const hasGemIssues = checkGems(combatantInfo.gear);
+        // returnt enchantSummary / gemSummary gear:IGear error: string note:string
+        const enchantSummary = checkEnchants(combatantInfo.gear);
+        const gemSummary = checkGems(combatantInfo.gear);
         return {
             playerObj,
-            hasEnchantIssues,
-            hasGemIssues
+            enchantSummary,
+            gemSummary
         };
     });
 }
@@ -38,7 +39,6 @@ function checkForIssues(role: IPlayerDetails[]) {
 const CheckGear = ({tanks, healers, dps}: IRoleDetails) => {
     const checkedHealers = checkForIssues(healers);
     const checkedTanks = checkForIssues(tanks);
-    console.log(checkedHealers)
     const checkedDps = checkForIssues(dps);
 
 
