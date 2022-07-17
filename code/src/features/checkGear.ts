@@ -12,9 +12,10 @@ function checkForIssues(role: IPlayerDetails[]) {
                          icon,
                          maxItemLevel,
                          minItemLevel,
-                         combatantInfo
+                         combatantInfo,
+                         specs
                      }) => {
-        const playerObj = {
+        const player = {
             name: name,
             id: id,
             guid: guid,
@@ -23,13 +24,13 @@ function checkForIssues(role: IPlayerDetails[]) {
             icon: icon,
             minItemLevel: minItemLevel,
             maxItemLevel: maxItemLevel,
-            stats: combatantInfo.stats
+            specs
         };
         // returnt enchantSummary / gemSummary gear:IGear error: string note:string
         const enchantSummary = checkEnchants(combatantInfo.gear);
         const gemSummary = checkGems(combatantInfo.gear);
         return {
-            playerObj,
+            player,
             enchantSummary,
             gemSummary
         };

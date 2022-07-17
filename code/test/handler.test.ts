@@ -20,7 +20,7 @@ describe('RunLambda', () => {
         const mockData = MockFactory(
             'BOSS',
             {
-                code: 'aAXDYPG7MxbQ6WKV'
+                code: 'NV98X24RykgfDT7x'
             });
         const response = await lambdaHandler.handler(mockData);
         expect(response.statusCode).toEqual(200);

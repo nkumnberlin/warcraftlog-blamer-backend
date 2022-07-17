@@ -30,9 +30,6 @@ export interface IGearMeta {
     error: string
 }
 
-export interface IEnchantMeta {
-    error: string
-}
 
 export interface ICheckGem {
     gear: IGear,
@@ -42,11 +39,6 @@ export interface ICheckGem {
 export interface ICheckGemQuality {
     gem: IGems,
     meta: IGemMeta
-}
-
-export interface ICheckGems {
-    gems: ICheckGem[],
-    quality: ICheckGemQuality[]
 }
 
 

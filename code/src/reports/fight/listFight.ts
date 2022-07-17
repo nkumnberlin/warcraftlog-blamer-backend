@@ -20,8 +20,8 @@ const listFight = async ({code, fight, encounterID}: IBossFight) => {
         code,
         fight,
         encounterID,
-        endTime: singleReport.fights.at(0).endTime,
-        startTime: singleReport.fights.at(0).startTime
+        endTime: singleReport.fights[0].endTime,
+        startTime: singleReport.fights[0].startTime
     });
     const gearCheck = checkGear(playerDetails);
     const events = {
