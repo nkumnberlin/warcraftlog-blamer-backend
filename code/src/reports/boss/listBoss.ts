@@ -12,9 +12,9 @@ const listBoss = async (code: string) => {
     // unordered map of trys and kills to specific boss
     const summarizeBosses = uniqueEncounter.map((id) => onlyBossFights.filter((bossFight: { encounterID: string }) => id === bossFight.encounterID));
     const bossData = summarizeBosses.map((bosses) => {
+            const infos = bosses.at(0);
             const kill = bosses.find((boss: { kill: boolean }) => boss.kill);
-            const infos = bosses[0];
-            const trys = bosses.filter((boss: { kill: boolean }) => boss.kill === false);
+            const trys = bosses.filter((boss: { kill: boolean }) => !boss.kill);
             return {
                 kill,
                 trys,

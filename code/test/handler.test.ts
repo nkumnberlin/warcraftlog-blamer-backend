@@ -39,19 +39,5 @@ describe('RunLambda', () => {
         expect(response.statusCode).toEqual(200);
     });
 
-    it('should run case feature-enchants', async () => {
-        const mockData = MockFactory(
-            'FEATURE-ENCHANTS',
-            {
-                serverSlug: "venoxis",
-                name: "Balzác",
-                serverRegion: "EU",
-                encounterID: '724'
-
-            });
-        const response = await lambdaHandler.handler(mockData);
-        expect(response.statusCode).toEqual(200);
-    });
-
 
 });

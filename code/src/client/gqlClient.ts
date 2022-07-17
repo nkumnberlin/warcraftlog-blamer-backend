@@ -1,4 +1,4 @@
-import { GraphQLClient} from 'graphql-request';
+import {GraphQLClient} from 'graphql-request';
 
 
 const GRAPHQL_ENDPOINT = 'https://classic.warcraftlogs.com/api/v2/client';

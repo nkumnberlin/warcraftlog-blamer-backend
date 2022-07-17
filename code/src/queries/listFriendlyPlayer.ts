@@ -1,6 +1,6 @@
 import {gql} from "graphql-request";
 
-const LIST_FRIENDLY_PLAYER = gql`
+const LIST_PLAYER_DETAILS = gql`
     query getReportPlayerDetails(
         $code: String,
         $encounterId: Int,
@@ -20,13 +20,9 @@ const LIST_FRIENDLY_PLAYER = gql`
                         }
                     }
                 }
-                playerDetails(
-                    startTime: $startTime,
-                    endTime: $endTime,
-                    encounterID: $encounterId,
-                    fightIDs: $fightIds,
-                )
+                table(startTime: $startTime,
+                    endTime: $endTime, fightIDs: $fightIds, encounterID: $encounterId)
             }
         }
     }`;
-export {LIST_FRIENDLY_PLAYER};
+export {LIST_PLAYER_DETAILS};

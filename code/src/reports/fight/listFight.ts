@@ -1,35 +1,24 @@
-import graphQLClient from '../../client/gqlClient';
-import {LIST_FIGHT} from "../../queries";
-import ListPlayersToFight from "../player/listPlayersToFight";
+import {IBossFight} from "../../interfaces";
+import listPlayerDetails from "../player/listPlayerDetails";
+import listBossFight from "./listBossFight";
 
-interface IBossFight {
-    code: string,
-    fight: number,
-    encounterID: number
-}
 
-const listBossFight = async ({code, fight, encounterID}: IBossFight) => {
+const listFight = async ({code, fight, encounterID}: IBossFight) => {
     // List Details of Fight which is necessary to display linked Players
-    const data = await graphQLClient.request(LIST_FIGHT, {
-        code: code,
-        fightIds: [fight],
-        encounterID: encounterID
-    });
-    const singleReport = data.reportData.report;
-    //Returns a List of DPS, HEALER, TANK of Fight
-    const {playerData} = await ListPlayersToFight({
+    const {reportData} = await listBossFight({code, fight, encounterID});
+    const singleReport = reportData.report;
+    const playerDetails = await listPlayerDetails({
         code,
         fight,
         encounterID,
-        endTime: singleReport.fights[0].endTime,
-        startTime: singleReport.fights[0].startTime
+        endTime: singleReport.fights.at(0).endTime,
+        startTime: singleReport.fights.at(0).startTime
     });
 
-    const {playerDetails} = playerData;
+
     return {
-        singleReport,
-        playerDetails
+        singleReport
     };
 };
 
-export default listBossFight;
+export default listFight;

@@ -33,8 +33,6 @@ const LIST_FIGHT = gql`
                         id
                         name
                     }
-                    friendlyPlayers
-                    bossPercentage
                 }
             }
         }
