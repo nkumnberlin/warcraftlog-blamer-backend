@@ -18,9 +18,10 @@ const listPlayerDetails = async ({code, fight, encounterID, startTime, endTime}:
         startTime,
         endTime
     });
+
     const {report} = reportData;
     const {guild, table} = report;
-    const {playerDetails, damageDone, healingDone, deathEvents, damageTaken} = table;
+    const {playerDetails, damageDone, healingDone, deathEvents, damageTaken} = table.data;
     return {
         guild,
         playerDetails,

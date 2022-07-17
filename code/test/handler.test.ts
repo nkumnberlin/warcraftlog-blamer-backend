@@ -31,9 +31,9 @@ describe('RunLambda', () => {
         const mockData = MockFactory(
             'FIGHT',
             {
-                code: 'aAXDYPG7MxbQ6WKV',
-                fight: '41',
-                encounterID: '728'
+                code: 'NV98X24RykgfDT7x',
+                fight: '69',
+                encounterID: '609'
             });
         const response = await lambdaHandler.handler(mockData);
         expect(response.statusCode).toEqual(200);

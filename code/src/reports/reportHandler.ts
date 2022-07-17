@@ -1,6 +1,6 @@
 import listBoss from './boss/listBoss';
 import {Actions, IQueryVars} from "../interfaces";
-import missingEnchants from "../features/missingEnchants";
+import listFight from "./fight/listFight";
 
 
 async function reportHandler(action: Actions, queryVars: IQueryVars) {
@@ -12,7 +12,7 @@ async function reportHandler(action: Actions, queryVars: IQueryVars) {
         }
         case 'FIGHT': {
             const {code, fight, encounterID} = queryVars;
-            return await missingEnchants({code, fight: parseInt(fight), encounterID: parseInt(encounterID)});
+            return await listFight({code, fight: parseInt(fight), encounterID: parseInt(encounterID)});
         }
         default:
             throw new Error(`Error with Action ${action}, query: ${JSON.stringify(queryVars)}`);
