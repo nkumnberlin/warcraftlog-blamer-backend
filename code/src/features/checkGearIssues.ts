@@ -1,4 +1,4 @@
-import {IGear} from "../interfaces";
+import {ICheckedPlayerDetails, IGear} from "../interfaces";
 import checkGems from "./checkGems";
 
 // ignore slots without enchant & OH which are no shields
@@ -7,9 +7,9 @@ const ignoreSlots = [1, 3, 5, 12, 13, 17, 18];
 const ringSlots = [10, 11];
 const offHandSlot = [16];
 
-const checkGearIssues = (gears: IGear[]) => {
+const checkGearIssues = (gears: IGear[], player: ICheckedPlayerDetails) => {
     return gears.map((gear) => {
-        const updatedGear = checkGems(gear);
+        const updatedGear = checkGems(gear, player);
         const errorObject = {
             //
             ...updatedGear,
@@ -19,27 +19,31 @@ const checkGearIssues = (gears: IGear[]) => {
         };
 
         // { gem, meta}
-        if (ignoreSlots.includes(gear.slot)) return {
-            ...gear,
+        if (ignoreSlots.includes(updatedGear.slot) || updatedGear.id === 0) return {
+            ...updatedGear,
             metaEnchant: null
         };
-        if (!gear.permanentEnchant && !ringSlots.includes(gear.slot)) {
+        if (!updatedGear.permanentEnchant && !ringSlots.includes(updatedGear.slot)) {
+            player.hasIssues = true;
             return errorObject;
         }
-        if (!gear.permanentEnchant && ringSlots.includes(gear.slot)) {
+        if (!updatedGear.permanentEnchant && ringSlots.includes(updatedGear.slot)) {
+            // in this case it would be to hard to flag every player who does not have enchanting 375
+            // player.hasIssues = true;
             return {
-                ...gear,
+                ...updatedGear,
                 metaEnchant: {
                     error: 'Missing Enchant (Requires Profession Enchanting 375)'
                 }
             };
         }
         // offHands can also be Tomes or Books, which cannot have enchantments
-        if (!gear.permanentEnchant && offHandSlot.includes(gear.slot) && !gear.icon.includes('shield')) {
+        if (!updatedGear.permanentEnchant && offHandSlot.includes(updatedGear.slot) && !updatedGear.icon.includes('shield')) {
+            player.hasIssues = true;
             return errorObject;
         }
         return {
-            ...gear,
+            ...updatedGear,
             metaEnchant: null
         };
     });

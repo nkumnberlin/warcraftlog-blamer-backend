@@ -1,5 +1,5 @@
-import {ICheckGem, IGear} from "../interfaces";
-import {listOfSocketItems,} from "../util/listOfSocketedItems";
+import {ICheckedPlayerDetails, ICheckGem, IGear} from "../interfaces";
+import {listOfSocketItems, metaGemList,} from "../util/listOfSocketedItems";
 
 
 // 3shirt, 12;13trinkets, 14back, 17relic/libram, 18tabard
@@ -9,17 +9,19 @@ const ignoreSlots = [3, 12, 13, 14, 17, 18,];
 // green 60
 // blue 70
 // epic 100
-function checkQualityOfGems(gear: ICheckGem) {
+function checkQualityOfGems(gear: ICheckGem, player: ICheckedPlayerDetails) {
     // return if gem has the highest itemlvl or gear has no gems
     if (!gear.gems) return {...gear};
     // {gems}
-    const updatedGems = gear.gems?.map((gem) => {
-        if (gem.itemLevel === 100) {
+    const updatedGems = gear.gems?.map((gem, gemPosition) => {
+        // gemPos. Meta Gems are always iLv 70 and on Pos 0.
+        if (gem.itemLevel === 100 || metaGemList.includes(gem.id)) {
             return {
                 ...gem,
                 metaGem: null
             };
         }
+        player.hasIssues = true;
         return {
             ...gem,
             metaGem: {
@@ -33,7 +35,7 @@ function checkQualityOfGems(gear: ICheckGem) {
     };
 }
 
-function checkIfGemsExist(gear: IGear) {
+function checkIfGemsExist(gear: IGear, player: ICheckedPlayerDetails) {
     if (ignoreSlots.includes(gear.slot)) {
         return {
             ...gear,
@@ -48,6 +50,7 @@ function checkIfGemsExist(gear: IGear) {
             metaGem: null
         };
     }
+    player.hasIssues = true;
     return {
         ...gear,
         metaGem: {
@@ -56,12 +59,14 @@ function checkIfGemsExist(gear: IGear) {
     };
 }
 
-const checkGems = (gear: IGear) => {
+const checkGems = (gear: IGear, player: ICheckedPlayerDetails) => {
     // {...gear, metaGem}
-    const checkedGem: ICheckGem = checkIfGemsExist(gear);
+    const gemsExist: ICheckGem = checkIfGemsExist(gear, player);
     // { ...gem, metaGem}
-    const updatedGems = checkQualityOfGems(checkedGem);
-
+    const updatedGems = checkQualityOfGems(gemsExist, player);
+    if (gemsExist.id === 31012) {
+        console.log('hi ', updatedGems);
+    }
     return {
         ...updatedGems,
     };

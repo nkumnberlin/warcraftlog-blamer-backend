@@ -17,6 +17,20 @@ interface IPlayerDetails {
     combatantInfo: ICombatantInfo
 }
 
+export interface ICheckedPlayerDetails {
+    name: string,
+    id: number,
+    guid: number,
+    type: string,
+    server: string,
+    icon: string,
+    specs: [string],
+    minItemLevel: number,
+    maxItemLevel: number,
+    hasIssues?: boolean
+
+}
+
 interface ICombatantInfo {
     stats: IStats,
     gear: IGear[]
