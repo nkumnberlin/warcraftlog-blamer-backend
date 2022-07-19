@@ -27,6 +27,7 @@ function checkForIssues(role: IPlayerDetails[]) {
         };
         // returnt enchantSummary / gemSummary gear:IGear error: string note:string
         const gearSummary = checkGearIssues(combatantInfo.gear);
+        // todo, if there is an issue, set a flag to playersummary
         return {
             player,
             gearSummary,
