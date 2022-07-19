@@ -1,6 +1,5 @@
 import {IPlayerDetails, IRoleDetails} from "../interfaces";
-import checkEnchants from "./checkEnchants";
-import checkGems from "./checkGems";
+import checkGearIssues from "./checkGearIssues";
 
 function checkForIssues(role: IPlayerDetails[]) {
     return role.map(({
@@ -27,17 +26,16 @@ function checkForIssues(role: IPlayerDetails[]) {
             specs
         };
         // returnt enchantSummary / gemSummary gear:IGear error: string note:string
-        const enchantSummary = checkEnchants(combatantInfo.gear);
-        const gemSummary = checkGems(combatantInfo.gear);
+        const gearSummary = checkGearIssues(combatantInfo.gear);
         return {
             player,
-            enchantSummary,
-            gemSummary
+            gearSummary,
         };
     });
 }
 
 const CheckGear = ({tanks, healers, dps}: IRoleDetails) => {
+    // const debug = healers.find((t) => t.name === 'Thiekuss');
     const checkedHealers = checkForIssues(healers);
     const checkedTanks = checkForIssues(tanks);
     const checkedDps = checkForIssues(dps);

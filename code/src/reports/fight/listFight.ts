@@ -9,6 +9,8 @@ const listFight = async ({code, fight, encounterID}: IBossFight) => {
     const {reportData} = await listBossFight({code, fight, encounterID});
     const singleReport = reportData.report;
 
+    // additional Events need to be fetched in the future
+    
     const {
         guild,
         playerDetails,
@@ -24,19 +26,13 @@ const listFight = async ({code, fight, encounterID}: IBossFight) => {
         startTime: singleReport.fights[0].startTime
     });
     const gearCheck = checkGear(playerDetails);
-    const events = {
-        damageDone,
-        healingDone,
-        deathEvents,
-        damageTaken
-    };
+
     return {
         singleReport,
         guild,
         player: {
             info: playerDetails,
             gear: gearCheck,
-            events
         },
     };
 };

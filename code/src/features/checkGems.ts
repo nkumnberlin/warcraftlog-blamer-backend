@@ -1,4 +1,4 @@
-import {ICheckGem, ICheckGemQuality, IGear} from "../interfaces";
+import {ICheckGem, IGear} from "../interfaces";
 import {listOfSocketItems,} from "../util/listOfSocketedItems";
 
 
@@ -9,57 +9,62 @@ const ignoreSlots = [3, 12, 13, 14, 17, 18,];
 // green 60
 // blue 70
 // epic 100
-function checkQualityOfGems(gear: IGear) {
-    return gear?.gems?.map((gem) => {
+function checkQualityOfGems(gear: ICheckGem) {
+    // return if gem has the highest itemlvl or gear has no gems
+    if (!gear.gems) return {...gear};
+    // {gems}
+    const updatedGems = gear.gems?.map((gem) => {
         if (gem.itemLevel === 100) {
             return {
-                gem,
-                meta: null
+                ...gem,
+                metaGem: null
             };
         }
         return {
-            gem,
-            meta: {
+            ...gem,
+            metaGem: {
                 note: 'Not highest quality'
             }
         };
     });
+    return {
+        ...gear,
+        gems: {...updatedGems}
+    };
 }
 
 function checkIfGemsExist(gear: IGear) {
     if (ignoreSlots.includes(gear.slot)) {
         return {
-            gear,
-            meta: null
+            ...gear,
+            metaGem: null
         };
     }
     // check if gear is not socketed.
-    const isAnEmptySocketedItem = listOfSocketItems[gear.id] || 0;
-    if (isAnEmptySocketedItem === 0) {
+    const amountOfSocketsToGear = listOfSocketItems[gear.id] || 0;
+    if (gear?.gems?.length === amountOfSocketsToGear || amountOfSocketsToGear === 0) {
         return {
-            gear,
-            meta: null
+            ...gear,
+            metaGem: null
         };
     }
     return {
-        gear,
-        meta: {
-            error: `Missing ${isAnEmptySocketedItem} Sockets`
+        ...gear,
+        metaGem: {
+            error: `Missing ${amountOfSocketsToGear} Sockets`
         }
     };
 }
 
-const checkGems = (gears: IGear[]) => {
-    return gears.map((gear) => {
-        // {gear, meta}
-        const checkedGear: ICheckGem = checkIfGemsExist(gear);
-        // { gem, meta}
-        const checkedGem: ICheckGemQuality[] = checkQualityOfGems(checkedGear.gear);
-        return {
-            gems: checkedGear,
-            quality: checkedGem,
-        };
-    });
+const checkGems = (gear: IGear) => {
+    // {...gear, metaGem}
+    const checkedGem: ICheckGem = checkIfGemsExist(gear);
+    // { ...gem, metaGem}
+    const updatedGems = checkQualityOfGems(checkedGem);
+
+    return {
+        ...updatedGems,
+    };
 };
 
 export default checkGems;

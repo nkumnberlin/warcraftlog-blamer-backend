@@ -31,14 +31,25 @@ export interface IGearMeta {
 }
 
 
-export interface ICheckGem {
-    gear: IGear,
-    meta: IGearMeta
+export interface ICheckGem extends IUpdatedGear {
+    metaGem: IGearMeta
 }
 
-export interface ICheckGemQuality {
-    gem: IGems,
-    meta: IGemMeta
+interface IUpdatedGear {
+    id: number,
+    slot: number,
+    quality: number,
+    icon: string,
+    name: string,
+    itemLevel: number,
+    permanentEnchant: number,
+    permanentEnchantName: string,
+    gems?: ICheckGemQuality[],
+    setID: number,
+}
+
+export interface ICheckGemQuality extends IGems {
+    metaGem?: IGemMeta
 }
 
 
@@ -51,9 +62,10 @@ interface IGear {
     itemLevel: number,
     permanentEnchant: number,
     permanentEnchantName: string,
-    gems: IGems[],
+    gems?: IGems[],
     setID: number,
 }
+
 
 interface IGems {
     id: number,
