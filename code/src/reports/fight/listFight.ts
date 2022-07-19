@@ -10,14 +10,9 @@ const listFight = async ({code, fight, encounterID}: IBossFight) => {
     const singleReport = reportData.report;
 
     // additional Events need to be fetched in the future
-    
     const {
         guild,
         playerDetails,
-        damageDone,
-        healingDone,
-        deathEvents,
-        damageTaken
     } = await listPlayerDetails({
         code,
         fight,

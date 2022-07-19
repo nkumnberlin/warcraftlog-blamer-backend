@@ -35,7 +35,6 @@ function checkForIssues(role: IPlayerDetails[]) {
 }
 
 const CheckGear = ({tanks, healers, dps}: IRoleDetails) => {
-    // const debug = healers.find((t) => t.name === 'Thiekuss');
     const checkedHealers = checkForIssues(healers);
     const checkedTanks = checkForIssues(tanks);
     const checkedDps = checkForIssues(dps);
