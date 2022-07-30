@@ -52,5 +52,27 @@ describe('RunLambda', () => {
         const response = await lambdaHandler.handler(mockData);
         expect(response.statusCode).toEqual(200);
     });
+    it('should run case hps LIST_PARSE_TO_FIGHT', async () => {
+        const mockData = MockFactory(
+            'LIST_PARSE_TO_FIGHT',
+            {
+                code: 'NV98X24RykgfDT7x',
+                encounterID: '609',
+                parseType: 'hps'
+            });
+        const response = await lambdaHandler.handler(mockData);
+        expect(response.statusCode).toEqual(200);
+    });
+    it('should run case dps LIST_PARSE_TO_FIGHT', async () => {
+        const mockData = MockFactory(
+            'LIST_PARSE_TO_FIGHT',
+            {
+                code: 'NV98X24RykgfDT7x',
+                encounterID: '609',
+                parseType: 'dps'
+            });
+        const response = await lambdaHandler.handler(mockData);
+        expect(response.statusCode).toEqual(200);
+    });
 
 });

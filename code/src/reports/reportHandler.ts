@@ -2,6 +2,7 @@ import listBoss from './boss/listBoss';
 import {Actions, IQueryVars} from "../interfaces";
 import listFight from "./fight/listFight";
 import listFightWithGearCheck from "./fight/listFightWithGearCheck";
+import {listParseToFight} from "./fight/listParseToFight";
 
 
 async function reportHandler(action: Actions, queryVars: IQueryVars) {
@@ -18,6 +19,13 @@ async function reportHandler(action: Actions, queryVars: IQueryVars) {
                 startTime: parseInt(startTime), endTime: parseInt(endTime)
             });
         }
+        case "LIST_PARSE_TO_FIGHT":{
+            const {code, encounterID, parseType} = queryVars;
+            return await listParseToFight({
+                code, encounterID: parseInt(encounterID), parseType: parseType
+            });
+        }
+
         case 'FEATURE_GEAR_ISSUES': {
             const {code, fight, encounterID, startTime, endTime} = queryVars;
             return await listFightWithGearCheck({

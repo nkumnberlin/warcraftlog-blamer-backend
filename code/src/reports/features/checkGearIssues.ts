@@ -13,16 +13,15 @@ const checkGearIssues = (gears: IGear[]) => {
         const errorObject = {
             ...updatedGear,
             metaEnchant: {
-                error: 'missing enchant'
+                error: 'enchant'
             }
         };
-
         // { gem, meta}
         if (ignoreSlots.includes(updatedGear.slot) || updatedGear.id === 0) return {
             ...updatedGear,
             metaEnchant: null
         };
-        if (!updatedGear.permanentEnchant && !ringSlots.includes(updatedGear.slot)) {
+        if (!updatedGear.permanentEnchant && !ringSlots.includes(updatedGear.slot) && !offHandSlot.includes(updatedGear.slot)) {
             return errorObject;
         }
         if (!updatedGear.permanentEnchant && ringSlots.includes(updatedGear.slot)) {
@@ -30,12 +29,12 @@ const checkGearIssues = (gears: IGear[]) => {
             return {
                 ...updatedGear,
                 metaEnchant: {
-                    error: 'missing enchant (Requires Profession Enchanting 375)'
+                    error: 'enchant (Requires Profession Enchanting 375)'
                 }
             };
         }
         // offHands can also be Tomes or Books, which cannot have enchantments
-        if (!updatedGear.permanentEnchant && offHandSlot.includes(updatedGear.slot) && updatedGear.icon.includes('shield')) {
+        if (offHandSlot.includes(updatedGear.slot) && !updatedGear.permanentEnchant && !updatedGear.icon.includes('offhand') ) {
             return errorObject;
         }
         return {

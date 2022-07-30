@@ -4,4 +4,5 @@ export * from './listFight';
 export * from './listFight';
 export * from './listSingleAbility';
 export * from './listBoss';
+export * from './listParseTofight';
 
