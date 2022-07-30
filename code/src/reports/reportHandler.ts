@@ -1,6 +1,7 @@
 import listBoss from './boss/listBoss';
 import {Actions, IQueryVars} from "../interfaces";
 import listFight from "./fight/listFight";
+import listFightWithGearCheck from "./fight/listFightWithGearCheck";
 
 
 async function reportHandler(action: Actions, queryVars: IQueryVars) {
@@ -11,8 +12,18 @@ async function reportHandler(action: Actions, queryVars: IQueryVars) {
             return await listBoss(code);
         }
         case 'FIGHT': {
-            const {code, fight, encounterID} = queryVars;
-            return await listFight({code, fight: parseInt(fight), encounterID: parseInt(encounterID)});
+            const {code, fight, encounterID, startTime, endTime} = queryVars;
+            return await listFight({
+                code, fight: parseInt(fight), encounterID: parseInt(encounterID),
+                startTime: parseInt(startTime), endTime: parseInt(endTime)
+            });
+        }
+        case 'FEATURE_GEAR_ISSUES': {
+            const {code, fight, encounterID, startTime, endTime} = queryVars;
+            return await listFightWithGearCheck({
+                code, fight: parseInt(fight), encounterID: parseInt(encounterID),
+                startTime: parseInt(startTime), endTime: parseInt(endTime)
+            });
         }
         default:
             throw new Error(`Error with Action ${action}, query: ${JSON.stringify(queryVars)}`);

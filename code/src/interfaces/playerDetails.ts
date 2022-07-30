@@ -17,6 +17,20 @@ interface IPlayerDetails {
     combatantInfo: ICombatantInfo
 }
 
+export interface ICheckedPlayerDetails {
+    name: string,
+    id: number,
+    guid: number,
+    type: string,
+    server: string,
+    icon: string,
+    specs: [string],
+    minItemLevel: number,
+    maxItemLevel: number,
+    hasIssues?: boolean
+
+}
+
 interface ICombatantInfo {
     stats: IStats,
     gear: IGear[]
@@ -30,23 +44,26 @@ export interface IGearMeta {
     error: string
 }
 
-export interface IEnchantMeta {
-    error: string
+
+export interface ICheckGem extends IUpdatedGear {
+    metaGem: IGearMeta
 }
 
-export interface ICheckGem {
-    gear: IGear,
-    meta: IGearMeta
+interface IUpdatedGear {
+    id: number,
+    slot: number,
+    quality: number,
+    icon: string,
+    name: string,
+    itemLevel: number,
+    permanentEnchant: number,
+    permanentEnchantName: string,
+    gems?: ICheckGemQuality[],
+    setID: number,
 }
 
-export interface ICheckGemQuality {
-    gem: IGems,
-    meta: IGemMeta
-}
-
-export interface ICheckGems {
-    gems: ICheckGem[],
-    quality: ICheckGemQuality[]
+export interface ICheckGemQuality extends IGems {
+    metaGem?: IGemMeta
 }
 
 
@@ -59,9 +76,10 @@ interface IGear {
     itemLevel: number,
     permanentEnchant: number,
     permanentEnchantName: string,
-    gems: IGems[],
+    gems?: IGems[],
     setID: number,
 }
+
 
 interface IGems {
     id: number,

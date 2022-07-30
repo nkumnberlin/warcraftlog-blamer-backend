@@ -97,7 +97,14 @@ const eventData: APIGatewayProxyEvent = {
 };
 
 
-export function MockFactory(action: Actions, {code, fight, encounterID, serverSlug, serverRegion, name}: IQueryVars) {
+export function MockFactory(action: Actions, {
+    code,
+    fight,
+    startTime,
+    endTime,
+    encounterID,
+    name
+}: IQueryVars) {
     if (action === 'BOSS') {
         eventData.queryStringParameters = {
             code: code,
@@ -109,16 +116,20 @@ export function MockFactory(action: Actions, {code, fight, encounterID, serverSl
             code: code,
             action: action,
             fight: fight,
-            encounterID: encounterID
+            encounterID: encounterID,
+            startTime,
+            endTime
         };
     }
-    if (action === 'FEATURE-ENCHANTS') {
+    if (action === 'FEATURE_GEAR_ISSUES') {
         eventData.queryStringParameters = {
-            serverSlug: serverSlug,
-            serverRegion,
             name,
+            code: code,
+            action: action,
+            fight: fight,
             encounterID: encounterID,
-            action
+            startTime,
+            endTime,
         };
     }
     return eventData;

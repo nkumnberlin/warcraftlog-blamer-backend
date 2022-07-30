@@ -1,6 +1,5 @@
-import {IPlayerDetails, IRoleDetails} from "../interfaces";
-import checkEnchants from "./checkEnchants";
-import checkGems from "./checkGems";
+import {ICheckedPlayerDetails, IPlayerDetails, IRoleDetails} from "../../interfaces";
+import checkGearIssues from "./checkGearIssues";
 
 function checkForIssues(role: IPlayerDetails[]) {
     return role.map(({
@@ -12,9 +11,10 @@ function checkForIssues(role: IPlayerDetails[]) {
                          icon,
                          maxItemLevel,
                          minItemLevel,
-                         combatantInfo
+                         combatantInfo,
+                         specs
                      }) => {
-        const playerObj = {
+        const player: ICheckedPlayerDetails = {
             name: name,
             id: id,
             guid: guid,
@@ -23,27 +23,29 @@ function checkForIssues(role: IPlayerDetails[]) {
             icon: icon,
             minItemLevel: minItemLevel,
             maxItemLevel: maxItemLevel,
-            stats: combatantInfo.stats
+            hasIssues: false,
+            specs
         };
         // returnt enchantSummary / gemSummary gear:IGear error: string note:string
-        const enchantSummary = checkEnchants(combatantInfo.gear);
-        const gemSummary = checkGems(combatantInfo.gear);
+        const gearSummary = checkGearIssues(combatantInfo.gear);
+        const find = gearSummary.find((gear) => (!gear.metaEnchant?.error.includes('Enchanting') && gear.metaEnchant !== null) || gear.metaGem !== null);
+        player.hasIssues = find !== undefined;
+        // todo, if there is an issue, set a flag to playersummary
         return {
-            playerObj,
-            enchantSummary,
-            gemSummary
+            ...player,
+            gearSummary,
         };
     });
 }
 
 const CheckGear = ({tanks, healers, dps}: IRoleDetails) => {
     const checkedHealers = checkForIssues(healers);
+    // const debug = checkedHealers.find((t) => t.name === 'Kusha');
     const checkedTanks = checkForIssues(tanks);
     const checkedDps = checkForIssues(dps);
 
-
     return {
-        healer: checkedHealers,
+        healers: checkedHealers,
         tanks: checkedTanks,
         dps: checkedDps
     };
