@@ -2,8 +2,6 @@ import dotenv from 'dotenv';
 import {MockFactory} from './ressources/mockLambdaHeader';
 
 dotenv.config();
-
-
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const lambdaHandler = require('../src/reports/index.ts');
 
@@ -33,11 +31,26 @@ describe('RunLambda', () => {
             {
                 code: 'NV98X24RykgfDT7x',
                 fight: '69',
-                encounterID: '609'
+                encounterID: '609',
+                startTime: '11075923',
+                endTime: '11465901'
             });
         const response = await lambdaHandler.handler(mockData);
         expect(response.statusCode).toEqual(200);
     });
 
+    it('should run case FEATURE_GEAR_ISSUES', async () => {
+        const mockData = MockFactory(
+            'FEATURE_GEAR_ISSUES',
+            {
+                code: 'NV98X24RykgfDT7x',
+                fight: '69',
+                encounterID: '609',
+                startTime: '11075923',
+                endTime: '11465901'
+            });
+        const response = await lambdaHandler.handler(mockData);
+        expect(response.statusCode).toEqual(200);
+    });
 
 });

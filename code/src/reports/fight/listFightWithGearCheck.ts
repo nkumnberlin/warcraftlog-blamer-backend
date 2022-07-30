@@ -1,8 +1,8 @@
 import {IBossFight} from "../../interfaces";
 import listPlayerDetails from "../player/listPlayerDetails";
+import checkGear from "../features/checkGear";
 
-
-const listFight = async ({code, fight, encounterID, endTime, startTime}: IBossFight) => {
+const listFightWithGearCheck = async ({code, fight, encounterID, endTime, startTime}: IBossFight) => {
     // additional Events need to be fetched in the future
     const {
         guild,
@@ -14,13 +14,13 @@ const listFight = async ({code, fight, encounterID, endTime, startTime}: IBossFi
         endTime,
         startTime
     });
-
+    const gear = checkGear(playerDetails);
     return {
         guild,
         player: {
-            ...playerDetails,
+            ...gear,
         },
     };
 };
 
-export default listFight;
+export default listFightWithGearCheck;

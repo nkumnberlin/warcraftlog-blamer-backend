@@ -1,5 +1,5 @@
-import {ICheckedPlayerDetails, ICheckGem, IGear} from "../interfaces";
-import {listOfSocketItems, metaGemList,} from "../util/listOfSocketedItems";
+import {ICheckGem, IGear} from "../../interfaces";
+import {listOfSocketItems, metaGemList,} from "../../util/listOfSocketedItems";
 
 
 // 3shirt, 12;13trinkets, 14back, 17relic/libram, 18tabard
@@ -9,7 +9,7 @@ const ignoreSlots = [3, 12, 13, 14, 17, 18,];
 // green 60
 // blue 70
 // epic 100
-function checkQualityOfGems(gear: ICheckGem, player: ICheckedPlayerDetails) {
+function checkQualityOfGems(gear: ICheckGem) {
     // return if gem has the highest itemlvl or gear has no gems
     if (!gear.gems) return {...gear};
     // {gems}
@@ -21,7 +21,6 @@ function checkQualityOfGems(gear: ICheckGem, player: ICheckedPlayerDetails) {
                 metaGem: null
             };
         }
-        player.hasIssues = true;
         return {
             ...gem,
             metaGem: {
@@ -35,7 +34,7 @@ function checkQualityOfGems(gear: ICheckGem, player: ICheckedPlayerDetails) {
     };
 }
 
-function checkIfGemsExist(gear: IGear, player: ICheckedPlayerDetails) {
+function checkIfGemsExist(gear: IGear) {
     if (ignoreSlots.includes(gear.slot)) {
         return {
             ...gear,
@@ -50,7 +49,6 @@ function checkIfGemsExist(gear: IGear, player: ICheckedPlayerDetails) {
             metaGem: null
         };
     }
-    player.hasIssues = true;
     return {
         ...gear,
         metaGem: {
@@ -59,14 +57,11 @@ function checkIfGemsExist(gear: IGear, player: ICheckedPlayerDetails) {
     };
 }
 
-const checkGems = (gear: IGear, player: ICheckedPlayerDetails) => {
+const checkGems = (gear: IGear) => {
     // {...gear, metaGem}
-    const gemsExist: ICheckGem = checkIfGemsExist(gear, player);
+    const gemsExist: ICheckGem = checkIfGemsExist(gear);
     // { ...gem, metaGem}
-    const updatedGems = checkQualityOfGems(gemsExist, player);
-    if (gemsExist.id === 31012) {
-        console.log('hi ', updatedGems);
-    }
+    const updatedGems = checkQualityOfGems(gemsExist);
     return {
         ...updatedGems,
     };

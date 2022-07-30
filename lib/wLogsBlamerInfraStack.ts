@@ -7,7 +7,6 @@ import * as lambda from "@aws-cdk/aws-lambda-nodejs";
 import * as s3 from "@aws-cdk/aws-s3";
 import * as apigw from "@aws-cdk/aws-apigateway";
 import {RestApi} from "@aws-cdk/aws-apigateway";
-import * as path from 'path';
 
 /**
  * App:
@@ -86,12 +85,14 @@ export class WLogsBlamerInfraStack extends cdk.Stack {
             failOnWarnings: true,
             deploy: true,
             defaultCorsPreflightOptions: {
+                allowMethods: apigw.Cors.ALL_METHODS,
                 allowOrigins: apigw.Cors.ALL_ORIGINS,
                 allowHeaders: [
                     '*'
                 ],
             }
         });
+
         const deployment = new apigw.Deployment(this, 'etc', {api: api});
 
         const [devStage] = ['dev'].map(item => new apigw.Stage(this, `${item}_stage`, {

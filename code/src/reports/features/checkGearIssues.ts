@@ -1,4 +1,4 @@
-import {ICheckedPlayerDetails, IGear} from "../interfaces";
+import {IGear} from "../../interfaces";
 import checkGems from "./checkGems";
 
 // ignore slots without enchant & OH which are no shields
@@ -7,14 +7,13 @@ const ignoreSlots = [1, 3, 5, 12, 13, 17, 18];
 const ringSlots = [10, 11];
 const offHandSlot = [16];
 
-const checkGearIssues = (gears: IGear[], player: ICheckedPlayerDetails) => {
+const checkGearIssues = (gears: IGear[]) => {
     return gears.map((gear) => {
-        const updatedGear = checkGems(gear, player);
+        const updatedGear = checkGems(gear);
         const errorObject = {
-            //
             ...updatedGear,
             metaEnchant: {
-                error: 'Missing Enchant'
+                error: 'missing enchant'
             }
         };
 
@@ -24,22 +23,19 @@ const checkGearIssues = (gears: IGear[], player: ICheckedPlayerDetails) => {
             metaEnchant: null
         };
         if (!updatedGear.permanentEnchant && !ringSlots.includes(updatedGear.slot)) {
-            player.hasIssues = true;
             return errorObject;
         }
         if (!updatedGear.permanentEnchant && ringSlots.includes(updatedGear.slot)) {
             // in this case it would be to hard to flag every player who does not have enchanting 375
-            // player.hasIssues = true;
             return {
                 ...updatedGear,
                 metaEnchant: {
-                    error: 'Missing Enchant (Requires Profession Enchanting 375)'
+                    error: 'missing enchant (Requires Profession Enchanting 375)'
                 }
             };
         }
         // offHands can also be Tomes or Books, which cannot have enchantments
-        if (!updatedGear.permanentEnchant && offHandSlot.includes(updatedGear.slot) && !updatedGear.icon.includes('shield')) {
-            player.hasIssues = true;
+        if (!updatedGear.permanentEnchant && offHandSlot.includes(updatedGear.slot) && updatedGear.icon.includes('shield')) {
             return errorObject;
         }
         return {

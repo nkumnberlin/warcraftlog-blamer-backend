@@ -1,4 +1,4 @@
-import {ICheckedPlayerDetails, IPlayerDetails, IRoleDetails} from "../interfaces";
+import {ICheckedPlayerDetails, IPlayerDetails, IRoleDetails} from "../../interfaces";
 import checkGearIssues from "./checkGearIssues";
 
 function checkForIssues(role: IPlayerDetails[]) {
@@ -27,23 +27,25 @@ function checkForIssues(role: IPlayerDetails[]) {
             specs
         };
         // returnt enchantSummary / gemSummary gear:IGear error: string note:string
-        const gearSummary = checkGearIssues(combatantInfo.gear, player);
+        const gearSummary = checkGearIssues(combatantInfo.gear);
+        const find = gearSummary.find((gear) => (!gear.metaEnchant?.error.includes('Enchanting') && gear.metaEnchant !== null) || gear.metaGem !== null);
+        player.hasIssues = find !== undefined;
         // todo, if there is an issue, set a flag to playersummary
         return {
-            player,
+            ...player,
             gearSummary,
         };
     });
 }
 
 const CheckGear = ({tanks, healers, dps}: IRoleDetails) => {
-    // const debug = healers.find((t) => t.name === 'Kusha');
     const checkedHealers = checkForIssues(healers);
+    // const debug = checkedHealers.find((t) => t.name === 'Kusha');
     const checkedTanks = checkForIssues(tanks);
     const checkedDps = checkForIssues(dps);
 
     return {
-        healer: checkedHealers,
+        healers: checkedHealers,
         tanks: checkedTanks,
         dps: checkedDps
     };
