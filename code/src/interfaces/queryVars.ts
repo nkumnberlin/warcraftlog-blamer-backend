@@ -7,5 +7,6 @@ export interface IQueryVars {
     encounterID?: string,
     startTime?: string,
     endTime?: string,
-    parseType?: string
+    parseType?: string,
+    sourceID? : string
 }

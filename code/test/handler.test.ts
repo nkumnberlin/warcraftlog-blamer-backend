@@ -3,7 +3,7 @@ import {MockFactory} from './ressources/mockLambdaHeader';
 
 dotenv.config();
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const lambdaHandler = require('../src/reports/index.ts');
+const serviceHandler = require('../src');
 
 //      http://localhost:3000/aAXDYPG7MxbQ6WKV/41?encounterID=728
 //      "code": "aAXDYPG7MxbQ6WKV",
@@ -20,7 +20,7 @@ describe('RunLambda', () => {
             {
                 code: 'NV98X24RykgfDT7x'
             });
-        const response = await lambdaHandler.handler(mockData);
+        const response = await serviceHandler.handler(mockData);
         expect(response.statusCode).toEqual(200);
         expect(JSON.parse(response.body).singleReport.endTime).toEqual(1656276914423);
     });
@@ -35,7 +35,7 @@ describe('RunLambda', () => {
                 startTime: '11075923',
                 endTime: '11465901'
             });
-        const response = await lambdaHandler.handler(mockData);
+        const response = await serviceHandler.handler(mockData);
         expect(response.statusCode).toEqual(200);
     });
 
@@ -49,7 +49,7 @@ describe('RunLambda', () => {
                 startTime: '11075923',
                 endTime: '11465901'
             });
-        const response = await lambdaHandler.handler(mockData);
+        const response = await serviceHandler.handler(mockData);
         expect(response.statusCode).toEqual(200);
     });
     it('should run case hps LIST_PARSE_TO_FIGHT', async () => {
@@ -60,18 +60,21 @@ describe('RunLambda', () => {
                 encounterID: '609',
                 parseType: 'hps'
             });
-        const response = await lambdaHandler.handler(mockData);
+        const response = await serviceHandler.handler(mockData);
         expect(response.statusCode).toEqual(200);
     });
-    it('should run case dps LIST_PARSE_TO_FIGHT', async () => {
+    it('should run case dps FEATURE_ABILITY_ISSUES', async () => {
         const mockData = MockFactory(
-            'LIST_PARSE_TO_FIGHT',
+            'FEATURE_ABILITY_ISSUES',
             {
                 code: 'NV98X24RykgfDT7x',
+                fight: '69',
                 encounterID: '609',
-                parseType: 'dps'
+                startTime: '11075923',
+                endTime: '11465901',
+                sourceID: '33'
             });
-        const response = await lambdaHandler.handler(mockData);
+        const response = await serviceHandler.handler(mockData);
         expect(response.statusCode).toEqual(200);
     });
 

@@ -1,4 +1,4 @@
-import {IBossFight} from "../../interfaces";
+import {IBossFight} from "./interfaces";
 import listPlayerDetails from "../player/listPlayerDetails";
 
 

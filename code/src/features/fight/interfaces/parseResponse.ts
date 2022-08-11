@@ -49,12 +49,12 @@
         encounterRankings: EncounterRankings;
     }
 
-    export interface Report {
+    export interface IReport {
         rankedCharacters: RankedCharacter[];
     }
 
     export interface ReportData {
-        report: Report;
+        report: IReport;
     }
 
     export interface IParseResponse {

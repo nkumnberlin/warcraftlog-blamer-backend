@@ -4,7 +4,7 @@ Resources:
     Properties:
       Timeout: 300
       MemorySize: 128
-      Handler: aws-toolkit-ts-output/reports/handleReports.handleReports
+      Handler: aws-toolkit-ts-output/gear/handleReports.handleReports
       CodeUri: /Users/nicolaskumnick/WebstormProjects/warcraftlog-blamer-backend/code
       Runtime: nodejs14.x
       Architectures:

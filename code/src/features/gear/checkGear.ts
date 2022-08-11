@@ -1,4 +1,4 @@
-import {ICheckedPlayerDetails, IPlayerDetails, IRoleDetails} from "../../interfaces";
+import {ICheckedPlayerDetails, IPlayerDetails, IRoleDetails} from "./interfaces";
 import checkGearIssues from "./checkGearIssues";
 
 function checkForIssues(role: IPlayerDetails[]) {

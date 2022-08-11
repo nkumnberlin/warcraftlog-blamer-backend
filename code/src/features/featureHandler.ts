@@ -3,9 +3,10 @@ import {Actions, IQueryVars} from "../interfaces";
 import listFight from "./fight/listFight";
 import listFightWithGearCheck from "./fight/listFightWithGearCheck";
 import {listParseToFight} from "./fight/listParseToFight";
+import listAbilities from "./ability/listAbilities";
 
 
-async function reportHandler(action: Actions, queryVars: IQueryVars) {
+async function featureHandler(action: Actions, queryVars: IQueryVars) {
     console.log('DEBUG: action ', action);
     switch (action) {
         case 'BOSS': {
@@ -33,9 +34,16 @@ async function reportHandler(action: Actions, queryVars: IQueryVars) {
                 startTime: parseInt(startTime), endTime: parseInt(endTime)
             });
         }
+        case 'FEATURE_ABILITY_ISSUES': {
+            const {code, fight, encounterID, startTime, endTime, sourceID} = queryVars;
+            return await listAbilities({
+                code, fight: parseInt(fight), encounterID: parseInt(encounterID),
+                startTime: parseInt(startTime), endTime: parseInt(endTime), sourceID: parseInt(sourceID)
+            });
+        }
         default:
             throw new Error(`Error with Action ${action}, query: ${JSON.stringify(queryVars)}`);
     }
 }
 
-export default reportHandler;
+export default featureHandler;

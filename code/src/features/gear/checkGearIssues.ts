@@ -1,4 +1,4 @@
-import {IGear} from "../../interfaces";
+import {IGear} from "./interfaces";
 import checkGems from "./checkGems";
 
 // ignore slots without enchant & OH which are no shields

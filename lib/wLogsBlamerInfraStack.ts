@@ -66,7 +66,7 @@ const createLambda = (context: cdk.Stack, name: string, codepath: string) => {
 export class WLogsBlamerInfraStack extends cdk.Stack {
     constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
         super(scope, id, props);
-        const [lambdaExecRoleHandleReports, lambdaHandleReports] = createLambda(this, "ReportsHandler", "./code/build/src/reports/index.js");
+        const [lambdaExecRoleHandleReports, lambdaHandleReports] = createLambda(this, "ReportsHandler", "./code/build/src/index.js");
         /**
          * S3
          * Microlance Frontend
