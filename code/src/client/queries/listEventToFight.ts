@@ -1,7 +1,7 @@
 import {gql} from "graphql-request";
 
-export const LIST_ABILITIES = gql`
-    query getAbilitiesOfFight(
+export const LIST_EVENT_TO_FIGHT = gql`
+    query getAbilitiesToFight(
         $code: String!,
         $fightIds: [Int],
         $startTime: Float,
@@ -11,11 +11,11 @@ export const LIST_ABILITIES = gql`
         reportData {
             report(code: $code) {
                 code
-                events(fightIDs: $fightIds,  startTime: $startTime, endTime: $endTime, sourceID: $sourceID,  dataType: All, includeResources: false){
+                events(fightIDs: $fightIds,  startTime: $startTime, endTime: $endTime, sourceID: $sourceID,  dataType: All, includeResources: true){
                     data
                 }
 
             }
         }
-    }    
+    }
 `;
