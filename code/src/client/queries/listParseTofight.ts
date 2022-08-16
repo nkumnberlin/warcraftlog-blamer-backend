@@ -11,7 +11,7 @@ export const LIST_PARSE_TO_FIGHT = gql`
                 rankedCharacters{
                     name
                     id
-                    encounterRankings(encounterID: $encounterID, metric: $metric, timeframe: Historical)
+                    encounterRankings(encounterID: $encounterID, metric: $metric, timeframe: Today)
                 }
             }
         }

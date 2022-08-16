@@ -6,7 +6,7 @@ function accessCurrentRanking(currentReport: IReport, code: string) {
     return currentReport.rankedCharacters.map(({name, encounterRankings}) => {
         const ranking = encounterRankings.ranks.find((rank) => rank.report.code === code);
         return {
-            [name]: ranking.rankPercent
+            [name]: ranking?.rankPercent
         };
     });
 }

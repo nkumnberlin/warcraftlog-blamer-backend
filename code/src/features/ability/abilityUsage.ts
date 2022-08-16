@@ -1,5 +1,27 @@
 import {IEventData, ISortAbilities} from "./interfaces";
-
+//abilityGameID: 1
+// amount: 229
+// armor: 0
+// attackPower: 0
+// classResources: []
+// facing: -205
+// fight: 69
+// hitPoints: 4218299
+// hitType: 6
+// itemLevel: 73
+// mapID: 339
+// maxHitPoints: 6070400
+// mitigated: 137
+// resourceActor: 2
+// sameSource: false
+// sourceID: 35
+// spellPower: 0
+// targetID: 234
+// timestamp: 11136021
+// type: "damage"
+// unmitigatedAmount: 366
+// x: -31808
+// y: 70352
 interface AbilityIcons {
     icon: string,
     name: string,
@@ -25,6 +47,7 @@ function abilityUsage({wLogEvents, sourceID, tmpAbilityIcons}: IAbilityUsage) {
     wLogEvents.data.forEach((event) => {
         if (event.type === 'removebuffstack' ||
             event.type === 'refreshbuff' ||
+            event.type === 'removedebuffstack' ||
             event.type === 'begincast' ||
             event.type === 'applybuffstack' ||
             event.type === 'applydebuffstack' ||
@@ -46,7 +69,8 @@ function abilityUsage({wLogEvents, sourceID, tmpAbilityIcons}: IAbilityUsage) {
             };
         }
         if (event.tick) return;
-
+        event.sameSource = sourceID === event.targetID;
+        if(event.type === 'cast' && event.abilityGameID === 1) return;
         if (event.type in abilitiesOfPlayer) {
             const ability = assignIconsToAbility(abilitiesWithIcon, tmpAbilityIcons, event);
             if(ability !== undefined) abilitiesWithIcon.push(ability);
@@ -95,6 +119,9 @@ function abilityUsage({wLogEvents, sourceID, tmpAbilityIcons}: IAbilityUsage) {
             }
         };
     });
+
+    // summ
+    // ordered by recieved
 
     return {
         abilitiesWithIcon,
