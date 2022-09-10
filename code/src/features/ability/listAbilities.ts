@@ -4,7 +4,7 @@ import {LIST_EVENT_TO_FIGHT} from "../../client/queries/listEventToFight";
 import {IData} from "./interfaces";
 import abilityUsage from "./abilityUsage";
 import {LIST_ALL_ABILITIES_TO_FIGHT} from "../../client/queries/listAllAbilitiesOfFight";
-import {Ability} from "../../interfaces/abilities";
+import {AbilityNumber, IAbility, TargetOfAbility, AbilitiesOfPlayer} from "../../interfaces/AbilityResponse";
 
 interface IListAbilities extends IBossFight {
     sourceID: number
@@ -24,61 +24,82 @@ const listAbilities = async ({code, fight, encounterID, endTime, startTime, sour
     });
     const {events: wLogEvents} = reportData.report;
 
-
     const tmpAbilityIcons = reportDataAbilities.report.masterData.abilities;
 
-    const events = abilityUsage({
-        wLogEvents,
-        sourceID,
-        tmpAbilityIcons
-    });
+    const {abilitiesOfPlayer, abilitiesWithIcon} =  abilityUsage({
+         wLogEvents,
+         sourceID,
+         tmpAbilityIcons
+     });
 
-    const {auras, ...rest} = events.abilitiesOfPlayer;
+    function combineAbilities(abilitiesOfPlayer: AbilitiesOfPlayer) {
+        if ('cast' in abilitiesOfPlayer && 'resourcechange' in abilitiesOfPlayer) {
+            //  cast and resourcechange may have same keys.
+            const { resourcechange, cast, ...rest } = abilitiesOfPlayer;
+            return {
+                ...rest,
+                abilities: {
+                    ...resourcechange,
+                    ...cast,
+                },
+            };
+        }
+        return abilitiesOfPlayer;
+    }
+    const {auras, ...rest} = abilitiesOfPlayer;
+    const combinedAbilities = combineAbilities(rest) as AbilitiesOfPlayer;
 
-
-
-    return events;
-};
-
-// targetID:
-// abilityID: dmg / heal
-
-export function sumAbilityUsage(ability: Ability[]) {
-    const x = ability.reduce((previousValue: any, currentValue: any) => {
-        if (previousValue[currentValue.targetID]) {
-            if (previousValue[currentValue.targetID][currentValue.abilityGameID]) {
-                return ({
-                    [currentValue.targetID]: {
-                        ...previousValue[currentValue.targetID],
-                        [currentValue.abilityGameID]: {
-                            ...currentValue,
-                            amountTotal: previousValue[currentValue.targetID][currentValue.abilityGameID].amount + currentValue.amount
-                        }
+    const buffs: { [abilityId: string]: IAbility[]; }[] = [];
+    let abilities: {[abilityId: string] : IAbility[]} = {};
+    Object.keys(combinedAbilities).forEach((type)=>{
+    Object.keys(combinedAbilities[type as keyof AbilitiesOfPlayer])
+        .forEach((abilityKey) => {
+            Object
+                .keys(combinedAbilities[type as keyof AbilitiesOfPlayer][abilityKey as keyof AbilityNumber])
+                .forEach((target) => {
+                    if (target === '-1') {
+                        buffs.push(
+                            {
+                                [abilityKey]:
+                                    combinedAbilities[type as
+                                        keyof AbilitiesOfPlayer][abilityKey as
+                                        keyof AbilityNumber][target as
+                                        keyof TargetOfAbility],
+                            },
+                        );
+                    }
+                    // if (target !== '-1') {
+                    //     abilities = {
+                    //         ...abilities,
+                    //         [target]: {
+                    //             ...abilities[target],
+                    //             [abilityKey]: combinedAbilities[type as
+                    //                 keyof AbilitiesOfPlayer][abilityKey as
+                    //                 keyof AbilityNumber][target as
+                    //                 keyof TargetOfAbility],
+                    //         },
+                    //     };
+                    // }
+                    if (target !== '-1') {
+                        abilities = {
+                            ...abilities,
+                                [abilityKey]: combinedAbilities[type as
+                                    keyof AbilitiesOfPlayer][abilityKey as
+                                    keyof AbilityNumber][target as
+                                    keyof TargetOfAbility],
+                        };
                     }
                 });
-            }
-            return ({
-                [currentValue.targetID]: {
-                    ...previousValue[currentValue.targetID],
-                    [currentValue.abilityGameID]: {
-                        ...currentValue,
-                        amountTotal: currentValue.amount
-                    }
-                }
-            });
-        }
-
-        //absoluter default
-        return ({
-            [currentValue.targetID]: {
-                [currentValue.abilityGameID]: {
-                    ...currentValue,
-                    amountTotal: currentValue.amount
-                }
-            }
         });
-    }, {});
-}
+    });
 
-//
+return {
+    auras,
+    buffs,
+    abilities,
+    abilitiesWithIcon
+};
+
+};
+
 export default listAbilities;

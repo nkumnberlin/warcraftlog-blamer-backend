@@ -13,7 +13,7 @@ const checkGearIssues = (gears: IGear[]) => {
         const errorObject = {
             ...updatedGear,
             metaEnchant: {
-                error: 'enchant'
+                error: 'Enchant is Missing'
             }
         };
         // { gem, meta}
@@ -29,7 +29,7 @@ const checkGearIssues = (gears: IGear[]) => {
             return {
                 ...updatedGear,
                 metaEnchant: {
-                    error: 'enchant (Requires Profession Enchanting 375)'
+                    error: 'Enchant (Requires Profession Enchanting 375)'
                 }
             };
         }

@@ -24,7 +24,7 @@ function checkQualityOfGems(gear: ICheckGem) {
         return {
             ...gem,
             metaGem: {
-                note: 'Not highest quality'
+                note: `Only itemLevel ${gem.itemLevel}`
             }
         };
     });
@@ -52,16 +52,16 @@ function checkIfGemsExist(gear: IGear) {
     return {
         ...gear,
         metaGem: {
-            error: `Missing ${amountOfSocketsToGear} Sockets`
+            error: `Missing Sockets`
         }
     };
 }
 
 const checkGems = (gear: IGear) => {
     // {...gear, metaGem}
-    const gemsExist: ICheckGem = checkIfGemsExist(gear);
+    // const gemsExist: ICheckGem = checkIfGemsExist(gear);
     // { ...gem, metaGem}
-    const updatedGems = checkQualityOfGems(gemsExist);
+    const updatedGems = checkQualityOfGems(gear as ICheckGem);
     return {
         ...updatedGems,
     };

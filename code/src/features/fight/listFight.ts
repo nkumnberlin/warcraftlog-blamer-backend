@@ -7,6 +7,10 @@ const listFight = async ({code, fight, encounterID, endTime, startTime}: IBossFi
     const {
         guild,
         playerDetails,
+        damageDone,
+        healingDone,
+        deathEvents,
+        damageTaken
     } = await listPlayerDetails({
         code,
         fight,
@@ -20,6 +24,9 @@ const listFight = async ({code, fight, encounterID, endTime, startTime}: IBossFi
         player: {
             ...playerDetails,
         },
+        damageDone,
+        healingDone,
+        deathEvents,
     };
 };
 

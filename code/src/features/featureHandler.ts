@@ -4,6 +4,7 @@ import listFight from "./fight/listFight";
 import listFightWithGearCheck from "./fight/listFightWithGearCheck";
 import {listParseToFight} from "./fight/listParseToFight";
 import listAbilities from "./ability/listAbilities";
+import listEnemies from "./fight/listEnemies";
 
 
 async function featureHandler(action: Actions, queryVars: IQueryVars) {
@@ -12,6 +13,10 @@ async function featureHandler(action: Actions, queryVars: IQueryVars) {
         case 'BOSS': {
             const {code} = queryVars;
             return await listBoss(code);
+        }
+        case 'ENEMIES': {
+            const {code} = queryVars;
+            return await listEnemies(code);
         }
         case 'FIGHT': {
             const {code, fight, encounterID, startTime, endTime} = queryVars;

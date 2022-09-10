@@ -12,6 +12,10 @@ const LIST_PLAYER_DETAILS = gql`
             report(code: $code) {
                 code
                 guild{
+                    name
+                    faction {
+                        name
+                    }
                     server{
                         name
                         slug
