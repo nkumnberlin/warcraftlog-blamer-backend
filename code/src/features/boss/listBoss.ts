@@ -1,5 +1,5 @@
 import graphQLClient from '../../client/gqlClient';
-import {LIST_BOSS} from "../../queries";
+import {LIST_BOSS} from "../../client/queries";
 
 const listBoss = async (code: string) => {
     const data = await graphQLClient.request(LIST_BOSS, {code});

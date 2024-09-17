@@ -1,4 +1,4 @@
-interface IBossFight {
+export interface IBossFight {
     code: string,
     fight: number,
     encounterID: number,
@@ -6,4 +6,3 @@ interface IBossFight {
     startTime: number
 }
 
-export {IBossFight};

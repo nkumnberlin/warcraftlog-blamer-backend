@@ -1,4 +1,4 @@
-import {ICheckedPlayerDetails, IPlayerDetails, IRoleDetails} from "../../interfaces";
+import {ICheckedPlayerDetails, IPlayerDetails, IRoleDetails} from "./interfaces";
 import checkGearIssues from "./checkGearIssues";
 
 function checkForIssues(role: IPlayerDetails[]) {
@@ -40,10 +40,10 @@ function checkForIssues(role: IPlayerDetails[]) {
 
 const CheckGear = ({tanks, healers, dps}: IRoleDetails) => {
     const checkedHealers = checkForIssues(healers);
-    // const debug = checkedHealers.find((t) => t.name === 'Kusha');
     const checkedTanks = checkForIssues(tanks);
     const checkedDps = checkForIssues(dps);
-
+    // const debug = checkedDps.find((t) => t.name === 'Dégèr');
+    // console.log(debug);
     return {
         healers: checkedHealers,
         tanks: checkedTanks,

@@ -1,6 +1,6 @@
 import {APIGatewayProxyEvent, APIGatewayProxyResult} from 'aws-lambda';
-import reportHandler from './reportHandler';
-import {Actions} from "../interfaces";
+import featureHandler from './features/featureHandler';
+import {Actions} from "./interfaces";
 
 const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
     const queryParam = event.queryStringParameters;
@@ -11,7 +11,7 @@ const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPro
     const action = queryAction as Actions;
     let statusCode = 200;
 
-    const response = await reportHandler(action, queryParam).catch((error) => {
+    const response = await featureHandler(action, queryParam).catch((error) => {
             statusCode = 404;
             return {
                 message: error.message,

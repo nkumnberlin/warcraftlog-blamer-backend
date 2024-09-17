@@ -1,7 +1,7 @@
 import {gql} from 'graphql-request';
 import {generalData} from "./generalData";
 
-const LIST_BOSS = gql`
+export const LIST_BOSS = gql`
     query LIST_BOSS($code: String)
     {
         reportData {
@@ -28,4 +28,3 @@ const LIST_BOSS = gql`
         }
     }`;
 
-export {LIST_BOSS};

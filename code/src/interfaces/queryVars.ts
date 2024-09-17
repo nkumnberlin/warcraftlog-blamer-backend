@@ -6,5 +6,7 @@ export interface IQueryVars {
     serverRegion?: string,
     encounterID?: string,
     startTime?: string,
-    endTime?: string
+    endTime?: string,
+    parseType?: string,
+    sourceID? : string
 }

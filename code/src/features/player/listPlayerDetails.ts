@@ -1,5 +1,5 @@
 import graphQLClient from '../../client/gqlClient';
-import {LIST_PLAYER_DETAILS} from "../../queries/listFriendlyPlayer";
+import {LIST_PLAYER_DETAILS} from "../../client/queries/listFriendlyPlayer";
 
 
 interface IListPlayersToFight {

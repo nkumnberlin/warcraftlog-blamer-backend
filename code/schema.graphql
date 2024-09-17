@@ -16,7 +16,7 @@ type Bracket {
     type: String
 }
 
-"A player character. Characters can earn individual rankings and appear in reports."
+"A player character. Characters can earn individual rankings and appear in gear."
 type Character {
     "The canonical ID of the character. If a character renames or transfers, then the canonical id can be used to identify the most recent version of the character."
     canonicalID: Int!
@@ -684,7 +684,7 @@ type GameZonePagination {
     total: Int!
 }
 
-"A single guild. Guilds earn their own rankings and contain characters. They may correspond to a guild in-game or be a custom guild created just to hold reports and rankings."
+"A single guild. Guilds earn their own rankings and contain characters. They may correspond to a guild in-game or be a custom guild created just to hold gear and rankings."
 type Guild {
     attendance(
         "Optional. Whether or not to filter the attendance to a specific guild tag."
@@ -799,7 +799,7 @@ type GuildPagination {
     total: Int!
 }
 
-"The tag for a specific guild. Tags can be used to categorize reports within a guild. In the site UI, they are referred to as report tags."
+"The tag for a specific guild. Tags can be used to categorize gear within a guild. In the site UI, they are referred to as report tags."
 type GuildTag {
     "The guild that the tag belongs to."
     guild: Guild!
@@ -1208,7 +1208,7 @@ type ReportArchiveStatus {
     isArchived: Boolean!
 }
 
-"The ReportData object enables the retrieval of single reports or filtered collections of reports."
+"The ReportData object enables the retrieval of single gear or filtered collections of gear."
 type ReportData {
     "Obtain a specific report by its code."
     report(

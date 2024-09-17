@@ -103,7 +103,9 @@ export function MockFactory(action: Actions, {
     startTime,
     endTime,
     encounterID,
-    name
+    name,
+    parseType,
+    sourceID
 }: IQueryVars) {
     if (action === 'BOSS') {
         eventData.queryStringParameters = {
@@ -132,6 +134,27 @@ export function MockFactory(action: Actions, {
             endTime,
         };
     }
+    if (action === 'FEATURE_ABILITY_ISSUES') {
+        eventData.queryStringParameters = {
+            name,
+            code: code,
+            action: action,
+            fight: fight,
+            encounterID: encounterID,
+            startTime,
+            endTime,
+            sourceID
+        };
+    }
+    if (action === 'LIST_PARSE_TO_FIGHT') {
+        eventData.queryStringParameters = {
+            code: code,
+            encounterID: encounterID,
+            action: action,
+            parseType
+        };
+    }
+
     return eventData;
 }
 
